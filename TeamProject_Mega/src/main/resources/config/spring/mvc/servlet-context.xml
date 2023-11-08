@@ -26,9 +26,9 @@
 	<!-- @Autowired사용을 위한 어노테이션 -->
 	<context:annotation-config/>
 	
-	<!-- <beans:bean class = "com.mega.board.BoardController">
-		<beans:property name = "board_dao" ref = "board_daoBean"/>
-	</beans:bean> -->
+	<beans:bean class = "com.mega.teamproject.TeamProjectController">
+		
+	</beans:bean>
 	
 
 	

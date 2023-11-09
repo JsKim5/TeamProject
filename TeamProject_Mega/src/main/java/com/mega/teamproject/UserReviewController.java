@@ -17,7 +17,7 @@ public class UserReviewController {
 		this.ur_dao = ur_dao;
 	}
 	
-	@RequestMapping(value = {"/","list.do"})
+	@RequestMapping(value = {"list.do"})
 	
 	public String list(Model model, String page) {
 		

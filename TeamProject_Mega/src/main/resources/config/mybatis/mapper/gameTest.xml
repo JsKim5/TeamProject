@@ -8,6 +8,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from GAME_INFO
 	</select>
 	
+	<insert id="insertGame" parameterType="game">
+		insert into GAME_INFO values(
+			SEQ_GAME_IDX.nextVal,
+			#{game_name},
+			#{game_platforms},
+			#{game_genre},
+			#{game_type},
+			#{game_rating},
+			#{game_developer},
+			#{game_publisher},
+			#{game_release_date},
+			#{game_image_path},
+			#{game_youtube_url},
+			#{game_meta_score},
+			#{game_user_score}
+		);
+	</insert>
 	
 </mapper>
 

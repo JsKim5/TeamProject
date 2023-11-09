@@ -29,6 +29,7 @@
 	<beans:bean class = "com.mega.teamproject.TeamProjectController">
 		
 	</beans:bean>
+	
 	<beans:bean class = "com.mega.teamproject.GameController">
 		<beans:constructor-arg ref="gameBean"/>
 	</beans:bean>

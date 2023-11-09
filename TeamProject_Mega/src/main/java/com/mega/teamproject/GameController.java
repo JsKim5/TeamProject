@@ -29,6 +29,11 @@ public class GameController {
 		return VIEW_PATH + "gameList.jsp";
 	}
 	
+	@RequestMapping("/gameInsertForm.do")
+	public String gameInsertForm() {
+		return VIEW_PATH + "gameInsert.jsp";
+	}
+	
 	@RequestMapping("/gameInsert.do")
 	public String gameInsert(GameVO vo) {
 		int res = gameDao.insert(vo);

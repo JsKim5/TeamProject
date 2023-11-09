@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/gameList.do">게임 리스트</a>
+	<a href="">게임 리스트</a>
 </body>
 </html>

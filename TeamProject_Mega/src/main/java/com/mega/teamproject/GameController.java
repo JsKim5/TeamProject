@@ -25,7 +25,7 @@ public class GameController {
 	@RequestMapping("/gameList.do")
 	public String gameList() {
 		List<GameVO> list = gameDao.select();
-		
+		request.setAttribute("list", list);
 		return VIEW_PATH + "gameList.jsp";
 	}
 	

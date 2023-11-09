@@ -1,6 +1,6 @@
 package user_review_vo;
 
-public class user_review_VO {
+public class urVO {
 	
 	int review_idx;
 	double user_score;

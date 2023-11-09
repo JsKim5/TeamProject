@@ -9,12 +9,12 @@
 	</settings>
 	
 	<typeAliases>
-		 <!-- 
-		 VO 생성시 주석 풀어주세요
-		 <typeAlias type="vo.BoardVO" alias="board"/>  -->
+		
+		 <typeAlias type="vo.gameVO" alias="game"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="config/mybatis/mapper/board.xml" />
+		<mapper resource="config/mybatis/mapper/game.xml" />
 	</mappers>
 </configuration>

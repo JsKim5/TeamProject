@@ -9,7 +9,7 @@ import userdao.UserDAO;
 public class TeamProjectController {
 	
 
-	public static final String VIEW_PATH = "/WEB-INF/views/user.jsp/"; //user 폴더 이름 변경 가능
+	public static final String VIEW_PATH = "/WEB-INF/views/user.jsp/";
 	
 	UserDAO user_dao;
 	public void setUser_dao(UserDAO user_dao) {

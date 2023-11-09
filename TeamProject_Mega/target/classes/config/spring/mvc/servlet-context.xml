@@ -26,7 +26,7 @@
 	<!-- @Autowired사용을 위한 어노테이션 -->
 	<context:annotation-config/>
 	
-	<beans:bean class = "com.mega.teamproject.TeamProjectController">
+	<beans:bean class = "com.mega.teamproject.UserController">
 		
 	</beans:bean>
 	

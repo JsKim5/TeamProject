@@ -41,6 +41,6 @@ public class GameController {
 		if(res != 0) {
 			result = "yes";
 		}
-		return VIEW_PATH + "gameList.jsp?res="+result;
+		return VIEW_PATH + "insertResult.jsp?res="+result;
 	}
 }

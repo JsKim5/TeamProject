@@ -17,4 +17,9 @@ public class GameDAO {
 		List<GameVO> list = sqlSession.selectList("g.selectGame");
 		return list;
 	}
+	
+	public int insert(GameVO vo) {
+		int res = sqlSession.insert("g.insertGame",vo);
+		return res;
+	}
 }

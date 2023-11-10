@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{game_youtube_url},
 			#{game_meta_score},
 			#{game_user_score}
-		);
+		)
 	</insert>
 	
 </mapper>

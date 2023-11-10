@@ -11,6 +11,6 @@
 </head>
 <body>
 ${param.res}<br>
-<a href="/gameList.do">목록으로</a>
+<a href="gameList.do">목록으로</a>
 </body>
 </html>

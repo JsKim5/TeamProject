@@ -45,7 +45,7 @@
 					return;
 				}
 				
-				f.action="insert.do";
+				f.action="userinsert.do";
 				f.submit();
 			}
 		</script>

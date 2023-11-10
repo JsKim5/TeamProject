@@ -5,6 +5,50 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		
+		<script>
+			function send(f) {
+				let name = f.user_name.value;
+				let id = f.user_id.value;
+				let pwd = f.user_pwd.value;
+				let email = f.user_email.value;
+				let tel = f.user_tel.value;
+				let nickname = f.user_nickname.value;
+				
+				if( name.trim() == '' ){
+					alert("이름을 입력하세요");
+					return;
+				}
+				
+				if( id.trim() == '' ){
+					alert("아이디를 입력하세요");
+					return;
+				}
+				
+				if( pwd.trim() == '' ){
+					alert("비밀번호를 입력하세요");
+					return;
+				}
+				
+				if( email.trim() == '' ){
+					alert("이메일을 입력하세요");
+					return;
+				}
+				
+				if( tel.trim() == '' ){
+					alert("전화번호를 입력하세요");
+					return;
+				}
+				
+				if( nickname.trim() == '' ){
+					alert("닉네임을 입력하세요");
+					return;
+				}
+				
+				f.action="insert.do";
+				f.submit();
+			}
+		</script>
 	</head>
 	
 	<body>
@@ -48,7 +92,7 @@
 				<tr>
 					<td colspan="2">
 						<input type="button" value="가입" onclick="send(this.form)">
-						<input type="button" value="이전화면" onclick="location.href="><!-- 메인페이지.do 넣기 -->
+						<input type="button" value="이전화면" onclick="location.href=home.do">
 					</td>
 			</table>			
 	</body>

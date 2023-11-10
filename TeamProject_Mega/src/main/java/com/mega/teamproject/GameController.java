@@ -7,6 +7,9 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +45,7 @@ public class GameController {
 	@RequestMapping("/gameInsert.do")
 	public String gameInsert(GameVO vo) {
 		String webPath = "/resources/game_img/";
-		String savePath = application.getRealPath(webPath);//절대경로
+		String savePath = application.getRealPath(webPath);
 		System.out.println("절대 경로 : " + savePath);
 		String filename = "no_file";
 		
@@ -95,5 +98,25 @@ public class GameController {
 			result = "no";
 		}
 		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/metacritic.do")
+	public String meta(String gameTitle) {
+		String url = "http://www.metacritic.com/game/" + gameTitle;
+		try {
+            Document document = Jsoup.connect(url).get();
+            
+            // 예제: 게임 제목 가져오기
+            Element titleElement = document.select("div.product_title h1").first();
+            String gameTitleFromMetacritic = titleElement != null ? titleElement.text() : "N/A";
+
+            // 여기에 다른 정보 추출 코드 추가
+
+            return "Game Title from Metacritic: " + gameTitleFromMetacritic;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Error while fetching Metacritic data.";
+        }
 	}
 }

@@ -10,7 +10,7 @@
 </script>
 </head>
 <body>
-${param.res}<br>
+result : ${param.res}<br>
 <a href="gameList.do">목록으로</a>
 </body>
 </html>

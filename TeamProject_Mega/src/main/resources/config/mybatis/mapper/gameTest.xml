@@ -5,7 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="g">
 	
 	<select id="selectGame" resultType="game">
-		select * from GAME_INFO
+		select * from GAME_INFO order by game_idx DESC
+	</select>
+	
+	<select id="selectOne" resultType="game" parameterType="int">
+		select * from GAME_INFO where game_idx = #{idx}
 	</select>
 	
 	<insert id="insertGame" parameterType="game">
@@ -25,6 +29,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{game_user_score}
 		)
 	</insert>
+	
+	<delete id="deleteGame" parameterType="int">
+		delete GAME_INFO where game_idx = #{idx}
+	</delete>
 	
 </mapper>
 

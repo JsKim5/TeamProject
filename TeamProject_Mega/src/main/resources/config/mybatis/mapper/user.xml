@@ -4,10 +4,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="u">
 
+	<!-- 회원가입 -->
+	<insert id = "user_insert" parameterType="user">
+		insert into USER_INFO values(
+				SEQ_USER_INFO.nextVal,
+				#{user_id},
+				#{user_pwd},
+				sysdate,
+				#{user_nickname},
+				#{user_image_path},
+				#{user_email}
+		)
+		
+	</insert>
+
+
 	<!-- 전체목록 조회 -->
 	<select id = "user_list" resultType = "User" parameterType = "int">
 		select * from USER_INFO where idx = #{idx}
 	</select>
+	
+	
 	
 </mapper>
 

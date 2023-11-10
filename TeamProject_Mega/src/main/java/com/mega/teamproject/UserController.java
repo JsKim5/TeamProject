@@ -21,5 +21,13 @@ public class UserController {
 	public String homePage() {
 		return "/WEB-INF/views/home.jsp";
 	}
+	
+	//회원가입 페이지 이동
+	@RequestMapping("/userinsert_form.do")
+	public String userinsert() {
+		return VIEW_PATH + "userInsert_form.jsp";
+	}
+	
+	
 
 }

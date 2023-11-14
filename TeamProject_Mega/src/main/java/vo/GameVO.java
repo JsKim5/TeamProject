@@ -18,10 +18,16 @@ public class GameVO {
 			game_image_path,
 			game_youtube_url;
 	private int game_meta_score;
-	private int game_user_score;
+	private double game_user_score;
 	
 	
 	
+	public double getGame_user_score() {
+		return game_user_score;
+	}
+	public void setGame_user_score(double game_user_score) {
+		this.game_user_score = game_user_score;
+	}
 	public MultipartFile getGame_img() {
 		return game_img;
 	}
@@ -99,15 +105,6 @@ public class GameVO {
 	}
 	public void setGame_meta_score(int game_meta_score) {
 		this.game_meta_score = game_meta_score;
-	}
-	public int getGame_user_score() {
-		return game_user_score;
-	}
-	public void setGame_user_score(int game_user_score) {
-		this.game_user_score = game_user_score;
-	}
-	
-	
-	
+	}	
 	
 }

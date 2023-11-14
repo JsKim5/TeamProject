@@ -3,7 +3,9 @@ package com.mega.teamproject;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -112,27 +114,34 @@ public class GameController {
 			Document document = Jsoup.connect(url).get();
 			String res[] = new String[11];
 			String selectTag[] = new String[11];
+			
+			
 			selectTag[0] = ".c-productHero_title div"; // 이름
-			selectTag[1] = "ul.g-outer-spacing-left-medium-fluid li.c-gameDetails_listItem"; // 플렛폼
+			selectTag[1] = "div.c-gameDetails_Platforms ul li.c-gameDetails_listItem"; // 플렛폼
 			selectTag[2] = null; // 장르
 			selectTag[3] = null; // 타입
 			selectTag[4] = null; // 연령등급
-			selectTag[5] = null; // 제조사
-			selectTag[6] = null; // 배급사
+			selectTag[5] = "div.c-gameDetails_Developer ul li.c-gameDetails_listItem"; // 제조사
+			selectTag[6] = "div.c-gameDetails_Distributor span.g-outer-spacing-left-medium-fluid"; // 배급사
 			selectTag[7] = "div.g-text-xsmall > span.u-text-uppercase"; // 출시일
 			selectTag[8] = null; // 이미지
 			selectTag[9] = null; // 유튜브
 			selectTag[10] = "span[data-v-4cdca868]"; // meta점수
-
+			
 			for (int i = 0; i < selectTag.length; i++) {
 				Element element = null;
 				Elements elements = null;
-				String fromMetacritic = null;
-
+				String fromMetacritic = "";
+				
 				if (i == 1) {
 					elements = document.select(selectTag[i]);
+					int j = 0;
 					for (Element ele : elements) {
-						fromMetacritic += ele.text() + ",";
+						fromMetacritic += ele.text();
+						j++;
+						if(j != elements.size()) {
+							fromMetacritic += ", ";
+						}
 					}
 
 				} else {
@@ -149,7 +158,30 @@ public class GameController {
 				res[i] = fromMetacritic;
 				System.out.println(res[i]);
 			}
-			return Arrays.toString(res);
+			HashMap<String, String> resMap = new HashMap<String, String>();
+			resMap.put("game_name", res[0]);
+			resMap.put("game_platforms", res[1]);
+			resMap.put("game_genre", res[2]);
+			resMap.put("game_type", res[3]);
+			resMap.put("game_rating", res[4]);
+			resMap.put("game_developer", res[5]);
+			resMap.put("game_publisher", res[6]);
+			resMap.put("game_release_date", res[7]);
+			resMap.put("game_img", res[8]);
+			resMap.put("game_youtube_url", res[9]);
+			resMap.put("game_meta_score", res[10]);
+			
+			String str = "{";
+	        int i = 0;
+	        for (Map.Entry entry : resMap.entrySet()) {
+	            str += entry.getKey() + " : \"" + entry.getValue()+"\"";
+	            i++;
+	            if (i != resMap.size()) {
+	                str += ",";
+	            }
+	        }
+	        str += "}";
+			return "{ metaData : " + str + "}";
 		} catch (IOException e) {
 			e.printStackTrace();
 			return "Error while fetching Metacritic data.";

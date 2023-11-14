@@ -1,6 +1,10 @@
 package vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class GameVO {
+	private MultipartFile game_img;
+	
 	private int game_idx;
 	private String 
 			game_name,
@@ -16,6 +20,14 @@ public class GameVO {
 	private int game_meta_score;
 	private int game_user_score;
 	
+	
+	
+	public MultipartFile getGame_img() {
+		return game_img;
+	}
+	public void setGame_img(MultipartFile game_img) {
+		this.game_img = game_img;
+	}
 	public int getGame_idx() {
 		return game_idx;
 	}

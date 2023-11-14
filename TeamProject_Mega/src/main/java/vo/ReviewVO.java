@@ -1,6 +1,6 @@
-package user_review_vo;
+package vo;
 
-public class urVO {
+public class ReviewVO {
 	
 	int review_idx;
 	double user_score;
@@ -24,5 +24,5 @@ public class urVO {
 	public void setUser_review(String user_review) {
 		this.user_review = user_review;
 	}
-
+ 
 }

@@ -18,8 +18,18 @@ public class GameDAO {
 		return list;
 	}
 	
+	public GameVO selectOne(int idx) {
+		GameVO vo = sqlSession.selectOne("g.selectOne", idx);
+		return vo;
+	}
+	
 	public int insert(GameVO vo) {
 		int res = sqlSession.insert("g.insertGame",vo);
+		return res;
+	}
+	
+	public int delete(int idx) {
+		int res = sqlSession.delete("g.deleteGame", idx);
 		return res;
 	}
 }

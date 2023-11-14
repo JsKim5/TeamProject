@@ -3,11 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-<<<<<<< HEAD
+
  	<bean id="user_daoBean" class="userdao.UserDAO">
 		<constructor-arg ref="sqlSession"/>
 	</bean>
-=======
+
 
  	 <!-- <bean id="board_daoBean" class="dao.BoardDAO">
 		<property name = "sqlSession" ref = "sqlSession"></property>
@@ -16,7 +16,11 @@
  	<bean id="gameBean" class="dao.GameDAO">
 		<constructor-arg ref="sqlSession"/>
 	</bean>
+	
+	<bean id="reviewBean" class="dao.ReviewDAO">
+		<constructor-arg ref="sqlSession"/>
+	</bean>
 
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
 	
 </beans>

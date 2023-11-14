@@ -13,13 +13,13 @@ import dao.ReviewDAO;
 import vo.ReviewVO;
 
 @Controller
-public class ReveiwController {
+public class ReviewController {
 	@Autowired HttpServletRequest request;
 	public static final String VIEW_PATH = "/WEB-INF/views/review/";
 	
 	ReviewDAO review_dao;
 	
-	public void setReview_dao(ReviewDAO review_dao) {
+	public void Review_dao(ReviewDAO review_dao) {
 		this.review_dao = review_dao;
 	}
 	

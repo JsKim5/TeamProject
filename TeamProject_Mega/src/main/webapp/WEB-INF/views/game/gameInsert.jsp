@@ -6,13 +6,33 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	</head>
-	
+	<script src="/teamproject/resources/js/httpRequest.js"></script>
 	<script>
 		function gameInsert(f){
 			f.submit();
 		}
+		function metaPulling(f){
+			alert('메서드 실행');
+			let gameTitle = f.gameTitle.value;
+			let url = "metacritic.do";
+			let param = "gameTitle=" + gameTitle;
+			sendRequest(url, param, metaCallback, "POST");
+		}
+		function metaCallback(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				alert('콜백메서드 실행');
+				let res = xhr.responseText;
+				let json = eval("[" + date + "]");
+				alert(json);
+			}
+		}
 	</script>
 	<body>
+		<form method = "post" >
+			<p>게임 이름 : <input name="gameTitle"></p>
+			<p><input type="button" value="metacritic정보가져오기" onclick="metaPulling(this.form)"></p>
+		</form>
+		<br>
 		<form method="POST" enctype="multipart/form-data" action="gameInsert.do">
 			<p>이름 : <input name = "game_name" value="test"></p>
 			<p>플렛폼 : <input name = "game_platforms" value="test"></p>

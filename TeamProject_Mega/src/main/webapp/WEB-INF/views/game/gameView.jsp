@@ -41,6 +41,9 @@ th {
 			<th>Platforms</th><td>${vo.game_platforms}</td>
 		</tr>
 		<tr>
+			<th>Genre</th><td>${vo.game_genre}</td>
+		</tr>
+		<tr>
 			<th>Developer</th><td>${vo.game_developer}</td>
 		</tr>
 		<tr>

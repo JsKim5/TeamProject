@@ -31,63 +31,43 @@
 <style>
 table {
 	margin: 0;
-	width: 200px;
+	padding: 0;
 	border-collapse: collapse;
-	font-family: Arial, sans-serif;
 }
 
-th, td {
-	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
-}
-
-th {
-	background-color: #f2f2f2;
-	color: #333333;
-}
-
-tr:nth-child(even) {
-	background-color: #f9f9f9;
-}
-
-tr:hover {
-	background-color: #e0e0e0;
-}
-
-td {
-	text-align: center;
-}
-
-a{  
-	text-decoration:none;
-	font-size: 22px;
+a {
+	text-decoration: none;
 	color: black;
-  	letter-spacing: 3px;
-  	}
+}
+
 </style>
 </head>
 <body>
-	<p>
+	<div>
 		<a href="gameInsertForm.do">게임 등록 페이지</a>
-	<p>
+	</div>
+	<form method="post">
+	<c:set var="i" value="0" />
+	<c:set var="j" value="3" />
+	<table border = "1">
 		<c:forEach var="l" items="${list}">
-
-			<img src="${l.game_image_path}" width="200" height="300">
-			<br>
-
-			<form method="post">
-				<input type="hidden" name="idx" value="${l.game_idx}">
-				<table>
-					<tr>
-						<td><a href="gameView.do?idx=${l.game_idx}">${l.game_name}</a></td>
-					</tr>
-					<tr>
-						<td><input type="button" value="삭제" onclick="del(this.form)"></td>
-					</tr>
-				</table>
-
-			</form>
+			<c:if test="${i%j == 0 }">
+			<tr>
+			</c:if>
+				<td>${l.game_meta_score}</td>
+				<td><a href="gameView.do?idx=${l.game_idx}">${l.game_name}</a></td>
+				<td><input type="hidden" name="idx" value="${l.game_idx}"><input type="button" value="삭제" onclick="del(this.form)"></td>
+			<c:if test="${i%j == j-1 }">
+			</tr>
+			</c:if>
+	    <c:set var="i" value="${i+1 }" />
 		</c:forEach>
+		<tr>
+			<td colspan = "9" align = "center">
+				${pageMenu}
+			</td>
+		</tr>
+	</table>
+	</form>
 </body>
 </html>

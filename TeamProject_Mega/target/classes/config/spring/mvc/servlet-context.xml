@@ -35,7 +35,7 @@
 	</beans:bean>
 	
 	<beans:bean class = "com.mega.teamproject.ReviewController">
-		<beans:constructor-arg ref="reviewBean"/>
+		<beans:constructor-arg ref="reviewBean"/> 
 	</beans:bean>
 	
 </beans:beans>

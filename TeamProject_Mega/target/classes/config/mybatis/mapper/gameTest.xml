@@ -4,8 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="g">
 	
-	<select id="selectGame" resultType="game">
-		select * from GAME_INFO order by game_idx DESC
+	<select id="selectGame" resultType="game" parameterType="java.util.HashMap">
+		select * from ( select rank() over( order by game_meta_score DESC, game_idx ASC )no,
+		b.* from GAME_INFO b) 
+		where no between #{start} and #{end}
 	</select>
 	
 	<select id="selectOne" resultType="game" parameterType="int">
@@ -34,6 +36,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete GAME_INFO where game_idx = #{idx}
 	</delete>
 	
+	<select id="game_count" resultType="int"> 
+		select count(*) from GAME_INFO
+	</select>
 </mapper>
 
 

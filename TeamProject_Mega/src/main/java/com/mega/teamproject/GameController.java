@@ -1,17 +1,12 @@
 package com.mega.teamproject;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import dao.GameDAO;
+import util.Common;
+import util.Paging;
 import vo.GameVO;
 
 @Controller
@@ -35,9 +32,37 @@ public class GameController {
 	}
 
 	@RequestMapping("/gameList.do")
-	public String gameList() {
-		List<GameVO> list = gameDao.select();
+	public String gameList(String page) {
+
+		// list.do?page=1
+		// list.do?page= >> 값이 없으면 empty
+		// list.do? >> page가 없으면 null
+		int nowPage = 1; // 기본 페이지
+		if (page != null && !page.isEmpty()) {
+			nowPage = Integer.parseInt(page);
+		}
+
+		// 한 페이지에 표시되는 게시물의 시작과 끝 번호를 계산
+		// 1페이지에는 1 ~ 3까지 보여야 되고
+		// 2페이지에는 4 ~ 6까지 보여줘야 하므로 특정 공식이 필요하다
+		int start = (nowPage - 1) * Common.GameList.BLOCKLIST + 1;
+		int end = start + Common.GameList.BLOCKLIST - 1;
+
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("start", start);
+		map.put("end", end);
+
+		List<GameVO> list = gameDao.select(map);
+
+		// 전체 게시글 수
+		int row_total = gameDao.getRowTotal();
+		// 페이지 메뉴 만들기
+		String pageMenu = Paging.getPaging("gameList.do", nowPage, row_total, Common.GameList.BLOCKLIST,
+				Common.GameList.BLOCKPAGE);
+
 		request.setAttribute("list", list);
+		request.setAttribute("pageMenu", pageMenu);
+
 		return VIEW_PATH + "gameList.jsp";
 	}
 
@@ -105,54 +130,15 @@ public class GameController {
 
 	@ResponseBody
 	@RequestMapping("/metacritic.do")
-	public String meta(String gameTitle) {
-		String url = "http://www.metacritic.com/game/" + gameTitle;
+	public String metacritic(String gameTitle) {
+		String str = gameDao.metacritic(gameTitle);
+		return str;
+	}
 
-		try {
-			Document document = Jsoup.connect(url).get();
-			String res[] = new String[11];
-			String selectTag[] = new String[11];
-			selectTag[0] = ".c-productHero_title div"; // 이름
-			selectTag[1] = "ul.g-outer-spacing-left-medium-fluid li.c-gameDetails_listItem"; // 플렛폼
-			selectTag[2] = null; // 장르
-			selectTag[3] = null; // 타입
-			selectTag[4] = null; // 연령등급
-			selectTag[5] = null; // 제조사
-			selectTag[6] = null; // 배급사
-			selectTag[7] = "div.g-text-xsmall > span.u-text-uppercase"; // 출시일
-			selectTag[8] = null; // 이미지
-			selectTag[9] = null; // 유튜브
-			selectTag[10] = "span[data-v-4cdca868]"; // meta점수
-
-			for (int i = 0; i < selectTag.length; i++) {
-				Element element = null;
-				Elements elements = null;
-				String fromMetacritic = null;
-
-				if (i == 1) {
-					elements = document.select(selectTag[i]);
-					for (Element ele : elements) {
-						fromMetacritic += ele.text() + ",";
-					}
-
-				} else {
-					if (selectTag[i] != null) {
-						element = document.select(selectTag[i]).first();
-					}
-
-					if (element == null) {
-						fromMetacritic = "N/A";
-					} else {
-						fromMetacritic = element.text();
-					}
-				}
-				res[i] = fromMetacritic;
-				System.out.println(res[i]);
-			}
-			return Arrays.toString(res);
-		} catch (IOException e) {
-			e.printStackTrace();
-			return "Error while fetching Metacritic data.";
-		}
+	@ResponseBody
+	@RequestMapping("/metacritic10page.do")
+	public String metacritic10page() {
+		gameDao.meta10pageInsert();
+		return "yes";
 	}
 }

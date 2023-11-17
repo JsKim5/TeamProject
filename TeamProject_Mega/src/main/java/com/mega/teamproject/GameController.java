@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import dao.GameDAO;
+import dao.ReviewDAO;
 import util.Common;
 import util.Paging;
 import vo.GameVO;
+import vo.ReviewVO;
 
 @Controller
 public class GameController {

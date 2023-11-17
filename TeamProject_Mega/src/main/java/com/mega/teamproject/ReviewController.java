@@ -26,7 +26,7 @@ public class ReviewController {
 	@RequestMapping("/review_list.do")	
 	public String reviewList() {
 		List<ReviewVO> list = review_dao.selectList();
-		request.setAttribute("list", list);
+		request.setAttribute("review_list", list);
 		return VIEW_PATH + "review_list.jsp";
 	}
 	

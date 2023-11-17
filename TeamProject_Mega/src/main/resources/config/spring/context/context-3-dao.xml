@@ -15,6 +15,9 @@
  	<bean id="gameBean" class="dao.GameDAO">
 		<constructor-arg ref="sqlSession"/>
 	</bean>
-
+	
+	<bean id="reviewBean" class="dao.ReviewDAO">
+		<constructor-arg ref="sqlSession"/>
+	</bean>
 	
 </beans>

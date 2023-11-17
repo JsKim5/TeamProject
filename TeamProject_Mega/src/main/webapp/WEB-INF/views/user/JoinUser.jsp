@@ -8,33 +8,33 @@
 		
 		<script>
 			function send_check(f) {
+				let name = f.user_name.value.trim();
+				let tel = f.user_tel.value.trim();
+				let email = f.user_email.value.trim();
 				let id = f.user_id.value.trim();
 				let pw = f.user_pw.value.trim();
-				let tel = f.user_tel.value.trim();
-				let name = f.user_name.value.trim();
-				let email = f.user_email.value.trim();
 				
-				if(user_id == ''){
+				if(id == ''){
 					alert("아이디를 입력하세요");
 					return;
 				}
 				
-				if(user_pw == ''){
+				if(pw == ''){
 					alert("비밀번호를 입력하세요");
 					return;
 				}
 				
-				if(user_tel == ''){
+				if(tel == ''){
 					alert("전화번호를 입력하세요");
 					return;
 				}
 				
-				if(user_name == ''){
+				if(name == ''){
 					alert("이름을 입력하세요");
 					return;
 				}
 				
-				if(user_email == ''){
+				if(email == ''){
 					alert("이메일을 입력하세요");
 					return;
 				}
@@ -66,10 +66,10 @@
 				</tr>
 				
 				<tr align="center">
-					<td>아이디<td>
+					<td>아이디</td>
 					<td><input name="user_id"></td>
 				</tr>
-			
+				
 				<tr align="center">
 					<td>비밀번호</td>
 					<td><input type="password" name="user_pw"></td>
@@ -80,9 +80,11 @@
 					<td><input name="user_nickname"></td>
 				</tr>
 				
-				<tr align="center">
-					<td>프로필 사진</td><!-- 필수 x -->
-					<td><input type="image" value="사진 선택" name="user_image_path"></td>
+				<tr align = "center" >
+					<form method="POST" enctype="multipart/form-data">
+					<td>프로필 사진</td>
+					<td><input type="file" name="photo"></td>
+					</form>
 				</tr>
 				
 				<tr>

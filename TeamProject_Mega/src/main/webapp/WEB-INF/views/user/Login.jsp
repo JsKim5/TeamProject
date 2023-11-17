@@ -13,12 +13,12 @@
 				let id = f.user_id.value.trim();
 				let pw = f.user_pw.value.trim();
 				
-				if(user_id == ''){
+				if(id == ''){
 					alert("아이디를 입력하세요");
 					return;
 				}
 				
-				if(user_pw == ''){
+				if(pw == ''){
 					alert("비밀번호를 입력하세요");
 					return;
 				}
@@ -34,8 +34,8 @@
 			<table border="1" align="center">
 					<caption>로그인 페이지</caption>
 						<tr>
-							<td>아이디<td>
-							<td><input name="user_id"></td>
+							<td>아이디</td>
+							<td><input  name="user_id"></td>
 						</tr>
 					
 						<tr>
@@ -53,16 +53,16 @@
 							<input type="button" value="홈으로" onclick="location.href='home.do'"><!-- home.do를 초기화면 url로 수정 -->
 							</td>
 						</tr>
+						
+						<tr>
+							<td>
+							<input type = "button" value="아이디 찾기" onclick="location.href='selectId.do'">
+							<input type = "button" value="비밀번호 찾기" onclick="location.href='selectPw.do'">
+							<input type = "button" value="회원가입" onclick="location.href='join_Form.do'">
+							</td>
+						</tr>
 			</table>
-			<table width="195" align="right">
-				<tr>
-					<td><font size="2"><b>
-						<a href = "searchid.jsp">ID찾기</a>
-						<a href = "searchpw.jsp">PW찾기</a>
-						</b></font>
-					</td>
-				</tr>
-			</table>
+			
 		<!-- </form> -->
 	</body>
 </html>

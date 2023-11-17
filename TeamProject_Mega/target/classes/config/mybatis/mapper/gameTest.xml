@@ -4,8 +4,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="g">
 	
-	<select id="selectGame" resultType="game">
-		select * from GAME_INFO
+	<select id="selectGame" resultType="game" parameterType="java.util.HashMap">
+		select * from ( select rank() over( order by game_meta_score DESC, game_idx ASC )no,
+		b.* from GAME_INFO b) 
+		where no between #{start} and #{end}
+	</select>
+	
+	<select id="selectOne" resultType="game" parameterType="int">
+		select * from GAME_INFO where game_idx = #{idx}
 	</select>
 	
 	<insert id="insertGame" parameterType="game">
@@ -23,9 +29,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{game_youtube_url},
 			#{game_meta_score},
 			#{game_user_score}
-		);
+		)
 	</insert>
 	
+	<delete id="deleteGame" parameterType="int">
+		delete GAME_INFO where game_idx = #{idx}
+	</delete>
+	
+	<select id="game_count" resultType="int"> 
+		select count(*) from GAME_INFO
+	</select>
+	
+	<select id="platformsSearch" resultType="String" parameterType="String">
+		select DISTINCT game_platforms from GAME_INFO
+	</select>
+	<select id="genreSearch" resultType="String" parameterType="String">
+		select DISTINCT game_genre from GAME_INFO
+	</select>
+	<select id="developerSearch" resultType="String" parameterType="String">
+		select DISTINCT game_developer from GAME_INFO
+	</select>
+	<select id="publisherSearch" resultType="String" parameterType="String">
+		select DISTINCT game_publisher from GAME_INFO
+	</select>
 </mapper>
 
 

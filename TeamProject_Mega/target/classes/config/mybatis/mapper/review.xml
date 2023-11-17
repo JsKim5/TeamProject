@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="r">
+	
+	<!-- 리뷰전체조회 -->
+	<select id = "review_list" resultType = "review">
+		select * from user_review order by REVIEW_IDX DESC
+	</select>
+	
+	<select id="review_one" resultType = "review" parameterType = "int">
+		select * from user_review where review_idx = #{review_idx}
+	</select>
+	
+	<insert id = "review_insert" parameterType = "review">
+		insert into USER_REVIEW values(
+		seq_review_idx.nextVal,
+		0,
+		#{user_review},
+		0,
+		sysdate,
+		#{review_title},
+		#{user_score} 
+		)			
+	</insert>
+
+
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

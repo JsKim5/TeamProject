@@ -13,14 +13,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				sysdate,
 				#{user_nickname},
 				#{user_image_path},
-				#{user_email}
+				#{user_email},
+				#{user_name},
+				#{user_ip}
 		)
 	</insert>
-
-	<!-- 전체목록 조회 -->
-	<select id = "user_list" resultType = "User" parameterType = "int">
-		select * from USER_INFO where idx = #{idx}
-	</select>
 	
 	<!-- 회원 탈퇴 -->
 	<delete id = "user_id" parameterType="int">

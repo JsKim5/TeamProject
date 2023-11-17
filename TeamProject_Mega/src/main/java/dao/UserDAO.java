@@ -14,18 +14,21 @@ public class UserDAO {
 	}
 	
 	//회원가입
-	public int JoinId(vo.UserVO vo) {
-		return sqlSession.insert("u.insert", vo);
+	public int insert(UserVO vo) {
+		int res = sqlSession.insert("u.insert", vo);
+		return res;
 	}
 	
 	//아이디 찾기
 	public String selectId(String email) {
-		return sqlSession.selectOne("u.select_id", email);
+		String id =  sqlSession.selectOne("u.select_id", email);
+		return id;
 	}
 	
 	//비밀번호 찾기
-	public String selectPw(vo.UserVO vo) {
-		return sqlSession.selectOne("u.select_pw",vo.getUser_id());
+	public String selectPw(UserVO vo) {
+		String pw = sqlSession.selectOne("u.select_pw",vo.getUser_id());
+		return pw;
 	}
 	
 	//비밀번호 변경

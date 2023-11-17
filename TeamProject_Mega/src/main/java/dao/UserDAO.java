@@ -1,10 +1,7 @@
-package userdao;
+package dao;
 
 import org.apache.ibatis.session.SqlSession;
-
-import com.sun.tools.javac.util.List;
-
-import uservo.UserVO;
+import java.util.List;
 
 public class UserDAO {
 	SqlSession sqlSession;
@@ -19,7 +16,7 @@ public class UserDAO {
 		return sqlSession.selectOne("u.find_id", email);
 	}
 	//비밀번호 찾기
-	public String findPw(UserVO vo) {
+	public String findPw(vo.UserVO vo) {
 		return sqlSession.selectOne("u.find_pw",vo.getUser_id());
 	}
 	
@@ -34,8 +31,8 @@ public class UserDAO {
 	//회원 탈퇴
 	
 	//유저 정보 조회
-	public List<UserVO> selectList() {
-		List<UserVO> list = sqlSession.selectOne("u.select_list");
+	public List<vo.UserVO> selectList() {
+		List<vo.UserVO> list = sqlSession.selectOne("u.select_list");
 		return list;
 	}
 	

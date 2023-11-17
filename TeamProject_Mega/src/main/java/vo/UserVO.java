@@ -1,4 +1,4 @@
-package uservo;
+package vo;
 
 public class UserVO {
 	private int user_idx;

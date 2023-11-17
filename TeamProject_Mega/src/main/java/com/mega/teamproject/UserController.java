@@ -3,16 +3,15 @@ package com.mega.teamproject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import userdao.UserDAO;
+import dao.UserDAO;
 
 @Controller
 public class UserController {
 	
-
 	public static final String VIEW_PATH = "/WEB-INF/views/user.jsp/";
 	
-	UserDAO user_dao;
-	public void setUser_dao(UserDAO user_dao) {
+	dao.UserDAO user_dao;
+	public void setUser_dao(dao.UserDAO user_dao) {
 		this.user_dao = user_dao;
 	}
 			

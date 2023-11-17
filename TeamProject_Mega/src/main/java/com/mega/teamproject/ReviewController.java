@@ -24,8 +24,8 @@ public class ReviewController {
 	
 	//모든 리뷰 조회
 	@RequestMapping("/review_list.do")	
-	public String reviewList() {
-		List<ReviewVO> list = review_dao.selectList();
+	public String reviewList(String game_name) {
+		List<ReviewVO> list = review_dao.selectList(game_name);
 		request.setAttribute("review_list", list);
 		return VIEW_PATH + "review_list.jsp";
 	}
@@ -36,10 +36,9 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/review_insert.do")
-	public String insert(ReviewVO vo) {
+	public String insert(ReviewVO vo) {	
 		review_dao.insert(vo);
-		System.out.println(vo.getReview_title() + vo.getUser_review() + vo.getUser_score());
-		return "redirect:review_list.do";
+		return "redirect:gameView.do?idx="+vo.getGame_idx();
 	}
 	
 	@RequestMapping("/review_view.do")

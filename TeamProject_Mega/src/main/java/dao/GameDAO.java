@@ -16,6 +16,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import vo.GameVO;
+import vo.ReviewVO;
 
 public class GameDAO {
 	SqlSession sqlSession;
@@ -257,6 +258,11 @@ public class GameDAO {
 	}
 	public List<String> publisherSearch() {
 		List<String> list = sqlSession.selectList("g.publisherSearch");
+		return list;
+	}
+	
+	public List<ReviewVO> review_selectList(String game_name){
+		List<ReviewVO> list = sqlSession.selectList("r.review_list", game_name);
 		return list;
 	}
 }

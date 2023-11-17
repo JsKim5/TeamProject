@@ -4,8 +4,14 @@ public class ReviewVO {
 	
 	int review_idx, game_idx, user_idx;
 	int user_score;
-	String user_review, date_created, review_title;
+	String user_review, date_created, review_title, game_name;
 	
+	public String getGame_name() {
+		return game_name;
+	}
+	public void setGame_name(String game_name) {
+		this.game_name = game_name;
+	}
 	public int getGame_idx() {
 		return game_idx;
 	}

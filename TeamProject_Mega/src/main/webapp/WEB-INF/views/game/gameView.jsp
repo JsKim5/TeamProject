@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,7 +98,11 @@ input[type="button"]:hover {
 		<div class="table-container">
 			<table>
 				<tr>
-					<td colspan="2"><iframe width="560" height="315" src="https://www.youtube.com/embed/7jsIs_Iq0A8?si=AudXBGMlZR6N2TAn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></td>
+					<td colspan="2"><iframe width="560" height="315"
+							src="https://www.youtube.com/embed/7jsIs_Iq0A8?si=AudXBGMlZR6N2TAn"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen></iframe></td>
 				</tr>
 				<tr>
 					<th colspan="2" scope="col" class="skeletor">${vo.game_name}</th>
@@ -137,7 +143,7 @@ input[type="button"]:hover {
 					<td class="aa" width="100">평점</td>
 					<td width="200">작성일</td>
 				</tr>
-				<c:forEach var="review_vo" items="${review_list}">
+				<c:forEach var="review_vo" items="${list}">
 					<tr align="center">
 						<td></td>
 						<td><a href="review_view.do?idx=${review_vo.review_idx}">
@@ -148,7 +154,8 @@ input[type="button"]:hover {
 				</c:forEach>
 				<tr>
 					<td colspan="5" align="right"><input type="button"
-						value="리뷰작성" onclick="location.href='review_write.do'"></td>
+						value="리뷰작성"
+						onclick="location.href='review_write.do?game_name=${vo.game_name}&idx=${vo.game_idx}'"></td>
 				</tr>
 			</table>
 		</div>

@@ -14,8 +14,8 @@ public class ReviewDAO {
 	}
 	
 	//전체 리뷰 조회
-	public List<ReviewVO> selectList(){
-		List<ReviewVO> list = sqlSession.selectList("r.review_list");
+	public List<ReviewVO> selectList(String game_name){
+		List<ReviewVO> list = sqlSession.selectList("r.review_list", game_name);
 		return list;
 	}
 	

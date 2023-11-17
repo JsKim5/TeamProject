@@ -115,7 +115,9 @@ public class GameController {
 	@RequestMapping("/gameView.do")
 	public String gameView(int idx) {
 		GameVO vo = gameDao.selectOne(idx);
+		List<ReviewVO> list = gameDao.review_selectList(vo.getGame_name());
 		request.setAttribute("vo", vo);
+		request.setAttribute("list", list);
 		return VIEW_PATH + "gameView.jsp";
 	}
 

@@ -46,7 +46,7 @@
 	</head>
 	
 	<body>
-		<!-- <form action="login.do" method="post"> -->
+		<form action="join.do" method="post">
 			<table border="1">
 				<caption>회원가입</caption>
 			
@@ -92,6 +92,6 @@
 					</td>
 				</tr>
 	</table>
-		<!-- </form> -->
+		</form>
 	</body>
 </html>

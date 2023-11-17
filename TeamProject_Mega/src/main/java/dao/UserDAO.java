@@ -35,9 +35,10 @@ public class UserDAO {
 	//회원 탈퇴
 	public 
 	
-	//유저 정보 조회
-	public String selectList(vo.UserVO vo) {
-		 return sqlSession.selectOne("u.select_list", vo);
+	//마이페이지
+	public vo.UserVO selectOne(String id) {
+		vo.UserVO vo = sqlSession.selectOne("u.select_list", id);
+		return vo;
 		
 	}
 	

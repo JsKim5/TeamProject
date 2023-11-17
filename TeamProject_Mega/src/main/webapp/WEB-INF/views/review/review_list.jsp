@@ -96,7 +96,7 @@
 			<td width = "200">작성일</td>
 		<tr>
 		
-		<c:forEach var = "vo" items = "${list }">
+		<c:forEach var = "vo" items = "${review_list }">
 			<tr align = "center">
 				<td></td>
 				<td>

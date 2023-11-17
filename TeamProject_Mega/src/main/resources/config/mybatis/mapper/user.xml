@@ -18,13 +18,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</insert>
 
-
 	<!-- 전체목록 조회 -->
 	<select id = "user_list" resultType = "User" parameterType = "int">
 		select * from USER_INFO where idx = #{idx}
 	</select>
 	
+	<!-- 회원 탈퇴 -->
+	<delete id = "user_id" parameterType="int">
+		alter table USER_INFO drop 
+	</delete>
 	
+	<!-- 아이디 찾기 -->
+	<select id = "user_id" resultType="User" parameterType="int">
+		select user_id form USER_INFO where name=#{name} and <!-- 아이디 찾기 이름 + 주민번호 or 이름 + 이메일 -->
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id = "user_pw" resultType="User" parameterType="int">
+		select user_pw form USER_INFO where name=#{name} and id=#{id} <!-- 비밀번호 찾기 이름 + 아이디 + 주민번호 or 이메일 -->
+	</select>
 	
 </mapper>
 

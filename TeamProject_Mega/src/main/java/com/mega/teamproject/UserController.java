@@ -22,9 +22,24 @@ public class UserController {
 	}
 	
 	//회원가입 페이지 이동
-	@RequestMapping("/userinsert_form.do")
-	public String userinsert() {
-		return VIEW_PATH + "userInsert_form.jsp";
+	@RequestMapping("/userInsert_Form.do")
+	public String userInsert() {
+		return VIEW_PATH + "JoinId.jsp";
+	}
+	
+	//회원가입 처리
+	
+	//아이디 찾기 페이지
+	@RequestMapping("/selectId_Form.do")
+	public String selectId() {
+		return VIEW_PATH + "IdForm_Form.";
+	}
+	
+	
+	//비밀번호 찾기 페이지
+	@RequestMapping("/selectPw_form.do")
+	public String selectPw() {
+		return VIEW_PATH + "PwForm.jsp";
 	}
 	
 	

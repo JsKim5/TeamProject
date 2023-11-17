@@ -1,39 +1,44 @@
 package dao;
 
 import org.apache.ibatis.session.SqlSession;
+
+import vo.UserVO;
+
 import java.util.List;
 
 public class UserDAO {
 	SqlSession sqlSession;
+	
 	public UserDAO(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
 	
-	//회원가입 ?
+	//회원가입
+	public int JoinId(vo.UserVO vo) {
+		return sqlSession.insert("u.insert", vo);
+	}
 	
 	//아이디 찾기
-	public String findId(String email) {
-		return sqlSession.selectOne("u.find_id", email);
+	public String selectId(String email) {
+		return sqlSession.selectOne("u.select_id", email);
 	}
+	
 	//비밀번호 찾기
-	public String findPw(vo.UserVO vo) {
-		return sqlSession.selectOne("u.find_pw",vo.getUser_id());
+	public String selectPw(vo.UserVO vo) {
+		return sqlSession.selectOne("u.select_pw",vo.getUser_id());
 	}
 	
 	//비밀번호 변경
 	
 	//닉네임 변경
 	
-	//프사 변경
-	
-	
-	
 	//회원 탈퇴
+	public 
 	
 	//유저 정보 조회
-	public List<vo.UserVO> selectList() {
-		List<vo.UserVO> list = sqlSession.selectOne("u.select_list");
-		return list;
+	public String selectList(vo.UserVO vo) {
+		 return sqlSession.selectOne("u.select_list", vo);
+		
 	}
 	
 }

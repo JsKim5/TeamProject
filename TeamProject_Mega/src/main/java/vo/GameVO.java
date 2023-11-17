@@ -21,7 +21,6 @@ public class GameVO {
 	private double game_user_score;
 	
 	
-	
 	public double getGame_user_score() {
 		return game_user_score;
 	}

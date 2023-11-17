@@ -19,4 +19,14 @@ public class ReviewDAO {
 		return list;
 	}
 	
+	public int insert(ReviewVO vo) {		
+		int res = sqlSession.insert("r.review_insert", vo);
+		return res;		
+	}
+	
+	public ReviewVO selectOne(int idx) {
+		ReviewVO vo = sqlSession.selectOne("r.review_one", idx);
+		return vo;
+	}
+	
 }

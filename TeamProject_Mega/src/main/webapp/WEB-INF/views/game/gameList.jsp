@@ -23,12 +23,6 @@
 				location.href = "gameList.do";
 				return;
 			}
-			if(res == "searchSelect"){
-				alert("select성공");
-				
-				return;
-			}
-			
 		}
 	}
 	
@@ -36,9 +30,15 @@
 		let select = f.g_select.value;
 		let url = "gameSelectSearch.do";
 		let param = "select=" + select;
-		sendRequest(url, param, callback, "POST");
+		sendRequest(url, param, callback2, "POST");
 	}
 	
+	function callback2() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			let res = xhr.responseText;
+			location.href = "gameList.do";
+		}
+	}
 </script>
 
 <style>
@@ -63,7 +63,7 @@ a {
 		
 			
 				<form>
-				<table>
+				<table border = "1">
 					<tr>
 						<td>
 							<select name = "g_select">
@@ -72,20 +72,30 @@ a {
 									<option value="game_developer">제작사</option>
 									<option value="game_publisher">배급사</option>
 							</select>
-						</td>
-					<td>
 						<input type="button" value="조건 검색" onclick="selectSearch(this.form)">
 					</td>
 					<td>
+					게임이름
+					</td>
+					<td>
+						<input name="gameTitle">
 						<input type="button" value="검색" onclick="">
 					</td>
 					</tr>
-					
 					<tr>
-						<td>
-							<c:forEach var="s" items="${selectList}">
-								${s.value}
-							</c:forEach>
+					<c:if test="${not empty selectOption}">
+					<th align="left" colspan="4">
+						${selectOption}
+					</th>
+					</c:if>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<c:if test="${not empty selectList}">
+								<c:forEach items="${selectList}" var="s">
+									<input type="button" onclick="location.href='gameList.do?search=${s}'" value="${s}">
+								</c:forEach>
+							</c:if>
 						</td>
 					</tr>
 				</table>
@@ -93,7 +103,7 @@ a {
 			
 		
 	</div>
-	<form method="post">
+	<form>
 	<c:set var="i" value="0" />
 	<c:set var="j" value="3" />
 	<table border = "1">

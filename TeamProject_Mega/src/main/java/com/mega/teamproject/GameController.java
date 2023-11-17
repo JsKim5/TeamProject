@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import dao.GameDAO;
-import dao.ReviewDAO;
 import util.Common;
 import util.Paging;
 import vo.GameVO;
@@ -34,7 +33,7 @@ public class GameController {
 	}
 
 	@RequestMapping("/gameList.do")
-	public String gameList(String page) {
+	public String gameList(String page,String search) {
 
 		// list.do?page=1
 		// list.do?page= >> 값이 없으면 empty
@@ -42,6 +41,9 @@ public class GameController {
 		int nowPage = 1; // 기본 페이지
 		if (page != null && !page.isEmpty()) {
 			nowPage = Integer.parseInt(page);
+		}
+		if (search != null && !search.isEmpty()) {
+			System.out.println(search);
 		}
 
 		// 한 페이지에 표시되는 게시물의 시작과 끝 번호를 계산
@@ -145,23 +147,27 @@ public class GameController {
 		gameDao.meta10pageInsert();
 		return "yes";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/gameSelectSearch.do")
 	public String gameSelectSearch(String select) {
 		List<String> list = null;
-		if(select.equals("game_platforms"))list = gameDao.platformsSearch();
-		if(select.equals("game_genre"))list = gameDao.genreSearch();
-		if(select.equals("game_developer"))list = gameDao.developerSearch();
-		if(select.equals("game_publisher"))list = gameDao.publisherSearch();
-		
-		
-		
+		if (select.equals("game_platforms"))
+			list = gameDao.platformsSearch();
+		if (select.equals("game_genre"))
+			list = gameDao.genreSearch();
+		if (select.equals("game_developer"))
+			list = gameDao.developerSearch();
+		if (select.equals("game_publisher"))
+			list = gameDao.publisherSearch();
+
 		System.out.println(list.size());
-		for(String temp : list) {
+		for (String temp : list) {
 			System.out.println(temp);
 		}
-		request.setAttribute("selectList",list);
-		return "searchSelect";
+		request.getSession().setAttribute("selectList", list);
+		request.getSession().setAttribute("selectOption", select + " (" + list.size() + ")" );
+		return select + "yes";
+
 	}
 }

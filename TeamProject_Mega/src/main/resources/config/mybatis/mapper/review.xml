@@ -5,13 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="r">
 	
 	<!-- 리뷰전체조회 -->
-<<<<<<< HEAD
-	<select id = "review_list" resultType = "review">
-		select * from user_review order by REVIEW_IDX DESC where game_name
-=======
+
 	<select id = "review_list" resultType = "review" parameterType = "String">
 		select * from user_review  where game_name = #{game_name} order by REVIEW_IDX DESC
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 	</select>
 	
 	<select id="review_one" resultType = "review" parameterType = "int">

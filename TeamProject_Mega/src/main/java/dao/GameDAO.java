@@ -1,10 +1,13 @@
 package dao;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.ibatis.session.SqlSession;
 import org.jsoup.Jsoup;
@@ -220,8 +223,40 @@ public class GameDAO {
 		}
 		return "yes";
 	}
+	
 	public int getRowTotal() {
 		int res = sqlSession.selectOne("g.game_count");
 		return res;
+	}
+	
+	public List<String> platformsSearch() {
+		List<String> list = sqlSession.selectList("g.platformsSearch");
+		Set<String> resultSet = new LinkedHashSet<String>();
+		
+		for(String res : list) {
+			String temp[] = res.split(",");
+			if(temp.length != 0) {
+				for(String tempres : temp) {
+					resultSet.add(tempres.trim());
+				}
+			} else {
+				resultSet.add(res.trim());
+			}
+		}
+		
+		List<String> resList = new ArrayList<String>(resultSet);
+		return resList;
+	}
+	public List<String> genreSearch() {
+		List<String> list = sqlSession.selectList("g.genreSearch");
+		return list;
+	}
+	public List<String> developerSearch() {
+		List<String> list = sqlSession.selectList("g.developerSearch");
+		return list;
+	}
+	public List<String> publisherSearch() {
+		List<String> list = sqlSession.selectList("g.publisherSearch");
+		return list;
 	}
 }

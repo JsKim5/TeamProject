@@ -121,7 +121,7 @@ public class GameController {
 	@RequestMapping("/gameDelete.do")
 	public String gameDelete(int idx) {
 		int res = gameDao.delete(idx);
-		String result = "yes";
+		String result = "del";
 		if (res == 0) {
 			result = "no";
 		}
@@ -140,5 +140,24 @@ public class GameController {
 	public String metacritic10page() {
 		gameDao.meta10pageInsert();
 		return "yes";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/gameSelectSearch.do")
+	public String gameSelectSearch(String select) {
+		List<String> list = null;
+		if(select.equals("game_platforms"))list = gameDao.platformsSearch();
+		if(select.equals("game_genre"))list = gameDao.genreSearch();
+		if(select.equals("game_developer"))list = gameDao.developerSearch();
+		if(select.equals("game_publisher"))list = gameDao.publisherSearch();
+		
+		
+		
+		System.out.println(list.size());
+		for(String temp : list) {
+			System.out.println(temp);
+		}
+		request.setAttribute("selectList",list);
+		return "searchSelect";
 	}
 }

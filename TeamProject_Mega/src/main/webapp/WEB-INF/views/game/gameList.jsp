@@ -12,20 +12,33 @@
 		let idx = f.idx.value;
 		let url = "gameDelete.do";
 		let param = "idx=" + idx;
-		sendRequest(url, param, delCallback, "POST");
+		sendRequest(url, param, callback, "POST");
 	}
 
-	function delCallback() {
+	function callback() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			let res = xhr.responseText;
-			if (res == "no") {
-				alert("삭제 실패");
+			if (res == "del") {
+				alert("삭제 성공");
+				location.href = "gameList.do";
 				return;
 			}
-			alert("삭제 성공");
-			location.href = "gameList.do";
+			if(res == "searchSelect"){
+				alert("select성공");
+				
+				return;
+			}
+			
 		}
 	}
+	
+	function selectSearch(f){
+		let select = f.g_select.value;
+		let url = "gameSelectSearch.do";
+		let param = "select=" + select;
+		sendRequest(url, param, callback, "POST");
+	}
+	
 </script>
 
 <style>
@@ -45,6 +58,40 @@ a {
 <body>
 	<div>
 		<a href="gameInsertForm.do">게임 등록 페이지</a>
+	</div>
+	<div>
+		
+			
+				<form>
+				<table>
+					<tr>
+						<td>
+							<select name = "g_select">
+									<option value="game_genre">장르</option>
+									<option value="game_platforms">플렛폼</option>
+									<option value="game_developer">제작사</option>
+									<option value="game_publisher">배급사</option>
+							</select>
+						</td>
+					<td>
+						<input type="button" value="조건 검색" onclick="selectSearch(this.form)">
+					</td>
+					<td>
+						<input type="button" value="검색" onclick="">
+					</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<c:forEach var="s" items="${selectList}">
+								${s.value}
+							</c:forEach>
+						</td>
+					</tr>
+				</table>
+				</form>
+			
+		
 	</div>
 	<form method="post">
 	<c:set var="i" value="0" />

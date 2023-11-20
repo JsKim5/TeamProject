@@ -36,13 +36,12 @@ public class UserDAO {
 	//닉네임 변경
 	
 	//회원 탈퇴
-	public 
+	
 	
 	//마이페이지
-	public vo.UserVO selectOne(String id) {
-		vo.UserVO vo = sqlSession.selectOne("u.select_list", id);
+	public UserVO selectOne(String id) {
+		UserVO vo = sqlSession.selectOne("u.select_list", id);
 		return vo;
-		
 	}
 	
 }

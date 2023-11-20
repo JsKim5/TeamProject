@@ -10,7 +10,14 @@
 	<body>
 		<table>
 			<caption>마이페이지</caption>
-		
+			
+			<tr>
+				<td>이름</td>
+				<td>${vo.user_name}</td>
+			</tr>
+			
+			<tr>
+				<td>
 		</table>
 	</body>
 </html>

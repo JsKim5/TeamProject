@@ -25,6 +25,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{game_name}
 		)			
 	</insert>
+	
+	<select id = "review_AL" resultType = "review">
+		select * from user_review order by REVIEW_IDX DESC
+	</select>
+	
+	<delete id="deleteReview" parameterType="int">
+		delete USER_REVIEW where review_idx = #{idx}
+	</delete>
 
 
 	

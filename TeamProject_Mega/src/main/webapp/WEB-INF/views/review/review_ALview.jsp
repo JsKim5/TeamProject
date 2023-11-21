@@ -9,6 +9,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>리뷰 상세 보기</title>
   <script src="/teamproject/resources/js/httpRequest.js"></script>
+  <script>
+	function del(f) {
+		let idx = f.idx.value;
+		let url = "deleteReview.do";
+		let param = "idx=" + idx; 
+		sendRequest(url, param, callback, "POST");
+	}
+
+	function callback() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			let res = xhr.responseText;
+			if (res == "del") {
+				alert("삭제 성공");
+				location.href = "review_AL.do";
+				return;
+			}
+			if(res == "searchSelect"){
+				alert("select성공");
+				
+				return;
+			}
+			
+		}
+	}	
+</script>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -80,8 +105,12 @@
 <body>
 
 <div class="container">
-  <h2>${vo.review_title }</h2>
+  <h2>${vo.game_name }</h2>
   <table>
+  	<tr>
+  	<th>제목</th>
+  	<td>${vo.review_title }</td>
+  	</tr>
     <tr>
       <th>리뷰</th>
       <td>${vo.user_review }</td>
@@ -95,8 +124,11 @@
       <td>${vo.user_score }/5</td>
     </tr>
   </table>
-  
-  <input type="button" value="목록으로" onclick="location.href='gameView.do'">
+  <form method = "post">
+  <input type="button" value="목록으로" onclick="location.href='review_AL.do'">
+  <input type="hidden" name="idx" value="${vo.review_idx}">
+  <input type="button" value="삭제" onclick="del(this.form)">
+  </form>
 </div>
 
 </body>

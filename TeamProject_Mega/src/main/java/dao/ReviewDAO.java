@@ -19,6 +19,11 @@ public class ReviewDAO {
 		return list;
 	}
 	
+	public List<ReviewVO> selectList_AL(){
+		List<ReviewVO> list = sqlSession.selectList("r.review_AL");
+		return list;
+	}
+	
 	public int insert(ReviewVO vo) {		
 		int res = sqlSession.insert("r.review_insert", vo);
 		return res;		
@@ -27,6 +32,11 @@ public class ReviewDAO {
 	public ReviewVO selectOne(int idx) {
 		ReviewVO vo = sqlSession.selectOne("r.review_one", idx);
 		return vo;
+	}
+	
+	public int delete(int idx) {
+		int res = sqlSession.delete("r.deleteReview", idx);
+		return res;
 	}
 	
 }

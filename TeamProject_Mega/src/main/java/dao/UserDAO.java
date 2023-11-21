@@ -37,11 +37,13 @@ public class UserDAO {
 	
 	//회원 탈퇴
 	
-	
 	//마이페이지
-	public UserVO selectOne(String id) {
-		UserVO vo = sqlSession.selectOne("u.select_list", id);
-		return vo;
+	public String selectMypage(UserVO vo) {
+		String str = sqlSession.selectOne("u.select_list",vo);
+		return str;
 	}
+	
+	//로그인
+	
 	
 }

@@ -11,5 +11,6 @@
 	<a href="review_list.do">리뷰목록</a>
 	<a href="join_Form.do">회원가입 페이지</a>
 	<a href="login.do">로그인 페이지</a>
+	<a href="mypage.do">마이페이지</a>
 </body>
 </html>

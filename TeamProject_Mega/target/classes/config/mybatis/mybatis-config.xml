@@ -10,6 +10,7 @@
 	
 	<typeAliases>		
 		 <typeAlias type="vo.GameVO" alias="game"/>
+		 <typeAlias type="vo.GameVOtwo" alias="gametwo"/>
 		 <typeAlias type="vo.ReviewVO" alias="review"/>
 	</typeAliases>
 	

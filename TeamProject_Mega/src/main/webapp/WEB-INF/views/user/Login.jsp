@@ -35,7 +35,7 @@
 					<caption>로그인 페이지</caption>
 						<tr>
 							<td>아이디</td>
-							<td><input  name="user_id"></td>
+							<td><input name="user_id"></td>
 						</tr>
 					
 						<tr>
@@ -56,8 +56,8 @@
 						
 						<tr>
 							<td>
-							<input type = "button" value="아이디 찾기" onclick="location.href='selectId.do'">
-							<input type = "button" value="비밀번호 찾기" onclick="location.href='selectPw.do'">
+							<input type = "button" value="아이디 찾기" onclick="location.href='searchid.do'">
+							<input type = "button" value="비밀번호 찾기" onclick="location.href='searchpw.do'">
 							<input type = "button" value="회원가입" onclick="location.href='join_Form.do'">
 							</td>
 						</tr>

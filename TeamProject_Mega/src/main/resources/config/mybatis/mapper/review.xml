@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="r">
 	
 	<!-- 리뷰전체조회 -->
+
 	<select id = "review_list" resultType = "review" parameterType = "String">
 		select * from user_review  where game_name = #{game_name} order by REVIEW_IDX DESC
 	</select>

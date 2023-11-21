@@ -16,6 +16,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import vo.GameVO;
+import vo.GameVOtwo;
 import vo.ReviewVO;
 
 public class GameDAO {
@@ -25,8 +26,8 @@ public class GameDAO {
 		this.sqlSession = sqlSession;
 	}
 
-	public List<GameVO> select(HashMap<String, Integer> map) {
-		List<GameVO> list = sqlSession.selectList("g.selectGame",map);
+	public List<GameVO> select(GameVOtwo gvot) {
+		List<GameVO> list = sqlSession.selectList("g.selectGame",gvot);
 		return list;
 	}
 
@@ -225,8 +226,8 @@ public class GameDAO {
 		return "yes";
 	}
 	
-	public int getRowTotal() {
-		int res = sqlSession.selectOne("g.game_count");
+	public int getRowTotal(GameVOtwo gvot) {
+		int res = sqlSession.selectOne("g.game_count",gvot);
 		return res;
 	}
 	
@@ -248,16 +249,8 @@ public class GameDAO {
 		List<String> resList = new ArrayList<String>(resultSet);
 		return resList;
 	}
-	public List<String> genreSearch() {
-		List<String> list = sqlSession.selectList("g.genreSearch");
-		return list;
-	}
-	public List<String> developerSearch() {
-		List<String> list = sqlSession.selectList("g.developerSearch");
-		return list;
-	}
-	public List<String> publisherSearch() {
-		List<String> list = sqlSession.selectList("g.publisherSearch");
+	public List<String> colSearch(String select_col) {
+		List<String> list = sqlSession.selectList("g.colSearch",select_col);
 		return list;
 	}
 	

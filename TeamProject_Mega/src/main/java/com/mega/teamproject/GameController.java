@@ -1,7 +1,6 @@
 package com.mega.teamproject;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -17,6 +16,7 @@ import dao.GameDAO;
 import util.Common;
 import util.Paging;
 import vo.GameVO;
+import vo.GameVOtwo;
 import vo.ReviewVO;
 
 @Controller
@@ -33,7 +33,7 @@ public class GameController {
 	}
 
 	@RequestMapping("/gameList.do")
-	public String gameList(String page,String search) {
+	public String gameList(String page, String selectCol, String search, String searchTitle) {
 
 		// list.do?page=1
 		// list.do?page= >> 값이 없으면 empty
@@ -42,9 +42,6 @@ public class GameController {
 		if (page != null && !page.isEmpty()) {
 			nowPage = Integer.parseInt(page);
 		}
-		if (search != null && !search.isEmpty()) {
-			System.out.println(search);
-		}
 
 		// 한 페이지에 표시되는 게시물의 시작과 끝 번호를 계산
 		// 1페이지에는 1 ~ 3까지 보여야 되고
@@ -52,14 +49,25 @@ public class GameController {
 		int start = (nowPage - 1) * Common.GameList.BLOCKLIST + 1;
 		int end = start + Common.GameList.BLOCKLIST - 1;
 
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("start", start);
-		map.put("end", end);
-
-		List<GameVO> list = gameDao.select(map);
-
+		
+		GameVOtwo gvot = new GameVOtwo();
+		gvot.setStart(start);
+		gvot.setEnd(end);
+		boolean aOption = search != null && !search.isEmpty();
+		boolean bOption = selectCol != null && !selectCol.isEmpty();
+		boolean cOption = searchTitle != null && !searchTitle.isEmpty();
+		if (aOption && bOption) {
+			gvot.setSelectCol(selectCol);
+			gvot.setSearch(search);
+		}
+		if (cOption) {
+			gvot.setTitle(searchTitle);
+		}
+		
+		List<GameVO> list = gameDao.select(gvot);
 		// 전체 게시글 수
-		int row_total = gameDao.getRowTotal();
+		int row_total = gameDao.getRowTotal(gvot);
+
 		// 페이지 메뉴 만들기
 		String pageMenu = Paging.getPaging("gameList.do", nowPage, row_total, Common.GameList.BLOCKLIST,
 				Common.GameList.BLOCKPAGE);
@@ -152,22 +160,28 @@ public class GameController {
 	@RequestMapping("/gameSelectSearch.do")
 	public String gameSelectSearch(String select) {
 		List<String> list = null;
-		if (select.equals("game_platforms"))
+		if (select.equals("game_platforms")) {
 			list = gameDao.platformsSearch();
-		if (select.equals("game_genre"))
-			list = gameDao.genreSearch();
-		if (select.equals("game_developer"))
-			list = gameDao.developerSearch();
-		if (select.equals("game_publisher"))
-			list = gameDao.publisherSearch();
-
-		System.out.println(list.size());
-		for (String temp : list) {
-			System.out.println(temp);
+		} else {
+			list = gameDao.colSearch(select);
 		}
-		request.getSession().setAttribute("selectList", list);
-		request.getSession().setAttribute("selectOption", select + " (" + list.size() + ")" );
-		return select + "yes";
 
+		request.getSession().setAttribute("selectList", list);
+		request.getSession().setAttribute("selectOption", select + " (" + list.size() + ")");
+		request.getSession().setAttribute("selectCol", select);
+		return "yes";
+	}
+	
+	@RequestMapping("/gameTitleSearch.do")
+	public String gameTitleSearch(String title) {
+		request.getSession().removeAttribute("selectList");
+		request.getSession().removeAttribute("selectOption");
+		request.getSession().removeAttribute("selectCol");
+		
+		if(title != null && !title.isEmpty()) {
+			return "redirect:gameList.do?searchTitle="+title;
+		} else {
+			return "redirect:gameList.do";
+		}
 	}
 }

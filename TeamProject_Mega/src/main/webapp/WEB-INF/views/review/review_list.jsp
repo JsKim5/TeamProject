@@ -90,10 +90,11 @@
 		<caption>리뷰 목록</caption>
 		
 		<tr align = "center">
-			<td class = "aa" width = "50">작성자</td>
+			<td class = "aa" width = "100">작성자</td>
 			<td class = "aa" width = "300">제목</td>
 			<td class = "aa" width = "100">평점</td>
 			<td width = "200">작성일</td>
+			<td class = "aa" width = "100">리뷰갯수</td>
 		<tr>
 		
 		<c:forEach var = "vo" items = "${review_list }">
@@ -106,6 +107,7 @@
 				</td>
 				<td>${vo.user_score }/5</td>
 				<td>${vo.date_created }</td>
+				<td>${vo.review_count }</td>
 			</tr>
 		</c:forEach>
 		
@@ -115,6 +117,10 @@
 			</td>
 		</tr>
 		</table>
+		
+		<script>
+		let ${vo.review_count} = ${review_list.size()};
+		</script>
 
 
 </body>

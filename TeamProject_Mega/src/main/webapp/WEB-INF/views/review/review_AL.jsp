@@ -90,6 +90,7 @@
 			<table>
 				<caption>리뷰 목록</caption>
 				<tr align="center">
+					<td class="aa" width="50">리뷰번호</td>
 					<td class="aa" width="100">게임명</td>
 					<td class="aa" width="50">작성자</td>
 					<td class="aa" width="300">제목</td>
@@ -98,6 +99,7 @@
 				</tr>
 				<c:forEach var="review_vo" items="${list}">
 					<tr align="center">
+						<td>${review_vo.review_idx }</td>
 						<td>${review_vo.game_name }</td>
 						<td></td>
 						<td><a href="review_ALview.do?idx=${review_vo.review_idx}">

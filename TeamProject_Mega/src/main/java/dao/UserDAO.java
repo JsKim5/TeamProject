@@ -4,8 +4,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import vo.UserVO;
 
-import java.util.List;
-
 public class UserDAO {
 	SqlSession sqlSession;
 	
@@ -15,7 +13,7 @@ public class UserDAO {
 	
 	//회원가입
 	public int insert(UserVO vo) {
-		int res = sqlSession.insert("u.insert", vo);
+		int res = sqlSession.insert("u.user_insert", vo);
 		return res;
 	}
 	

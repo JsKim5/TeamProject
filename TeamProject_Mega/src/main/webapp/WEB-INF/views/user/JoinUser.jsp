@@ -8,37 +8,37 @@
 		
 		<script>
 			function send_check(f) {
-				let name = f.user_name.value.trim();
-				let tel = f.user_tel.value.trim();
-				let email = f.user_email.value.trim();
-				let id = f.user_id.value.trim();
-				let pw = f.user_pw.value.trim();
+				let user_name = f.user_name.value.trim();
+				let user_tel = f.user_tel.value.trim();
+				let user_email = f.user_email.value.trim();
+				let user_id = f.user_id.value.trim();
+				let user_pwd = f.user_pwd.value.trim();
 				
-				if(id == ''){
+				if(user_id == ''){
 					alert("아이디를 입력하세요");
 					return;
 				}
 				
-				if(pw == ''){
+				if(user_pwd == ''){
 					alert("비밀번호를 입력하세요");
 					return;
 				}
 				
-				if(tel == ''){
+				if(user_tel == ''){
 					alert("전화번호를 입력하세요");
 					return;
 				}
 				
-				if(name == ''){
+				if(user_name == ''){
 					alert("이름을 입력하세요");
 					return;
 				}
 				
-				if(email == ''){
+				if(user_email == ''){
 					alert("이메일을 입력하세요");
 					return;
 				}
-				
+				f.action = "join.do";
 				f.submit();
 				
 			}
@@ -72,7 +72,7 @@
 				
 				<tr align="center">
 					<td>비밀번호</td>
-					<td><input type="password" name="user_pw"></td>
+					<td><input type="password" name="user_pwd"></td>
 				</tr>
 				
 				<tr align="center">

@@ -23,7 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		sysdate,
 		#{review_title},
 		#{user_score},
-		#{game_name}
+		#{game_name},
+		#{review_count}
 		)			
 	</insert>
 	

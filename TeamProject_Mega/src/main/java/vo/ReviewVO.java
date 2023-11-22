@@ -3,8 +3,15 @@ package vo;
 public class ReviewVO {
 	
 	int review_idx, game_idx, user_idx;
-	int user_score;
+	int user_score, review_count;
 	String user_review, date_created, review_title, game_name;
+	
+	public int getReview_count() {
+		return review_count;
+	}
+	public void setReview_count(int review_count) {
+		this.review_count = review_count;
+	}
 	
 	public String getGame_name() {
 		return game_name;

@@ -41,7 +41,12 @@ public class ReviewController {
 	
 	@RequestMapping("/review_write.do")
 	public String insertForm() {
+		if(request.getSession().getAttribute("login") != null) {
 		return VIEW_PATH + "review_write.jsp";
+		}
+		else {
+			return "redirect:login.do";
+		}
 	}
 	
 	@RequestMapping("/review_insert.do")
@@ -74,4 +79,5 @@ public class ReviewController {
 		}
 		return result;
 	}
+	
 }

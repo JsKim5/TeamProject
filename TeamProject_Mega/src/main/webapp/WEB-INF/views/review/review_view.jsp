@@ -96,7 +96,7 @@
     </tr>
   </table>
   
-  <input type="button" value="목록으로" onclick="location.href='gameView.do'">
+  <input type="button" value="목록으로" onclick="location.href='gameView.do?idx=${param.game_idx}'">
 </div>
 
 </body>

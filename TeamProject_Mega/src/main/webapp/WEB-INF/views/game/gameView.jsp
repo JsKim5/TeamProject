@@ -142,14 +142,16 @@ input[type="button"]:hover {
 					<td class="aa" width="300">제목</td>
 					<td class="aa" width="100">평점</td>
 					<td width="200">작성일</td>
+					<td class="aa" width="50">리뷰갯수</td>
 				</tr>
 				<c:forEach var="review_vo" items="${list}">
 					<tr align="center">
 						<td></td>
-						<td><a href="review_view.do?idx=${review_vo.review_idx}">
+						<td><a href="review_view.do?idx=${review_vo.review_idx}&game_idx=${vo.game_idx}">
 								${review_vo.review_title} </a></td>
 						<td>${review_vo.user_score}/5</td>
 						<td>${review_vo.date_created}</td>
+						<td>${review_vo.review_count }</td>
 					</tr>
 				</c:forEach>
 				<tr>

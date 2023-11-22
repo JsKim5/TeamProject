@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				#{user_pwd},
 				sysdate,
 				#{user_nickname},
-				#{user_image_path},
+				'test',
 				#{user_email},
 				#{user_name},
 				#{user_ip}
@@ -25,12 +25,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<!-- 아이디 찾기 -->
-	<select id = "user_id" resultType="User" parameterType="int">
+	<select id = "select_id" resultType="User" parameterType="int">
 		select user_id form USER_INFO where name=#{name} and <!-- 아이디 찾기 이름 + 주민번호 or 이름 + 이메일 -->
 	</select>
 	
 	<!-- 비밀번호 찾기 -->
-	<select id = "user_pw" resultType="User" parameterType="int">
+	<select id = "select_pw" resultType="User" parameterType="int">
 		select user_pw form USER_INFO where name=#{name} and id=#{id} <!-- 비밀번호 찾기 이름 + 아이디 + 주민번호 or 이메일 -->
 	</select>
 	

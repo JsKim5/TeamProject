@@ -1,10 +1,8 @@
 package com.mega.teamproject;
 
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,13 +20,14 @@ public class UserController {
 	
 	public static final String VIEW_PATH = "/WEB-INF/views/user/";
 	
-	dao.UserDAO user_dao;
-	public void setUser_dao(dao.UserDAO user_dao) {
+	UserDAO user_dao;
+	
+	public UserController(UserDAO user_dao) {
 		this.user_dao = user_dao;
 	}
 			
 	//홈페이지,초기화면
-	@RequestMapping(value={"/","/home.do"})
+	@RequestMapping(value={"/", "/home.do"})
 	public String homePage() {
 		return "/WEB-INF/views/home.jsp";
 	}
@@ -41,8 +40,8 @@ public class UserController {
 	
 	@RequestMapping("/join.do")
 	//회원가입 처리
-	public String joinId( UserVO vo) {
-		vo.setUser_ip( request.getRemoteAddr() );//ip세팅
+	public String joinId(UserVO vo) {
+		vo.setUser_ip(request.getRemoteAddr() );//ip세팅
 		user_dao.insert(vo);
 		request.setAttribute("vo", vo);
 		return "redirect:home.do";

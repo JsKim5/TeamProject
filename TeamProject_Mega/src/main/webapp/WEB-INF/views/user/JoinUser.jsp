@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 	<html>
 	<head>
@@ -88,7 +89,7 @@
 				let tel = f.user_tel.value.trim();
 				let email = f.user_email.value.trim();
 				let id = f.user_id.value.trim();
-				let pw = f.user_pw.value.trim();
+				let pw = f.user_pwd.value.trim();
 				let nickname = f.user_nickname.value.trim();
 				
 				if(name == ''){
@@ -121,6 +122,7 @@
 					return;
 				}
 				
+				f.action="join.do";
 				f.submit();
 				
 			}
@@ -154,7 +156,7 @@
 				
 				<tr align="center">
 					<td>비밀번호</td>
-					<td><input type="password" name="user_pw"></td>
+					<td><input type="password" name="user_pwd"></td>
 				</tr>
 				
 				<tr align="center">
@@ -162,12 +164,12 @@
 					<td><input name="user_nickname"></td>
 				</tr>
 				
-				<tr align = "center" >
+				<!-- <tr align = "center" >
 					<form method="POST" enctype="multipart/form-data">
 					<td>프로필 사진</td>
 					<td><input type="file" name="photo"></td>
 					</form>
-				</tr>
+				</tr> -->
 				
 				<tr>
 					<td colspan="1">

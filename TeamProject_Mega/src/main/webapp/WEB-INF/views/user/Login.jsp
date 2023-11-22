@@ -86,8 +86,8 @@
 		
 		<script>
 			function send(f) {
-				let id = f.id.value.trim();
-				let pw = f.pw.value.trim();
+				let id = f.user_id.value.trim();
+				let pw = f.user_pwd.value.trim();
 				
 				if(id == ''){
 					alert("아이디를 입력하세요");
@@ -99,9 +99,13 @@
 					return;
 				}
 				
+				f.action = "login.do";
 				f.submit();
-				location.href='home.do';
+				
 			}
+			
+				
+			
 		</script>
 	</head>
 	
@@ -111,29 +115,25 @@
 					<caption>로그인 페이지</caption>
 						<tr>
 							<td>아이디</td>
-							<td><input name="id"></td>
+							<td><input name="user_id"></td>
 						</tr>
 					
 						<tr>
 							<td>비밀번호</td>
-							<td><input type="password" name="pw"></td>
+							<td><input type="password" name="user_pwd"></td>
 						</tr>
 						
 						<tr>
 							<td>
 							<input type="button" value="로그인" onclick="send(this.form);">
-							<%-- <%-- <c:if test="${message == 'error'}">
-							<div style="color:red;"> 아이디 또는 비밀번호가 일치하지 않습니다.
-							</div>
-							</c:if> --%>
 							<input type="button" value="홈으로" onclick="location.href='home.do'"><!-- home.do를 초기화면 url로 수정 -->
 							</td>
 						</tr>
 						
 						<tr>
 							<td>
-							<input type = "button" value="아이디 찾기" onclick="location.href='selectId.do'">
-							<input type = "button" value="비밀번호 찾기" onclick="location.href='selectPw.do'">
+							<input type = "button" value="아이디 찾기" onclick="location.href='searchid.do'">
+							<input type = "button" value="비밀번호 찾기" onclick="location.href='searchpw.do'">
 							<input type = "button" value="회원가입" onclick="location.href='join_Form.do'">
 							</td>
 						</tr>

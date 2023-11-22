@@ -82,10 +82,6 @@
   <h2>${vo.review_title }</h2>
   <table>
     <tr>
-      <th></th>
-      <td></td>
-    </tr>
-    <tr>
       <th>리뷰</th>
       <td>${vo.user_review }</td>
     </tr>
@@ -99,7 +95,7 @@
     </tr>
   </table>
   
-  <input type="button" value="목록으로" onclick="location.href='review_list.do'">
+  <input type="button" value="목록으로" onclick="location.href='gameView.do'">
 </div>
 
 </body>

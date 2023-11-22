@@ -12,27 +12,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				#{user_pwd},
 				sysdate,
 				#{user_nickname},
-				#{user_image_path},
+				'test',
 				#{user_email},
 				#{user_name},
 				#{user_ip}
 		)
 	</insert>
 	
+	<!-- 로그인 -->
+	<select id = "user_login" resultType="user" parameterType="user">
+		select * from USER_INFO where user_id = #{user_id} and user_pwd = #{user_pwd}
+	</select>
+	
 	<!-- 회원 탈퇴 -->
-	<delete id = "user_id" parameterType="int">
-		delete from USER_INFO where id=#{user_id} and pw={user_pw}
+	<delete id = "delete_id" parameterType="int">
+		delete from USER_INFO where user_id=#{user_id} and user_pwd=#{user_pwd}
 	</delete>
 	
 	<!-- 아이디 찾기 -->
-	<select id = "user_id" resultType="User" parameterType="int">
-		select user_id form USER_INFO where name=#{name} and <!-- 아이디 찾기 이름 + 주민번호 or 이름 + 이메일 -->
+	<select id = "select_id" resultType="User" parameterType="int">
+		select user_id form USER_INFO where name=#{user_name} and <!-- 아이디 찾기 이름 + 주민번호 or 이름 + 이메일 -->
 	</select>
 	
 	<!-- 비밀번호 찾기 -->
-	<select id = "user_pw" resultType="User" parameterType="int">
-		select user_pw form USER_INFO where name=#{name} and id=#{id} <!-- 비밀번호 찾기 이름 + 아이디 + 주민번호 or 이메일 -->
+	<select id = "select_pw" resultType="User" parameterType="int">
+		select user_pw form USER_INFO where name=#{user_name} and id=#{user_id} <!-- 비밀번호 찾기 이름 + 아이디 + 주민번호 or 이메일 -->
 	</select>
+	
+	<!-- 마이페이지 -->
+	<select id = "mypage" resultType="user" parameterType="user">
+		select * from USER_INFO where user_id=#{user_id}
+	</select>
+	
 	
 </mapper>
 

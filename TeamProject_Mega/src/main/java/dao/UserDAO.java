@@ -14,8 +14,8 @@ public class UserDAO {
 	}
 	
 	//회원가입
-	public int insert(UserVO vo) {
-		int res = sqlSession.insert("u.insert", vo);
+	public int insert(UserVO vo) { 
+		int res = sqlSession.insert("u.user_insert", vo);
 		return res;
 	}
 	
@@ -37,11 +37,16 @@ public class UserDAO {
 	
 	//회원 탈퇴
 	
-	
 	//마이페이지
-	public UserVO selectOne(String id) {
-		UserVO vo = sqlSession.selectOne("u.select_list", id);
-		return vo;
+	public UserVO selectMypage(UserVO vo) {
+		UserVO mypage = sqlSession.selectOne("u.mypage", vo);
+		return mypage;
+	}
+	
+	//로그인
+	public UserVO login(UserVO vo) {
+		UserVO login = sqlSession.selectOne("u.user_login", vo);
+		return login;
 	}
 	
 }

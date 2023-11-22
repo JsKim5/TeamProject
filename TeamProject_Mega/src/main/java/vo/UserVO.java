@@ -1,21 +1,20 @@
 package vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class UserVO {
+	private MultipartFile User_image;
+	
 	private int user_idx;
-	private String user_name,user_pwd,user_date,user_nickname,
+	private String user_name,user_pwd,user_regdate,user_nickname,
 					user_image_path,user_email,user_id,user_ip;
 	
-	public String getUser_id() {
-		return user_id;
+	
+	public MultipartFile getUser_image() {
+		return User_image;
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-	public String getUser_ip() {
-		return user_ip;
-	}
-	public void setUser_ip(String user_ip) {
-		this.user_ip = user_ip;
+	public void setUser_image(MultipartFile user_image) {
+		User_image = user_image;
 	}
 	public int getUser_idx() {
 		return user_idx;
@@ -35,11 +34,11 @@ public class UserVO {
 	public void setUser_pwd(String user_pwd) {
 		this.user_pwd = user_pwd;
 	}
-	public String getUser_date() {
-		return user_date;
+	public String getUser_regdate() {
+		return user_regdate;
 	}
-	public void setUser_date(String user_date) {
-		this.user_date = user_date;
+	public void setUser_regdate(String user_regdate) {
+		this.user_regdate = user_regdate;
 	}
 	public String getUser_nickname() {
 		return user_nickname;
@@ -59,6 +58,20 @@ public class UserVO {
 	public void setUser_email(String user_email) {
 		this.user_email = user_email;
 	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getUser_ip() {
+		return user_ip;
+	}
+	public void setUser_ip(String user_ip) {
+		this.user_ip = user_ip;
+	}
+	
+	
 	
 	
 }

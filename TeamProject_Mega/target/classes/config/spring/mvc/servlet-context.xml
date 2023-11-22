@@ -27,7 +27,7 @@
 	<context:annotation-config/>
 	
 	<beans:bean class = "com.mega.teamproject.UserController">
-		
+		<beans:constructor-arg ref="userBean"/>
 	</beans:bean>
 	
 	<beans:bean class = "com.mega.teamproject.GameController">

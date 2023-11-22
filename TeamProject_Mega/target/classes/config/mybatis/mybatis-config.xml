@@ -11,10 +11,12 @@
 	<typeAliases>		
 		 <typeAlias type="vo.GameVO" alias="game"/>
 		 <typeAlias type="vo.ReviewVO" alias="review"/>
+		<typeAlias type="vo.UserVO" alias="user"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="config/mybatis/mapper/gameTest.xml" />
 		<mapper resource="config/mybatis/mapper/review.xml" />
+		<mapper resource="config/mybatis/mapper/user.xml" />
 	</mappers>
 </configuration>

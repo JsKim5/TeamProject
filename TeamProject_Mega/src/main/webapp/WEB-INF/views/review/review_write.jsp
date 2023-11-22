@@ -100,7 +100,8 @@
 
   <form method="post">
     <input type="hidden" name="user_score">
-
+	<input type="hidden" value="${param.game_name }" name ="game_name">
+	<input type="hidden" value="${param.idx }" name = "game_idx">
     <label for="title">제목</label>
     <input type="text" name="review_title">
 
@@ -117,12 +118,12 @@
 
     <div>
       <input type="button" value="글쓰기" onclick="send_check(this.form);">
-      <input type="button" value="이전으로" onclick="location.href='review_list.do'">
+      <input type="button" value="이전으로" onclick="location.href='gameView.do?idx=${param.idx}'">
     </div>
   </form>
 
   <script>
-    function send_check(f) {
+    function send_check(f) { 
       let review_title = f.review_title.value.trim();
       let user_review = f.user_review.value.trim();
       f.user_score.value = currentRating;

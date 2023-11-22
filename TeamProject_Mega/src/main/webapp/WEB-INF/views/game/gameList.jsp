@@ -86,8 +86,9 @@ form {
 }
 
 table {
+	
 	width: 100%; /* 테이블 전체 너비 */
-	max-width: 1500px; /* 최대 너비 설정 */
+	max-width: 80%; /* 최대 너비 설정 */
 	border-collapse: collapse;
 	margin-bottom: 20px;
 	overflow-x: auto; /* 가로 스크롤이 필요한 경우에만 스크롤 표시 */

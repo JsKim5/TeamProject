@@ -146,6 +146,7 @@ public class GameController {
 	@RequestMapping("/metacritic.do")
 	public String metacritic(String gameTitle) {
 		String str = gameDao.metacritic(gameTitle);
+		gameDao.imgUrlOutput();
 		return str;
 	}
 

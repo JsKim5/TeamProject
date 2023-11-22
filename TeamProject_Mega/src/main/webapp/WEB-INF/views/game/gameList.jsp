@@ -51,98 +51,122 @@
 </script>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f7f7;
-  }
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f7f7f7;
+}
 
-  /* Container styles */
-  .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+/* Container styles */
+.container {
+	max-width: 800px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  /* Header styles */
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+/* Header styles */
+header {
+	text-align: center;
+	margin-bottom: 20px;
+}
 
-  header h1 {
-    font-size: 32px;
-    color: #333;
-    margin: 10px 0;
-  }
+header h1 {
+	font-size: 32px;
+	color: #333;
+	margin: 10px 0;
+}
 
-  /* Form styles */
-  form {
-    margin-bottom: 20px;
-  }
+/* Form styles */
+form {
+	margin-bottom: 20px;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
+table {
+	width: 100%; /* 테이블 전체 너비 */
+	max-width: 1500px; /* 최대 너비 설정 */
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	overflow-x: auto; /* 가로 스크롤이 필요한 경우에만 스크롤 표시 */
+}
 
-  table,
-  th,
-  td {
-    border: 1px solid #ddd;
-  }
+table, th, td {
+	border: 1px solid #ddd;
+	width: 1500px;
+}
 
-  th,
-  td {
-    padding: 12px;
-    text-align: left;
-  }
+th, td {
+	padding: 12px;
+	text-align: center;
+}
 
-  th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
+th {
+	background-color: #f2f2f2;
+	font-weight: bold;
+}
 
-  /* Links */
-  a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-  }
+/* Links */
+a {
+	text-decoration: none;
+	color: #007bff;
+	font-weight: bold;
+}
 
-  a:hover {
-    color: #0056b3;
-  }
+a:hover {
+	color: #0056b3;
+}
 
-  /* Buttons */
-  input[type="button"] {
-    padding: 8px 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    font-weight: bold;
-    margin-right: 10px; /* Add spacing between buttons */
-    margin-bottom: 10px; /* Add spacing below buttons */
-    transition: background-color 0.3s ease;
-  }
+/* Buttons */
+input[type="button"] {
+	padding: 8px 16px;
+	cursor: pointer;
+	border: none;
+	border-radius: 4px;
+	background-color: #007bff;
+	color: #fff;
+	font-weight: bold;
+	margin-right: 10px; /* Add spacing between buttons */
+	margin-bottom: 10px; /* Add spacing below buttons */
+	transition: background-color 0.3s ease;
+}
 
-  input[type="button"]:hover {
-    background-color: #0056b3;
-  }
+input[type="button"]:hover {
+	background-color: #0056b3;
+}
 
-  /* Responsive styles */
-  @media (max-width: 600px) {
-    table {
-      font-size: 14px;
-    }
-  }
+/* Responsive styles */
+@media ( max-width : 600px) {
+	table {
+		font-size: 14px;
+	}
+}
+
+.custom-image {
+	width: 88px;
+	height: 132px;
+}
+/* 게임 메타 스코어 스타일 */
+.game-meta-score {
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 20px;
+	font-weight: bold;
+}
+
+/* 높은 점수일 때의 스타일 */
+.high-score {
+	background-color: #4CAF50; /* 녹색 배경색 */
+	color: white; /* 흰색 폰트 */
+}
+
+/* 낮은 점수일 때의 스타일 */
+.low-score {
+	background-color: #f44336; /* 빨간색 배경색 */
+	color: white; /* 흰색 폰트 */
+}
 </style>
 
 
@@ -157,15 +181,16 @@
 		<form>
 			<table border="1">
 				<tr>
-					<td><select name="g_select">
+					<td><select name="g_select" style="width: 150px; height: 30px; font-size: 14px;">
 							<option value="game_genre">장르</option>
 							<option value="game_platforms">플렛폼</option>
 							<option value="game_developer">제작사</option>
 							<option value="game_publisher">배급사</option>
 					</select> <input type="button" value="조건 검색"
-						onclick="selectSearch(this.form)"> <input type="button" value="검색초기화" onclick="location.href='gameTitleSearch.do'"></td>
-					<td>게임이름</td>
-					<td><input name="title"> <input type="button"
+						onclick="selectSearch(this.form)"> <input type="button"
+						value="검색초기화" onclick="location.href='gameTitleSearch.do'"></td>
+					<td>게임이름
+					<input name="title" style="width: 150px; height: 30px; font-size: 14px;"> <input type="button"
 						value="검색" onclick="titleSearch(this.form)"></td>
 				</tr>
 				<tr>
@@ -191,23 +216,35 @@
 
 	</div>
 	<form>
-		<c:set var="i" value="0" />
-		<c:set var="j" value="3" />
 		<table border="1">
 			<c:if test="${empty list}">
 				<th>검색 결과 없음</th>
 			</c:if>
-			<c:forEach var="l" items="${list}">
-				<c:if test="${i%j == 0 }">
+			<c:forEach var="l" items="${list}" varStatus="loop">
+				<c:if test="${loop.index % 5 == 0}">
 					<tr>
 				</c:if>
-				<td><a href="gameView.do?idx=${l.game_idx}">${l.game_name}</a></td>
-				<td><input type="hidden" name="idx" value="${l.game_idx}"><input
-					type="button" value="삭제" onclick="del(this.form)"></td>
-				<c:if test="${i%j == j-1 }">
+				<td><c:if test="${l.game_image_path == 'N/A' }">
+						<img src="/teamproject/resources/game_img/no_file.png"
+							class="custom-image">
+					</c:if> <c:if test="${l.game_image_path != 'N/A' }">
+						<img src="${l.game_image_path}" class="custom-image">
+					</c:if> <br> <a href="gameView.do?idx=${l.game_idx}">${l.game_name}</a><br>
+					<span
+					class="game-meta-score 
+          <c:choose>
+            <c:when test="${l.game_meta_score >= 70}">
+              high-score
+            </c:when>
+            <c:otherwise>
+              low-score
+            </c:otherwise>
+          </c:choose>
+        ">
+						${l.game_meta_score} </span><br> ${l.game_publisher}</td>
+				<c:if test="${loop.index % 5 == 4 || loop.last}">
 					</tr>
 				</c:if>
-				<c:set var="i" value="${i+1 }" />
 			</c:forEach>
 			<tr>
 				<c:if test="${not empty list}">

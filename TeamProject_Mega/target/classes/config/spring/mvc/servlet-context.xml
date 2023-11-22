@@ -24,8 +24,9 @@
 	<context:component-scan base-package="com.mega.db" /> -->
 	
 	<!-- @Autowired사용을 위한 어노테이션 -->
-	<context:annotation-config/> 
-	
+
+	<context:annotation-config/>
+
 	<beans:bean class = "com.mega.teamproject.GameController">
 		<beans:constructor-arg ref="gameBean"/>
 	</beans:bean>
@@ -37,6 +38,7 @@
 	<beans:bean class = "com.mega.teamproject.UserController">
 		<beans:constructor-arg ref="userBean"/>
 	</beans:bean>
+	
 	
 </beans:beans>
 

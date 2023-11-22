@@ -13,6 +13,7 @@
 		 <typeAlias type="vo.GameVOtwo" alias="gametwo"/>
 		 <typeAlias type="vo.ReviewVO" alias="review"/>
 		 <typeAlias type="vo.UserVO" alias="user"/>
+ 
 	</typeAliases>
 	
 	<mappers>

@@ -85,35 +85,12 @@
 		
 		<script>
 			function send_check(f) {
-<<<<<<< HEAD
-				let name = f.user_name.value.trim();
-				let tel = f.user_tel.value.trim();
-				let email = f.user_email.value.trim();
-				let id = f.user_id.value.trim();
-				let pw = f.user_pwd.value.trim();
-				let nickname = f.user_nickname.value.trim();
-				
-				if(name == ''){
-					alert("이름을 입력하세요");
-					return;
-				}
-				
-				if(tel == ''){
-					alert("전화번호를 입력하세요");
-					return;
-				}
-				
-				if(email == ''){
-					alert("이메일을 입력하세요");
-					return;
-				}
-=======
 				let user_name = f.user_name.value.trim();
-				let user_tel = f.user_tel.value.trim();
+				let user_pwd = f.user_pwd.value.trim();
+				let user_nickname = f.user_nickname.value.trim();
 				let user_email = f.user_email.value.trim();
 				let user_id = f.user_id.value.trim();
-				let user_pwd = f.user_pwd.value.trim();
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
 				
 				if(user_id == ''){
 					alert("아이디를 입력하세요");
@@ -125,19 +102,11 @@
 					return;
 				}
 				
-<<<<<<< HEAD
-				if(nickname == ''){
+				if(user_nickname == ''){
 					alert("닉네임을 입력하세요");
-=======
-				if(user_tel == ''){
-					alert("전화번호를 입력하세요");
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 					return;
 				}
-				
-<<<<<<< HEAD
-				f.action="join.do";
-=======
+
 				if(user_name == ''){
 					alert("이름을 입력하세요");
 					return;
@@ -147,8 +116,8 @@
 					alert("이메일을 입력하세요");
 					return;
 				}
+				
 				f.action = "join.do";
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 				f.submit();
 				
 			}
@@ -165,10 +134,10 @@
 					<td><input name="user_name"></td>
 				</tr>
 				
-				<tr align="center">
+				<!-- <tr align="center">
 					<td>전화번호</td>
-					<td><input type="tel" name="user_tel"></td> <!-- 본인인증 구현 -->
-				</tr>
+					<td><input type="tel" name="user_tel"></td> 본인인증 구현
+				</tr> -->
 				
 				<tr align="center">
 					<td>이메일</td>

@@ -1,19 +1,11 @@
 package com.mega.teamproject;
 
 
-<<<<<<< HEAD
-=======
-import javax.servlet.http.HttpServletRequest;
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
-
-<<<<<<< HEAD
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-=======
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,12 +25,8 @@ public class UserController {
 	public static final String VIEW_PATH = "/WEB-INF/views/user/";
 	
 	UserDAO user_dao;
-<<<<<<< HEAD
-	public UserController(dao.UserDAO user_dao) {
-=======
-	
+
 	public UserController(UserDAO user_dao) {
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 		this.user_dao = user_dao;
 	}
 			
@@ -115,16 +103,10 @@ public class UserController {
 	
 	@RequestMapping("/join.do")
 	//회원가입 처리
-<<<<<<< HEAD
-	public String joinId( UserVO vo ) {	
-		vo.setUser_ip(request.getRemoteAddr() );//ip세팅
-		int res = user_dao.insert(vo);		
-=======
 	public String joinId(UserVO vo) {
 		vo.setUser_ip(request.getRemoteAddr() );//ip세팅
 		user_dao.insert(vo);
 		request.setAttribute("vo", vo);
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 		return "redirect:home.do";
 	}
 
@@ -160,17 +142,12 @@ public class UserController {
 	}
 	
 	//마이페이지 이동
-	@RequestMapping("/mypage_form.do")
-	public String mypage_form(UserVO vo) {
+	@RequestMapping("/mypage.do")
+	public String mypage_form() {
 		return VIEW_PATH + "MyPage.jsp";
 	}
 	
 	//마이페이지
-	@RequestMapping("/mypage.do")
-	public String mypage(UserVO vo) {
-		UserVO mypage = user_dao.selectMypage(vo);
-		return VIEW_PATH + "MyPage.jsp";
-	}
 	
 	//정보수정 페이지
 	@RequestMapping("/modify_form.do")

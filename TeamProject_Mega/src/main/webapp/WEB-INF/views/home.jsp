@@ -39,31 +39,18 @@
 </style>
 
 <body>
-<<<<<<< HEAD
-	<a href="gameList.do">게임 리스트</a>
-<<<<<<< HEAD
-	<a href="review_list.do">리뷰목록</a>
-	<a href="join_form.do">회원가입 페이지</a>
-	<a href="login_form.do">로그인 페이지</a>
-=======
-	<a href="review_AL.do">리뷰목록</a>
-	<a href="join_Form.do">회원가입 페이지</a>
-	<a href="login.do">로그인 페이지</a>
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
-	<a href="mypage.do">마이페이지</a>
-=======
+
   <a href="gameList.do">게임 리스트</a>
   <a href="gameInsertForm.do">게임 등록</a><br>
 
   <a href="review_AL.do">리뷰목록</a>
   <a href="review_list.do">리뷰목록</a><br>
 
-  <a href="join_Form.do">회원가입 페이지</a>
-  <a href="login.do">로그인 페이지</a>
+  <a href="join_form.do">회원가입 페이지</a>
+  <a href="login_form.do">로그인 페이지</a>
   <a href="mypage.do">마이페이지</a>
 </body>
 
 </head>
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 </body>
 </html>

@@ -12,11 +12,8 @@
 		 <typeAlias type="vo.GameVO" alias="game"/>
 		 <typeAlias type="vo.GameVOtwo" alias="gametwo"/>
 		 <typeAlias type="vo.ReviewVO" alias="review"/>
-<<<<<<< HEAD
-		<typeAlias type="vo.UserVO" alias="user"/>
-=======
 		 <typeAlias type="vo.UserVO" alias="user"/>
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+ 
 	</typeAliases>
 	
 	<mappers>

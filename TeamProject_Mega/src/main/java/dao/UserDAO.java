@@ -12,11 +12,9 @@ public class UserDAO {
 	}
 	
 	//회원가입
-<<<<<<< HEAD
-	public int insert(UserVO vo) { 
-=======
+
+
 	public int insert(UserVO vo) {
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 		int res = sqlSession.insert("u.user_insert", vo);
 		return res;
 	}
@@ -40,10 +38,7 @@ public class UserDAO {
 	//회원 탈퇴
 	
 	//마이페이지
-	public UserVO selectMypage(UserVO vo) {
-		UserVO mypage = sqlSession.selectOne("u.mypage", vo);
-		return mypage;
-	}
+	
 	
 	//로그인
 	public UserVO login(UserVO vo) {

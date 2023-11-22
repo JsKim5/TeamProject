@@ -16,6 +16,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import vo.GameVO;
+import vo.GameVOtwo;
 import vo.ReviewVO;
 
 public class GameDAO {
@@ -25,8 +26,8 @@ public class GameDAO {
 		this.sqlSession = sqlSession;
 	}
 
-	public List<GameVO> select(HashMap<String, Integer> map) {
-		List<GameVO> list = sqlSession.selectList("g.selectGame",map);
+	public List<GameVO> select(GameVOtwo gvot) {
+		List<GameVO> list = sqlSession.selectList("g.selectGame",gvot);
 		return list;
 	}
 
@@ -151,12 +152,43 @@ public class GameDAO {
 		}
 		return gameName;
 	}
+	public Map<String, String> metacriticGameImg() {
+		int page = 1;
+		Map<String, String> gameInfoMap = new HashMap<String, String>();
+		while (page < 10) {
+			page++;
+			String url = "https://www.metacritic.com/browse/game/?platform=ps5&platform=xbox-series-x&platform=nintendo-switch&platform=pc&releaseYearMin=1910&releaseYearMax=2023&page="
+					+ page;
+			try {
+				Document document = Jsoup.connect(url).get();
+
+				Elements aTags = document.select("a.c-finderProductCard_container");
+		        for (Element aTag : aTags) {
+		        	Element titleElement = aTag.getElementsByClass("c-finderProductCard_title").first();
+		            String gameName = titleElement.attr("data-title");
+		            String imgUrl = aTag.select("img").first().attr("src");
+		            
+		            // 게임 이름과 이미지 URL을 Map에 저장
+		            gameInfoMap.put(gameName, imgUrl);
+		        }
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return gameInfoMap;
+	}
 	
+	public void imgUrlOutput() {
+		for (Map.Entry<String, String> entry : this.metacriticGameImg().entrySet()) {
+            System.out.println("게임 이름: " + entry.getKey());
+            System.out.println("이미지 URL: " + entry.getValue());
+            System.out.println("-------------------------");
+        }
+	}
 	public String meta10pageInsert() {
 		String gameArr[] = this.metacriticGameName().split("/");
 		int num = gameArr.length;
-		System.out.println(Arrays.toString(gameArr));
-		System.out.println(num);
+		int imgC = 0;
 		for(String gameName : gameArr) {
 			String url = "http://www.metacritic.com/game/" + gameName;
 			try {
@@ -175,7 +207,7 @@ public class GameDAO {
 				selectTag[8] = null; // 이미지
 				selectTag[9] = null; // 유튜브
 				selectTag[10] = "span[data-v-4cdca868]"; // meta점수
-
+				
 				for (int i = 0; i < selectTag.length; i++) {
 					Element element = null;
 					Elements elements = null;
@@ -205,6 +237,18 @@ public class GameDAO {
 					}
 					res[i] = fromMetacritic;
 				}
+				
+				for (Map.Entry<String, String> entry : this.metacriticGameImg().entrySet()) {
+					
+		            if(entry.getKey().equals(res[0])) {
+		            	System.out.println("--------------");
+		            	System.out.println("entry.getKey() : " + entry.getKey());
+		            	System.out.println("res[0] : " + res[0] );
+		            	res[8] = entry.getValue();
+		            	imgC++;
+		            	
+		            }
+		        }
 				GameVO vo = new GameVO();
 				vo.setGame_name(res[0]);
 				vo.setGame_platforms(res[1]);
@@ -222,11 +266,12 @@ public class GameDAO {
 				e.printStackTrace();
 			}
 		}
+		System.out.println(imgC + " 개 이미지 url 등록 완료");
 		return "yes";
 	}
 	
-	public int getRowTotal() {
-		int res = sqlSession.selectOne("g.game_count");
+	public int getRowTotal(GameVOtwo gvot) {
+		int res = sqlSession.selectOne("g.game_count",gvot);
 		return res;
 	}
 	
@@ -248,16 +293,8 @@ public class GameDAO {
 		List<String> resList = new ArrayList<String>(resultSet);
 		return resList;
 	}
-	public List<String> genreSearch() {
-		List<String> list = sqlSession.selectList("g.genreSearch");
-		return list;
-	}
-	public List<String> developerSearch() {
-		List<String> list = sqlSession.selectList("g.developerSearch");
-		return list;
-	}
-	public List<String> publisherSearch() {
-		List<String> list = sqlSession.selectList("g.publisherSearch");
+	public List<String> colSearch(String select_col) {
+		List<String> list = sqlSession.selectList("g.colSearch",select_col);
 		return list;
 	}
 	

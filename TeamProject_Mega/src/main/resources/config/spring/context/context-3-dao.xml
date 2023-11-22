@@ -2,11 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+<<<<<<< HEAD
 	
 
  	<bean id="userBean" class="dao.UserDAO">
 		<constructor-arg ref="sqlSession"/>
 	</bean>
+=======
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 
  	 <!-- <bean id="board_daoBean" class="dao.BoardDAO">
 		<property name = "sqlSession" ref = "sqlSession"></property>
@@ -17,6 +20,10 @@
 	</bean>
 	
 	<bean id="reviewBean" class="dao.ReviewDAO">
+		<constructor-arg ref="sqlSession"/>
+	</bean>
+	
+	 <bean id="userBean" class="dao.UserDAO">
 		<constructor-arg ref="sqlSession"/>
 	</bean>
 	

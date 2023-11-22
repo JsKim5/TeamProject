@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="r">
 	
 	<!-- 리뷰전체조회 -->
+
 	<select id = "review_list" resultType = "review" parameterType = "String">
 		select * from user_review  where game_name = #{game_name} order by REVIEW_IDX DESC
 	</select>
@@ -22,9 +23,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		sysdate,
 		#{review_title},
 		#{user_score},
-		#{game_name}
+		#{game_name},
+		#{review_count}
 		)			
 	</insert>
+	
+	<select id = "review_AL" resultType = "review">
+		select * from user_review order by REVIEW_IDX DESC
+	</select>
+	
+	<delete id="deleteReview" parameterType="int">
+		delete USER_REVIEW where review_idx = #{idx}
+	</delete>
 
 
 	

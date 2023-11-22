@@ -85,6 +85,7 @@
 		
 		<script>
 			function send_check(f) {
+<<<<<<< HEAD
 				let name = f.user_name.value.trim();
 				let tel = f.user_tel.value.trim();
 				let email = f.user_email.value.trim();
@@ -106,23 +107,48 @@
 					alert("이메일을 입력하세요");
 					return;
 				}
+=======
+				let user_name = f.user_name.value.trim();
+				let user_tel = f.user_tel.value.trim();
+				let user_email = f.user_email.value.trim();
+				let user_id = f.user_id.value.trim();
+				let user_pwd = f.user_pwd.value.trim();
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 				
-				if(id == ''){
+				if(user_id == ''){
 					alert("아이디를 입력하세요");
 					return;
 				}
 				
-				if(pw == ''){
+				if(user_pwd == ''){
 					alert("비밀번호를 입력하세요");
 					return;
 				}
 				
+<<<<<<< HEAD
 				if(nickname == ''){
 					alert("닉네임을 입력하세요");
+=======
+				if(user_tel == ''){
+					alert("전화번호를 입력하세요");
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 					return;
 				}
 				
+<<<<<<< HEAD
 				f.action="join.do";
+=======
+				if(user_name == ''){
+					alert("이름을 입력하세요");
+					return;
+				}
+				
+				if(user_email == ''){
+					alert("이메일을 입력하세요");
+					return;
+				}
+				f.action = "join.do";
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 				f.submit();
 				
 			}

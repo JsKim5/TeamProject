@@ -31,12 +31,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 아이디 찾기 -->
 	<select id = "select_id" resultType="User" parameterType="int">
+<<<<<<< HEAD
 		select user_id form USER_INFO where name=#{user_name} and <!-- 아이디 찾기 이름 + 주민번호 or 이름 + 이메일 -->
+=======
+		select user_id form USER_INFO where name=#{name} and <!-- 아이디 찾기 이름 + 주민번호 or 이름 + 이메일 -->
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 	</select>
 	
 	<!-- 비밀번호 찾기 -->
 	<select id = "select_pw" resultType="User" parameterType="int">
+<<<<<<< HEAD
 		select user_pw form USER_INFO where name=#{user_name} and id=#{user_id} <!-- 비밀번호 찾기 이름 + 아이디 + 주민번호 or 이메일 -->
+=======
+		select user_pw form USER_INFO where name=#{name} and id=#{id} <!-- 비밀번호 찾기 이름 + 아이디 + 주민번호 or 이메일 -->
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 	</select>
 	
 	<!-- 마이페이지 -->

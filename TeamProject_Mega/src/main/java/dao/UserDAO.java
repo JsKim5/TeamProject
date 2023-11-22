@@ -4,8 +4,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import vo.UserVO;
 
-import java.util.List;
-
 public class UserDAO {
 	SqlSession sqlSession;
 	
@@ -14,7 +12,11 @@ public class UserDAO {
 	}
 	
 	//회원가입
+<<<<<<< HEAD
 	public int insert(UserVO vo) { 
+=======
+	public int insert(UserVO vo) {
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 		int res = sqlSession.insert("u.user_insert", vo);
 		return res;
 	}

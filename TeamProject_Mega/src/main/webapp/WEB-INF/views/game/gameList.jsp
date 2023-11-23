@@ -148,6 +148,7 @@ input[type="button"]:hover {
 .custom-image {
 	width: 88px;
 	height: 132px;
+	border-radius: 10px;
 }
 /* 게임 메타 스코어 스타일 */
 .game-meta-score {
@@ -168,6 +169,10 @@ input[type="button"]:hover {
 	background-color: #f44336; /* 빨간색 배경색 */
 	color: white; /* 흰색 폰트 */
 }
+td.gameView{
+	border-radius: 15px; /* 둥근 테두리 크기 조절 */
+  	background-color: #f0f0f0; /* 배경색 지정 */
+}
 </style>
 
 
@@ -180,7 +185,7 @@ input[type="button"]:hover {
 
 
 		<form>
-			<table border="1">
+			<table>
 				<tr>
 					<td><select name="g_select" style="width: 150px; height: 30px; font-size: 14px;">
 							<option value="game_genre">장르</option>
@@ -225,7 +230,7 @@ input[type="button"]:hover {
 				<c:if test="${loop.index % 5 == 0}">
 					<tr>
 				</c:if>
-				<td><c:if test="${l.game_image_path == 'N/A' }">
+				<td class="gameView"><c:if test="${l.game_image_path == 'N/A' }">
 						<img src="/teamproject/resources/game_img/no_file.png"
 							class="custom-image">
 					</c:if> <c:if test="${l.game_image_path != 'N/A' }">

@@ -2,7 +2,6 @@ package dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -301,5 +300,15 @@ public class GameDAO {
 	public List<ReviewVO> review_selectList(String game_name){
 		List<ReviewVO> list = sqlSession.selectList("r.review_list", game_name);
 		return list;
+	}
+	
+	public int youtubeUrlUpdate(GameVO vo) {
+		int res = sqlSession.update("g.youtubeUrlUpdate",vo);
+		return res;
+	}
+	
+	public int insertYoutubeUrl(GameVO vo) {
+		int res = sqlSession.insert("g.insertYoutubeUrl",vo);
+		return res;
 	}
 }

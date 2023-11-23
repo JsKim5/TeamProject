@@ -146,7 +146,6 @@ public class GameController {
 	@RequestMapping("/metacritic.do")
 	public String metacritic(String gameTitle) {
 		String str = gameDao.metacritic(gameTitle);
-		gameDao.imgUrlOutput();
 		return str;
 	}
 
@@ -184,5 +183,12 @@ public class GameController {
 		} else {
 			return "redirect:gameList.do";
 		}
+	}
+	
+	@RequestMapping("/youtubeUrlUpdate.do")
+	public String youtubeUrlUpdate(GameVO vo) {
+		int res = gameDao.youtubeUrlUpdate(vo);
+		int res2 = gameDao.insertYoutubeUrl(vo);
+		return "redirect:gameView.do?idx="+vo.getGame_idx();
 	}
 }

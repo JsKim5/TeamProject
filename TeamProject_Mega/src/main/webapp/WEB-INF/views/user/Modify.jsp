@@ -11,21 +11,23 @@
 	
 		<script>
 			function send(f) {
+				
 				let idx = f.user_idx.value;
 				let nickname = f.user_nickname.value;
 				let email = f.user_email.value;
 				let pwd = f.user_pwd.value;
-				/* let chk_pwd = f.user_pwd_chk.value; */
+				let pwd_chk = f.user_pwd_chk.value;
+				alert("send메서드 호출");
 				
-				/* if( pwd != chk_pwd) {
+				if( pwd != pwd_chk) {
 					alert("비밀번호가 일치하지 않습니다");
 					return;
-				} */
+				}
 				
 				let url= "modify.do";
-				let param = "idx="+idx+"&nickname="+nickname+"&email="+email+"&pwd="+pwd;
+				let param = "user_idx="+idx+"&user_nickname="+nickname+"&user_email="+email+"&user_pwd="+pwd;
 				
-				sendRequest(url, param, resultFn, "POST");
+				sendRequest(url, param, resultFn, "post");
 				
 			}
 			
@@ -40,7 +42,7 @@
 					}
 					
 					alert("수정 완료!");
-					location.href="mypage.do";
+					location.href="logout.do";
 				}
 			}
 		</script>
@@ -48,9 +50,10 @@
 	</head>
 	
 	<body>
-		<input type="hidden" name="user_idx" value="${login.user_idx }">
 		
-		<form action="mypage.do" method="post">
+		
+		<form>
+		<input type="hidden" name="user_idx" value="${login.user_idx }">
 			<table>
 				<caption>수정페이지</caption>
 				
@@ -77,13 +80,13 @@
 				
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="user_pwd" value="${login.user_pwd }">
+					<td><input type="password" name="user_pwd" value="${login.user_pwd }"></td>
 				<tr>
 				
-				<!-- <tr>
+				<tr>
 					<td>비밀번호 확인</td>
-					<td><input type="password" name="user_pwd_chk">
-				</tr> -->
+					<td><input type="password" name="user_pwd_chk"></td>
+				</tr>
 				
 				<tr>
 					<td><input type="button" value="홈으로" onclick="location.href='home.do'"></td>
@@ -102,7 +105,6 @@
 				<table>
 					<tr>
 						<td>프로필 사진</td>
-				
 						<td><input type="file" name="user_image"></td>
 						<td><input type="button" value="변경하기" onclick="submit()"></td>
 					</tr>

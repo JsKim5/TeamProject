@@ -102,8 +102,8 @@
 				f.action = "login.do";
 				f.submit();
 				
+				
 			}
-			
 				
 			
 		</script>
@@ -138,7 +138,7 @@
 							</td>
 						</tr>
 			</table>
-			
+			<p align="center" >${loginfail }</p>
 		</form>
 	</body>
 </html>

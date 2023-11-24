@@ -36,19 +36,20 @@ public class UserDAO {
 	}
 	
 	//회원 정보 수정
-	public String modify(UserVO vo) {
-		int modify = sqlSession.update("u.user_modify", vo);
-		
-		String result = "no";
-		if(modify == 1) {
-			result = "yes";
-		}
-		return result;
+	public int modify(UserVO vo) {
+		int update = sqlSession.update("u.user_modify", vo);
+		return update;
 	}
 	
 	//사진 수정
 	public int image(UserVO vo) {
 		int res = sqlSession.update("u.user_modify_image", vo);
 		return res;
+	}
+	
+	//회원 탈퇴
+	public int delete(UserVO vo) {
+		int delete = sqlSession.delete("u.delete_id", vo);
+		return delete;
 	}
 }

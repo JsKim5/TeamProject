@@ -68,7 +68,10 @@ public class UserController {
 
 	// 로그인 페이지
 	@RequestMapping("/login_form.do")
-	public String login_form() {
+	public String login_form(String fail) {
+		if(fail != null && !fail.isEmpty()) {
+			request.setAttribute("loginfail", "아이디 혹은 비밀번호를 확인해주세요");
+		}
 		return VIEW_PATH + "Login.jsp";
 	}
 
@@ -79,9 +82,13 @@ public class UserController {
 
 		if (login != null) {
 			session.setAttribute("login", login);
+			
+			return VIEW_PATH + "LoginResult.jsp";
 		}
-
-		return VIEW_PATH + "LoginResult.jsp";
+		
+		
+		return "redirect:login_form.do?fail=o";
+		
 	}
 
 	// 마이페이지 이동
@@ -95,7 +102,7 @@ public class UserController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 
-		return "redirect:home.do";
+		return "redirect:login_form.do";
 	}
 
 	// 정보수정 페이지
@@ -145,7 +152,7 @@ public class UserController {
 		UserVO login = user_dao.login(vo);
 		
 		session.setAttribute("login", login);
-		request.setAttribute("vo", vo);// 바인딩
+		request.setAttribute("vo"/* + "" */, vo);// 바인딩
 		
 		return "redirect:mypage.do";
 
@@ -153,11 +160,13 @@ public class UserController {
 
 	// 회원정보 수정
 	@RequestMapping("modify.do")
+	@ResponseBody
 	public String modify(UserVO vo) {
-		String modify = user_dao.modify(vo);
-		request.setAttribute("modify", modify);
-
-		return "redirect:mypage.do";
+		int res = user_dao.modify(vo);
+		if(res == 0) {
+			return "no";
+		}
+		return "yes";
 	}
 
 	// 회원탈퇴 페이지 이동
@@ -167,9 +176,14 @@ public class UserController {
 	}
 
 	// 회원탈퇴
-	/*
-	 * @RequestMapping("delete.do") public String delete(UserVO vo) {
-	 * 
-	 * }
-	 */
+	@RequestMapping("delete.do")
+	public String delete(UserVO vo) {
+		int res = user_dao.delete(vo);
+		
+		if(res == 0 ) {
+			return "no";
+		}
+		return "yes";
+	 }
+	 
 }

@@ -12,8 +12,6 @@ public class UserDAO {
 	}
 	
 	//회원가입
-
-
 	public int insert(UserVO vo) {
 		int res = sqlSession.insert("u.user_insert", vo);
 		return res;
@@ -31,19 +29,26 @@ public class UserDAO {
 		return pw;
 	}
 	
-	//비밀번호 변경
-	
-	//닉네임 변경
-	
-	//회원 탈퇴
-	
-	//마이페이지
-	
-	
 	//로그인
 	public UserVO login(UserVO vo) {
 		UserVO login = sqlSession.selectOne("u.user_login", vo);
 		return login;
 	}
 	
+	//회원 정보 수정
+	public String modify(UserVO vo) {
+		int modify = sqlSession.update("u.user_modify", vo);
+		
+		String result = "no";
+		if(modify == 1) {
+			result = "yes";
+		}
+		return result;
+	}
+	
+	//사진 수정
+	public int image(UserVO vo) {
+		int res = sqlSession.update("u.user_modify_image", vo);
+		return res;
+	}
 }

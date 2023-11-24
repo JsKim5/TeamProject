@@ -39,6 +39,12 @@
 					<td><input type="password" name="del_pwd"></td>
 				</tr>
 				
+				<tr>
+					<td>
+					<input type = "button" value="탈퇴하기" onclick="send(this.form);">
+					</td>
+				</tr>
+				
 				
 		</table>
 	</body>

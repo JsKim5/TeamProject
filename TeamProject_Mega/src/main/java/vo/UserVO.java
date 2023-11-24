@@ -3,18 +3,19 @@ package vo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UserVO {
-	private MultipartFile User_image;
+	private MultipartFile user_image;
 	
 	private int user_idx;
 	private String user_name,user_pwd,user_regdate,user_nickname,
 					user_image_path,user_email,user_id,user_ip;
 	
 	
+	
 	public MultipartFile getUser_image() {
-		return User_image;
+		return user_image;
 	}
 	public void setUser_image(MultipartFile user_image) {
-		User_image = user_image;
+		this.user_image = user_image;
 	}
 	public int getUser_idx() {
 		return user_idx;

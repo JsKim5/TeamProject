@@ -6,26 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/teamproject/resources/css/styles_header_footer.css"> <!-- styles.css 파일 링크 -->
 <script src="/teamproject/resources/js/httpRequest.js"></script>
 <script>
-	function del(f) {
-		let idx = f.idx.value;
-		let url = "gameDelete.do";
-		let param = "idx=" + idx;
-		sendRequest(url, param, callback, "POST");
-	}
-
-	function callback() {
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			let res = xhr.responseText;
-			if (res == "del") {
-				alert("삭제 성공");
-				location.href = "gameList.do";
-				return;
-			}
-		}
-	}
-
 	function selectSearch(f) {
 		let select = f.g_select.value;
 		let url = "gameSelectSearch.do";
@@ -178,9 +161,7 @@ td.gameView{
 
 </head>
 <body>
-	<div>
-		<a href="gameInsertForm.do">게임 등록 페이지</a>
-	</div>
+	<%@ include file="/WEB-INF/views/layout/header.jsp" %> <!-- 헤더 부분 include -->
 	<div>
 
 
@@ -259,5 +240,6 @@ td.gameView{
 			</tr>
 		</table>
 	</form>
+	  <%@ include file="/WEB-INF/views/layout/footer.jsp" %> <!-- 푸터 부분 include -->
 </body>
 </html>

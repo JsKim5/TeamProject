@@ -92,12 +92,6 @@ input[type="button"]:hover {
 }
 </style>
 
-<script>
-	function registration(f){
-		f.action="youtubeUrlUpdate.do";
-		f.submit();
-	}
-</script>
 </head>
 <body>
 
@@ -110,12 +104,7 @@ input[type="button"]:hover {
 							${vo.game_youtube_url}
 						</c:if>
 						<c:if test="${vo.game_youtube_url == 'N/A'}">
-							<form>
-								<input type="hidden" name="game_idx" value = "${vo.game_idx}">
-								<input type="hidden" name="game_name" value = "${vo.game_name}">
-								<input name="game_youtube_url">
-								<input type = "button" value = "등록" onclick="registration(this.form)">
-							</form>
+							등록 대기중
 						</c:if>
 						</td>
 				</tr>

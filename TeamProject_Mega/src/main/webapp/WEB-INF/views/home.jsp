@@ -37,11 +37,11 @@
     }
   }
 </style>
-
+<link rel="stylesheet" href="/teamproject/resources/css/styles_header_footer.css"> <!-- styles.css 파일 링크 -->
 <body>
-
+	<%@ include file="/WEB-INF/views/layout/header.jsp" %> <!-- 헤더 부분 include -->
   <a href="gameList.do">게임 리스트</a>
-  <a href="gameInsertForm.do">게임 등록</a><br>
+  <a href="gameAdminPage.do">게임 관리 페이지</a><br>
 
   <a href="review_AL.do">리뷰목록</a>
   <a href="review_list.do">리뷰목록</a><br>
@@ -49,6 +49,7 @@
   <a href="join_form.do">회원가입 페이지</a>
   <a href="login_form.do">로그인 페이지</a>
   <a href="mypage.do">마이페이지</a>
+  	<%@ include file="/WEB-INF/views/layout/footer.jsp" %> <!-- 푸터 부분 include -->
 </body>
 
 </head>

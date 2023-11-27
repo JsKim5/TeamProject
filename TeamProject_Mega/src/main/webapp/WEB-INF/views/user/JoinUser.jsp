@@ -121,6 +121,22 @@
 				f.submit();
 				
 			}
+			
+			function idcheck(){
+				$.ajax({
+					url : "checkid", //url안에 뭘넣어야하는지
+					type : "post",
+					dataType : "json",
+					data : {"user_id" : $("#user_id").val()},
+					success : function(data){
+						if(data == 1){
+							alert("중복된 아이디입니다.");
+						}else if(data == 0){
+							$("#checkid").attr("value", "Y");
+							alert("사용가능한 아이디입니다.");
+						}
+					}
+				})
 		</script>
 	</head>
 	
@@ -147,6 +163,7 @@
 				<tr align="center">
 					<td>아이디</td>
 					<td><input name="user_id"></td>
+					<td><input type="button" value="중복검사" onclick="idcheck();">
 				</tr>
 				
 				<tr align="center">

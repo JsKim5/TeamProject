@@ -52,4 +52,10 @@ public class UserDAO {
 		int delete = sqlSession.delete("u.delete_id", vo);
 		return delete;
 	}
+	
+	//아이디 중복검사
+	public int checkid(UserVO vo) {
+		int check = sqlSession.selectOne("u.check_id", vo);
+		return check;
+	}
 }

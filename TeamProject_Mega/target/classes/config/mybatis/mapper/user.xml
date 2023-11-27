@@ -24,18 +24,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from USER_INFO where user_id = #{user_id} and user_pwd = #{user_pwd}
 	</select>
 	
-	<!-- 회원 탈퇴 -->
-	<delete id = "delete_id" parameterType="int">
-		delete from USER_INFO where user_pwd=#{user_pwd} <!-- idx가있으니 비밀번호만 받아서 탈퇴 -->
-	</delete>
-	
 	<!-- 아이디 찾기 -->
-	<select id = "select_id" resultType="User" parameterType="int">
+	<select id = "select_id" resultType="user" parameterType="int">
 		select user_id form USER_INFO where name=#{user_name} and <!-- 아이디 찾기 이름 + 주민번호 or 이름 + 이메일 -->
 	</select>
 	
 	<!-- 비밀번호 찾기 -->
-	<select id = "select_pw" resultType="User" parameterType="int">
+	<select id = "select_pw" resultType="user" parameterType="int">
 		select user_pw form USER_INFO where name=#{user_name} and id=#{user_id} <!-- 비밀번호 찾기 이름 + 아이디 + 주민번호 or 이메일 -->
 	</select>
 	
@@ -51,6 +46,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id = "user_modify_image" parameterType="user">
 		update USER_INFO set user_image_path=#{user_image_path} where user_idx=#{user_idx}
 	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id = "delete_id" parameterType="user">
+		delete from USER_INFO where user_idx=#{user_idx} and user_pwd=#{user_pwd}
+	</delete>
+	
+	<!-- 아이디 중복검사 -->
+	<select id = "check_id" resultType="user" parameterType="int">
+		select count(*) from USER_INFO where user_id=#{user_id)
+	</select>
 	
 </mapper>
 

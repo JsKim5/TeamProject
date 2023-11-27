@@ -90,6 +90,18 @@ public class UserController {
 		return "redirect:login_form.do?fail=o";
 		
 	}
+	
+	//아이디 중복검사
+	@RequestMapping("/checkid.do")
+	@ResponseBody
+	public String checkid(UserVO vo) {
+		int count = user_dao.checkid(vo);
+		
+		if(count == 0 ) {
+			return "no";
+		}
+		return "yes";
+	}
 
 	// 마이페이지 이동
 	@RequestMapping("/mypage.do")
@@ -102,7 +114,7 @@ public class UserController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 
-		return "redirect:login_form.do";
+		return "redirect:home.do";
 	}
 
 	// 정보수정 페이지
@@ -177,13 +189,18 @@ public class UserController {
 
 	// 회원탈퇴
 	@RequestMapping("delete.do")
+	@ResponseBody
 	public String delete(UserVO vo) {
 		int res = user_dao.delete(vo);
 		
 		if(res == 0 ) {
 			return "no";
 		}
+		//session.invalidate();//삭제시 로그아웃처리
 		return "yes";
+		
+		
 	 }
+		
 	 
 }

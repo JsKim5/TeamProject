@@ -50,10 +50,11 @@
 	</head>
 	
 	<body>
-		
+		<!-- 비밀변호 변경시 중복될때 이미 사용중인 비밀번호 입니다 띄우기 -->
 		
 		<form>
 		<input type="hidden" name="user_idx" value="${login.user_idx }">
+		
 			<table>
 				<caption>수정페이지</caption>
 				
@@ -80,7 +81,7 @@
 				
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="user_pwd" value="${login.user_pwd }"></td>
+					<td><input type="password" name="user_pwd" <%-- value="${login.user_pwd }" --%>></td>
 				<tr>
 				
 				<tr>

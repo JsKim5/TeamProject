@@ -2,6 +2,7 @@ package dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -290,10 +291,25 @@ public class GameDAO {
 		}
 		
 		List<String> resList = new ArrayList<String>(resultSet);
+		Collections.sort(resList); // 알파벳 순서로 정렬
 		return resList;
 	}
+	
+	public List<Integer> getIndexNumber(List<String> list) {
+		List<Integer> indexNumber = new ArrayList<Integer>();
+		String temp = "";
+		for (String res : list) {
+        	if(!temp.equals(String.valueOf(res.charAt(0)))) {
+        	temp = String.valueOf(res.charAt(0));
+        	indexNumber.add(list.indexOf(res));
+        	}
+        }
+		return indexNumber;
+	}
+	
 	public List<String> colSearch(String select_col) {
 		List<String> list = sqlSession.selectList("g.colSearch",select_col);
+		Collections.sort(list); // 알파벳 순서로 정렬
 		return list;
 	}
 	

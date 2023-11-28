@@ -49,7 +49,7 @@ public class GameController {
 		int start = (nowPage - 1) * Common.GameList.BLOCKLIST + 1;
 		int end = start + Common.GameList.BLOCKLIST - 1;
 
-		
+		String url = "gameList.do";
 		GameVOtwo gvot = new GameVOtwo();
 		gvot.setStart(start);
 		gvot.setEnd(end);
@@ -59,6 +59,7 @@ public class GameController {
 		if (aOption && bOption) {
 			gvot.setSelectCol(selectCol);
 			gvot.setSearch(search);
+			url = "gameList.do?selectCol="+selectCol+"&search="+search;
 		}
 		if (cOption) {
 			gvot.setTitle(searchTitle);
@@ -69,9 +70,9 @@ public class GameController {
 		int row_total = gameDao.getRowTotal(gvot);
 
 		// 페이지 메뉴 만들기
-		String pageMenu = Paging.getPaging("gameList.do", nowPage, row_total, Common.GameList.BLOCKLIST,
+		String pageMenu = Paging.getPaging(url, nowPage, row_total, Common.GameList.BLOCKLIST,
 				Common.GameList.BLOCKPAGE);
-
+		
 		request.setAttribute("list", list);
 		request.setAttribute("pageMenu", pageMenu);
 
@@ -165,7 +166,9 @@ public class GameController {
 		} else {
 			list = gameDao.colSearch(select);
 		}
-
+		
+		List<Integer> indexNumber = gameDao.getIndexNumber(list);
+		request.getSession().setAttribute("indexNumber", indexNumber);
 		request.getSession().setAttribute("selectList", list);
 		request.getSession().setAttribute("selectOption", select + " (" + list.size() + ")");
 		request.getSession().setAttribute("selectCol", select);

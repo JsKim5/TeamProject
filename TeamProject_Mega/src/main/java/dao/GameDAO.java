@@ -2,7 +2,7 @@ package dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -291,15 +291,40 @@ public class GameDAO {
 		}
 		
 		List<String> resList = new ArrayList<String>(resultSet);
+		Collections.sort(resList); // 알파벳 순서로 정렬
 		return resList;
 	}
+	
+	public List<Integer> getIndexNumber(List<String> list) {
+		List<Integer> indexNumber = new ArrayList<Integer>();
+		String temp = "";
+		for (String res : list) {
+        	if(!temp.equals(String.valueOf(res.charAt(0)))) {
+        	temp = String.valueOf(res.charAt(0));
+        	indexNumber.add(list.indexOf(res));
+        	}
+        }
+		return indexNumber;
+	}
+	
 	public List<String> colSearch(String select_col) {
 		List<String> list = sqlSession.selectList("g.colSearch",select_col);
+		Collections.sort(list); // 알파벳 순서로 정렬
 		return list;
 	}
 	
 	public List<ReviewVO> review_selectList(String game_name){
 		List<ReviewVO> list = sqlSession.selectList("r.review_list", game_name);
 		return list;
+	}
+	
+	public int youtubeUrlUpdate(GameVO vo) {
+		int res = sqlSession.update("g.youtubeUrlUpdate",vo);
+		return res;
+	}
+	
+	public int insertYoutubeUrl(GameVO vo) {
+		int res = sqlSession.insert("g.insertYoutubeUrl",vo);
+		return res;
 	}
 }

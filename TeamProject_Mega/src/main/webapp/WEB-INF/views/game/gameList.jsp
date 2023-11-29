@@ -109,6 +109,10 @@ input[type="button"]:active {
 	margin: 0px; /* 마진을 5px로 지정 */
 }
 
+.releaseDate{
+	color:black;
+}
+
 td.selectRes {
 	text-align: left;
 }
@@ -208,7 +212,7 @@ td.pageMenu{
             </c:otherwise>
           </c:choose>
         ">
-						${l.game_meta_score} </span><br> ${l.game_publisher}</td>
+						${l.game_meta_score} </span><br> ${l.game_publisher}<br><span class="color">Released On : </span>${l.game_release_date}</td>
 				<c:if test="${loop.index % 5 == 4 || loop.last}">
 					</tr>
 				</c:if>

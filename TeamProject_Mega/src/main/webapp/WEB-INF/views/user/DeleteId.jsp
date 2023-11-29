@@ -6,40 +6,71 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		
+		<script src="/teamproject/resources/js/httpRequest.js"></script>
+		
 		<script>
-			function del() {
-				let del_id = document.getElementById("c_pwd").value;
+			function send(f) {
 				
-				if(!confirm("탈퇴 하시겠습니까?") ) {
+				let idx = f.user_idx.value;
+				let pwd = f.user_pwd.value;
+				let pwd_chk = f.pwd_chk.value;
+				
+				if( pwd != pwd_chk ) {
+					alert("비밀번호가 일치하지 않습니다");
 					return;
 				}
 				
-				if(del_id != ${vo.user_id}) {
-					alert{"비밀번호가 일치하지 않습니다"}
+				if( !confirm('탈퇴 하시겠습니까?') ){
 					return;
 				}
 				
-				location.href="home.do";//홈페이지 url로 수정
+				let url= "delete.do";
+				let param = "user_idx="+idx+"&user_pwd="+pwd;			
+				sendRequest(url, param, resultFn, "post");
+				
+			}
+		
+			function resultFn() {
+	
+				
+				if(xhr.readyState == 4 & xhr.status == 200) {
+					
+					let data = xhr.responseText;
+					
+					
+					if(data == 'no') {
+						alert("탈퇴 실패");
+						return;
+					}
+					
+					alert("탈퇴 완료!");
+					location.href="logout.do";
+				}
 			}
 		</script>
 		
 	</head>
 	
 	<body>
+	<form>
+	<input type="hidden" name="user_idx" value="${login.user_idx}">
+	<input type="hidden" name="user_pwd" value="${login.user_pwd}">
 		<table>
 			<caption>회원 탈퇴</caption>
 				
 				<tr>
-					<td>아이디</td>
-					<td><input name="user_id"></td>
+					<td>비밀번호</td>
+					<td><input type="password" name="pwd_chk"></td>
 				</tr>
 				
 				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="del_pwd"></td>
+					<td>
+					<input type = "button" value="탈퇴하기" onclick="send(this.form);">
+					</td>
 				</tr>
 				
 				
 		</table>
+	</form>
 	</body>
 </html>

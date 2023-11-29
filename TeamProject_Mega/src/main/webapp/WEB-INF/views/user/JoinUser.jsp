@@ -121,6 +121,33 @@
 				f.submit();
 				
 			}
+			
+			function send(f) {
+				
+				let id = f.user_id.value;
+				
+				let url= "checkid.do";
+				let param = "user_id="+id;
+				
+				sendRequest(url, param, checkFn, "post");
+				
+			}
+			
+			function checkFn() {
+				alert("result메서드 호출");
+				if(xhr.readyState == 4 & xhr.status == 200) {
+					
+					let data = xhr.responseText;
+					
+					if(data == 'no') {
+						alert("이미 사용중인 id입니다");
+						return;
+					}
+					
+					alert("사용 가능한 id입니다");
+				}
+			}
+			
 		</script>
 	</head>
 	
@@ -147,6 +174,7 @@
 				<tr align="center">
 					<td>아이디</td>
 					<td><input name="user_id"></td>
+					<td><input type="button" value="중복검사" onclick="send(this.form);">
 				</tr>
 				
 				<tr align="center">

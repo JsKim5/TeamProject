@@ -128,6 +128,6 @@
 							<input type="button" value="비밀번호 찾기" onclick="send(this.form)">
 							</td>
 					</table>
-				<!-- </form> -->
+			</form>
 	</body>
 </html>

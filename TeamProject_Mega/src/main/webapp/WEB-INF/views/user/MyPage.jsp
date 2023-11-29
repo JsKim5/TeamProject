@@ -5,10 +5,17 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		
+		<style>
+			.user_img {
+				width: 88px;
+				height: 132px;
+			}
+		</style>
 	</head>
 	
 	<body>
-		<form action="mypage.do" method="post">
+		<form method="post">
 			<table>
 				<caption>마이페이지</caption>
 				
@@ -34,7 +41,7 @@
 				
 				<tr>
 					<td>프로필 사진</td>
-					<td>${ login.user_image_path }</td>
+					<td ><img class ="user_img" src = "/teamproject/resources/user_img/${ login.user_image_path }"></td>
 				</tr>
 				
 				<tr>

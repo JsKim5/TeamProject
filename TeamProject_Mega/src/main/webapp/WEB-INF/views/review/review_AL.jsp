@@ -101,13 +101,23 @@
 					<tr align="center">
 						<td>${review_vo.review_idx }</td>
 						<td>${review_vo.game_name }</td>
-						<td></td>
+						<td>${review_vo.user_nickname }</td>
 						<td><a href="review_ALview.do?idx=${review_vo.review_idx}">
 								${review_vo.review_title} </a></td>
 						<td>${review_vo.user_score}/5</td>
 						<td>${review_vo.date_created}</td>
 					</tr>
 				</c:forEach>
+				<tr>
+						<td colspan = "6" align="center">
+						${count }
+						</td>
+					</tr>
+				<tr>
+					<td colspan ="6" align="center">
+					${pageMenu }
+					</td>
+					</tr>
 			</table>
 		</div>
 

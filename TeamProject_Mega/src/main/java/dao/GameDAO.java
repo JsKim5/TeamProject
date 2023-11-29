@@ -302,4 +302,10 @@ public class GameDAO {
 		List<ReviewVO> list = sqlSession.selectList("r.review_list", game_name);
 		return list;
 	}
+	
+	public int review_count(String game_name) {
+		int res = sqlSession.selectOne("r.review_count", game_name);
+		return res;
+	}
+	
 }

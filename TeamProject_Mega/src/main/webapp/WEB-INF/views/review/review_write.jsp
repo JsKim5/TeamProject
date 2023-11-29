@@ -99,6 +99,7 @@
 <body>
 
   <form method="post">
+  	<input type = "hidden" name="user_nickname" value="${login.user_nickname }">
     <input type="hidden" name="user_score">
 	<input type="hidden" value="${param.game_name }" name ="game_name">
 	<input type="hidden" value="${param.idx }" name = "game_idx">

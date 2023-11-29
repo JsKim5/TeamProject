@@ -7,13 +7,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>리뷰 상세 보기</title>
+  <title>전체 리뷰 관리 페이지</title>
   <script src="/teamproject/resources/js/httpRequest.js"></script>
   <script>
 	function del(f) {
 		let idx = f.idx.value;
+		let game_name = f.game_name.value;
 		let url = "deleteReview.do";
-		let param = "idx=" + idx; 
+		let param = "idx=" + idx + "&game_name=" + game_name; 
 		sendRequest(url, param, callback, "POST");
 	}
 
@@ -103,7 +104,6 @@
   </style>
 </head>
 <body>
-
 <div class="container">
   <h2>${vo.game_name }</h2>
   <table>
@@ -117,7 +117,7 @@
     </tr>
     <tr>
       <th>작성자</th>
-      <td></td>
+      <td>${vo.user_nickname }</td>
     </tr>
     <tr>
       <th>사용자 평점</th>
@@ -126,7 +126,8 @@
   </table>
   <form method = "post">
   <input type="button" value="목록으로" onclick="location.href='review_AL.do'">
-  <input type="hidden" name="idx" value="${vo.review_idx}">
+  <input type="hidden" name="game_name" value="${vo.game_name}">
+  <input type="hidden" name="idx" value="${param.idx}">
   <input type="button" value="삭제" onclick="del(this.form)">
   </form>
 </div>

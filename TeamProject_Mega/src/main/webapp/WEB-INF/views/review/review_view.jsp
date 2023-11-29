@@ -88,7 +88,7 @@
     </tr>
     <tr>
       <th>작성자</th>
-      <td></td>
+      <td>${vo.user_nickname }</td>
     </tr>
     <tr>
       <th>사용자 평점</th>

@@ -10,4 +10,10 @@ public class Common {
 		//< 1 2 >
 		public final static int BLOCKPAGE = 5;
 	}
+	
+	public static class Review_AL{
+		public final static int BLOCKLIST = 10;
+		
+		public final static int BLOCKPAGE = 5;
+	}
 }

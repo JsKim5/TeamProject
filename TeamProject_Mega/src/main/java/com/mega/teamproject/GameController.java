@@ -128,6 +128,8 @@ public class GameController {
 		List<ReviewVO> list = gameDao.review_selectList(vo.getGame_name());
 		request.setAttribute("vo", vo);
 		request.setAttribute("list", list);
+		int count = gameDao.review_count(vo.getGame_name());
+		request.setAttribute("count", count);
 		return VIEW_PATH + "gameView.jsp";
 	}
 

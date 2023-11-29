@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,14 +14,15 @@ public class ReviewDAO {
 		this.sqlSession = sqlSession;
 	}
 	
+	
 	//전체 리뷰 조회
 	public List<ReviewVO> selectList(String game_name){
 		List<ReviewVO> list = sqlSession.selectList("r.review_list", game_name);
 		return list;
 	}
 	
-	public List<ReviewVO> selectList_AL(){
-		List<ReviewVO> list = sqlSession.selectList("r.review_AL");
+	public List<ReviewVO> selectList_AL(HashMap<String, Integer> map){
+		List<ReviewVO> list = sqlSession.selectList("r.review_AL", map);
 		return list;
 	}
 	
@@ -36,6 +38,21 @@ public class ReviewDAO {
 	
 	public int delete(int idx) {
 		int res = sqlSession.delete("r.deleteReview", idx);
+		return res;
+	}
+	
+	public int review_countAL() {
+		int res = sqlSession.selectOne("r.review_countAL");
+		return res;
+	}
+	
+	public int user_scoreAVG(String game_name) {
+		int res = sqlSession.selectOne("r.user_scoreAVG", game_name);
+		return res;
+	}
+	
+	public int scoreAVG_update(String game_name) {
+		int res = sqlSession.update("r.scoreAVG_update", game_name);
 		return res;
 	}
 	

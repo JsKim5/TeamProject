@@ -92,15 +92,15 @@ public class UserController {
 	}
 	
 	//아이디 중복검사
-	@RequestMapping("/checkid.do")
+	@RequestMapping("checkid.do")
 	@ResponseBody
 	public String checkid(UserVO vo) {
-		int count = user_dao.checkid(vo);
-		
-		if(count == 0 ) {
+		int res = user_dao.checkid(vo);
+		if(res == 0 ) {
 			return "no";
 		}
 		return "yes";
+		
 	}
 
 	// 마이페이지 이동

@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<!-- 아이디 중복검사 -->
-	<select id = "check_id" resultType="user" parameterType="int">
+	<select id = "check_id" resultType="int" parameterType="int">
 		select count(*) from USER_INFO where user_id=#{user_id)
 	</select>
 	

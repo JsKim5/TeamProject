@@ -17,7 +17,6 @@
 				let email = f.user_email.value;
 				let pwd = f.user_pwd.value;
 				let pwd_chk = f.user_pwd_chk.value;
-				alert("send메서드 호출");
 				
 				if( pwd != pwd_chk) {
 					alert("비밀번호가 일치하지 않습니다");

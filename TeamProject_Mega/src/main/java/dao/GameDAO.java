@@ -318,13 +318,11 @@ public class GameDAO {
 		return list;
 	}
 	
-<<<<<<< HEAD
 	public int review_count(String game_name) {
 		int res = sqlSession.selectOne("r.review_count", game_name);
 		return res;
 	}
 	
-=======
 	public int youtubeUrlUpdate(GameVO vo) {
 		int res = sqlSession.update("g.youtubeUrlUpdate",vo);
 		return res;
@@ -334,5 +332,4 @@ public class GameDAO {
 		int res = sqlSession.insert("g.insertYoutubeUrl",vo);
 		return res;
 	}
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 }

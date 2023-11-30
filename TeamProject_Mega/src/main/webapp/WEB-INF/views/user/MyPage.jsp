@@ -48,7 +48,9 @@
 				<tr>
 					<td><input type="button" value="홈으로" onclick="location.href='home.do'"></td>
 					<td><input type="button" value="정보 수정" onclick="location.href='modify_form.do'"></td>
+					
 					<td><input type="button" value="로그아웃" onclick="location.href='logout.do'"></td>
+					<td><input type="button" value="회원탈퇴" onclick="location.href='delete_form.do'"></td>
 				</tr>
 			</table>
 		</form>

@@ -117,10 +117,7 @@ public class UserController {
 			
 			return VIEW_PATH + "LoginResult.jsp";
 		}
-		
-		
 		return "redirect:login_form.do?fail=o";
-		
 	}
 	
 	//아이디 중복검사
@@ -238,7 +235,6 @@ public class UserController {
 		if(res == 0 ) {
 			return "no";
 		}
-		//session.invalidate();//삭제시 로그아웃처리
 		return "yes";
 		
 		

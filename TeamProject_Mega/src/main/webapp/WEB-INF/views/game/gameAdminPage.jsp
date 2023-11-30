@@ -87,7 +87,8 @@ button:active, input[type="button"]:active {
 	<!-- 사이드(좌측) 부분 include -->
 	<div>
 		<a href="gameList.do">게임 리스트로 이동</a><br> <a
-			href="gameInsertForm.do">게임 등록 페이지</a>
+			href="gameInsertForm.do">게임 등록 페이지</a><br>
+			<a href="testPage.do">test</a>
 	</div>
 	<form>
 		<input type="text" name="searchTitle" placeholder="게임 제목 검색">

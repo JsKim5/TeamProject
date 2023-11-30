@@ -132,8 +132,8 @@
 						
 						<tr>
 							<td>
-							<input type = "button" value="아이디 찾기" onclick="location.href='searchid.do'">
-							<input type = "button" value="비밀번호 찾기" onclick="location.href='searchpw.do'">
+							<input type = "button" value="아이디 찾기" onclick="location.href='selectid_form.do'">
+							<input type = "button" value="비밀번호 찾기" onclick="location.href='selectpw_form.do'">
 							<input type = "button" value="회원가입" onclick="location.href='join_form.do'">
 							</td>
 						</tr>

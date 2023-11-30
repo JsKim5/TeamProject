@@ -6,9 +6,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -55,15 +56,46 @@ public class UserController {
 	}
 
 	// 아이디 찾기 페이지
-	@RequestMapping("/searchid.do")
-	public String selectId() {
-		return VIEW_PATH + "SearchId.jsp";
+	@RequestMapping("selectid_form.do")
+	public String selectId_form() {
+		return VIEW_PATH + "SelectId.jsp";
 	}
+	
+	//아이디 찾기
+	@RequestMapping("selectid.do")
+	public String selectId(UserVO vo) {
+		UserVO id = user_dao.selectId(vo);
+		
+		request.setAttribute("id", id.getUser_id());
+		request.setAttribute("name", id.getUser_name());
+		
+		
+		return VIEW_PATH + "CheckId.jsp";
+	}
+	
+	//비밀번호 찾기
+	@RequestMapping("selectpw.do")
+	public String selectPw(UserVO vo) {
+		UserVO pw = user_dao.selectPw(vo);
+		
+		request.setAttribute("pw", pw.getUser_pwd());
+		
+		return VIEW_PATH + "CheckPw.jsp";
+	}
+	
+	/*
+	 * //비밀변호 찾기 후 변경
+	 * 
+	 * @RequestMapping("modifypw.do") public String modifyPw(UserVO vo) { int res =
+	 * user_dao.modifypw(vo); if(res == 0) { return "no"; } return "yes";
+	 * 
+	 * }
+	 */
 
 	// 비밀번호 찾기 페이지
-	@RequestMapping("/searchpw.do")
+	@RequestMapping("selectpw_form.do")
 	public String selectPw() {
-		return VIEW_PATH + "SearchPw.jsp";
+		return VIEW_PATH + "SelectPw.jsp";
 	}
 
 	// 로그인 페이지
@@ -92,15 +124,25 @@ public class UserController {
 	}
 	
 	//아이디 중복검사
-	@RequestMapping("checkid.do")
+	@RequestMapping("/checkid.do")
 	@ResponseBody
 	public String checkid(UserVO vo) {
 		int res = user_dao.checkid(vo);
-		if(res == 0 ) {
+		if(res == 1 ) {
 			return "no";
 		}
 		return "yes";
-		
+	}
+	
+	//아이디 중복검사
+	@RequestMapping("/checknickname.do")
+	@ResponseBody
+	public String checknickname(UserVO vo) {
+		int res = user_dao.checknickname(vo);
+		if(res == 1 ) {
+			return "no";
+		}
+		return "yes";
 	}
 
 	// 마이페이지 이동
@@ -171,7 +213,7 @@ public class UserController {
 	}
 
 	// 회원정보 수정
-	@RequestMapping("modify.do")
+	@RequestMapping("/modify.do")
 	@ResponseBody
 	public String modify(UserVO vo) {
 		int res = user_dao.modify(vo);
@@ -182,13 +224,13 @@ public class UserController {
 	}
 
 	// 회원탈퇴 페이지 이동
-	@RequestMapping("delete_form.do")
+	@RequestMapping("/delete_form.do")
 	public String delete_form() {
 		return VIEW_PATH + "DeleteId.jsp";
 	}
 
 	// 회원탈퇴
-	@RequestMapping("delete.do")
+	@RequestMapping("/delete.do")
 	@ResponseBody
 	public String delete(UserVO vo) {
 		int res = user_dao.delete(vo);

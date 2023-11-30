@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="UTF-8">
+		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		
 		<style>
@@ -83,51 +83,59 @@
 		</style>
 		
 		<script>
-		function send(f) {
-			let name = f.s_name.value.trim();
-			let id = f.s_id.value.trin();
-			
-			if( name == '') {
-				alert("이름을 입력하세요");
-				return;
+			function send(f) {
+				let name = f.user_name.value.trim();
+				let id = f.user_id.value.trim();
+				let email = f.user_email.value.trim();
+				
+				if(name == '') {
+					alert("이름을 입력하세요")
+					return;
+				}
+				
+				if(id == '') {
+					alert("아이디를 입력하세요")
+					return;
+				}
+				if(email == '') {
+					alert("이메일을 입력하세요")
+					return;
+				}
+				
+				f.action="selectpw.do";
+				f.submit();
+				
 			}
-			
-			if( id == '' ) {
-				alert("아이디를 입력하세요");
-				return;
-			}
-		}
-		
 		</script>
-	</head>
 		
+	</head>
+	
 	<body>
-		<!-- 비밀번호 찾기 페이지 -->
-			<form action = "/TeamProject/WEB-INF/user/checkpw.jsp" method="post" name="checkpw">
-					<table border="1">
-						<caption>비밀번호 찾기</caption>
-						
-						<tr>
-							<td>이름</td>
-							<td><input name="s_name"></td><!-- user_name으로 해야하는지 확인 -->
-						</tr>
-						
-						<tr>
-							<td>아이디</td>
-							<td><input name="s_id"></td>
-						</tr>
-						
-						<tr>
-							<td>주민번호</td>
-							<td><input name="s_rrn1" maxlength="6"></td>
-							<td><input name="s_rrn2" maxlength="7" type="password"></td> <!-- 뒷자리 암호화 방법 주민번호or이메일or본인인증--> 
-						</tr>
-						
-						<tr>
-							<td colspan="1" align="right">
-							<input type="button" value="비밀번호 찾기" onclick="send(this.form)">
-							</td>
-					</table>
+			<form action = "CheckPw.jsp" method="post">
+				<table border="1">
+					<caption>아이디 찾기</caption>
+					
+					<tr>
+						<td>이름</td>
+						<td><input name="user_name"></td>
+					</tr>
+					
+					<tr>
+						<td>아이디</td>
+						<td><input name="user_id"></td>
+					</tr>
+					
+					<tr>
+						<td>이메일</td>
+						<td><input name="user_email"></td>
+					</tr>
+					
+					<tr>
+						<td colspan="1" align="right">
+						<input type="button" value="비밀번호 찾기" onclick="send(this.form)">
+						</td>
+					</tr>
+				</table>
 			</form>
 	</body>
 </html>

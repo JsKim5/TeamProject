@@ -8,7 +8,7 @@
 		<title>Insert title here</title>
 	
 		<script src="/teamproject/resources/js/httpRequest.js"></script>
-	
+	 
 		<script>
 			function send(f) {
 				
@@ -49,7 +49,7 @@
 	</head>
 	
 	<body>
-		<!-- 비밀변호 변경시 중복될때 이미 사용중인 비밀번호 입니다 띄우기 -->
+		<!-- 비밀변호 변경시 이미 사용중일때 이미 사용중인 비밀번호 입니다 띄우기 -->
 		
 		<form>
 		<input type="hidden" name="user_idx" value="${login.user_idx }">
@@ -80,7 +80,7 @@
 				
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="user_pwd" <%-- value="${login.user_pwd }" --%>></td>
+					<td><input type="password" name="user_pwd"></td>
 				<tr>
 				
 				<tr>
@@ -99,7 +99,7 @@
 		</form>
 		
 		<form method="POST" enctype="multipart/form-data" action="modify_image.do">
-			<input type="hidden" name="user_idx" value="${ login.user_idx }">
+			<input type="hidden" name="user_idx" value="${login.user_idx }">
 			<input type="hidden" name="user_id" value="${login.user_id }">
 			<input type="hidden" name="user_pwd" value="${login.user_pwd }">
 				<table>

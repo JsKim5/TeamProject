@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from ( select rank() over( order by REVIEW_IDX DESC, user_score Asc )no, b.* from USER_REVIEW b ) where no between #{start} and #{end}
 	</select>
 	
-	<delete id="deleteReview" parameterType="int">
+	<delete id="deleteReviewAD" parameterType="int">
 		delete USER_REVIEW where review_idx = #{idx}
 	</delete>
 	

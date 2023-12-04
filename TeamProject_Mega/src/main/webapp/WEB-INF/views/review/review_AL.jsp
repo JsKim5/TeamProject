@@ -80,7 +80,7 @@
     }
 
     input[type="button"]:hover {
-      background-color: #45a049;
+      background-color: #2478FF;
     }
   </style>
 
@@ -109,8 +109,8 @@
 					</tr>
 				</c:forEach>
 				<tr>
-						<td colspan = "6" align="center">
-						${count }
+						<td colspan = "6" align = "center">
+						<input type="button" value="홈으로" onclick="location.href='home.do'">
 						</td>
 					</tr>
 				<tr>

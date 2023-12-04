@@ -36,8 +36,8 @@ public class ReviewDAO {
 		return vo;
 	}
 	
-	public int delete(int idx) {
-		int res = sqlSession.delete("r.deleteReview", idx);
+	public int deleteAD(int idx) {
+		int res = sqlSession.delete("r.deleteReviewAD", idx);
 		return res;
 	}
 	

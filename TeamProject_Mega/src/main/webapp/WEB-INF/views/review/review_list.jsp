@@ -79,8 +79,10 @@
     }
 
     input[type="button"]:hover {
-      background-color: #45a049;
+      background-color: #2478FF;
     }
+    
+    
   </style> 
 	
 </head>

@@ -13,7 +13,7 @@
 	function del(f) {
 		let idx = f.idx.value;
 		let game_name = f.game_name.value;
-		let url = "deleteReview.do";
+		let url = "deleteReviewAD.do";
 		let param = "idx=" + idx + "&game_name=" + game_name; 
 		sendRequest(url, param, callback, "POST");
 	}
@@ -99,7 +99,7 @@
     }
 
     input[type="button"]:hover {
-      background-color: #45a049;
+      background-color: #2478FF;
     }
   </style>
 </head>

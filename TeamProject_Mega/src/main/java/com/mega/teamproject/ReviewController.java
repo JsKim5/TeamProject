@@ -102,9 +102,9 @@ public class ReviewController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/deleteReview.do")
-	public String reviewDelete(int idx, String game_name) {
-		int res = review_dao.delete(idx);
+	@RequestMapping("/deleteReviewAD.do")
+	public String reviewDeleteAD(int idx, String game_name) {
+		int res = review_dao.deleteAD(idx);
 		int avg = review_dao.scoreAVG_update(game_name);
 		request.setAttribute("avg", avg);
 		String result = "del";
@@ -112,6 +112,11 @@ public class ReviewController {
 			result = "no";
 		}
 		return result;
+	}
+	
+	@RequestMapping("/MainPage.do")
+	public String MainPage() {
+		return "/WEB-INF/views/MainPage.jsp";
 	}
 	
 }

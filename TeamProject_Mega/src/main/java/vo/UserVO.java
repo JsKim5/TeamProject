@@ -7,13 +7,23 @@ public class UserVO {
 	
 	private int user_idx;
 	private String user_name,user_pwd,user_regdate,user_nickname,
-					user_image_path,user_email,user_id,user_ip;
-	
+					user_image_path,user_email,user_id,user_ip,user_email2;
 	
 	
 	public MultipartFile getUser_image() {
 		return user_image;
 	}
+	
+	
+	public String getUser_email2() {
+		return user_email2;
+	}
+	public void setUser_email2(String user_email2) {
+		this.user_email2 = user_email2;
+	}
+	
+	
+	
 	public void setUser_image(MultipartFile user_image) {
 		this.user_image = user_image;
 	}

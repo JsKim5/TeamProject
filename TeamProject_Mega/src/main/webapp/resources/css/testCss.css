@@ -1,0 +1,151 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+}
+
+form {
+	margin-bottom: 20px;
+}
+
+/* search-box */
+.search-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px;
+	background-color: #f0f0f0;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+/* button style */
+select {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  height: 29px;
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 5px;
+  font-size: 11px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  -ms-word-break: normal;
+  word-break: normal;
+}
+
+.button-container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 10px;
+}
+
+.line-btn {
+	min-height: 2px;
+	line-height: 2px;
+	background-color: #f0f0f0;
+	border-radius: 5px;
+}
+
+.line-btn button {
+	margin: 2px;
+	color: #FFF;
+	padding: 2px 2px;
+}
+
+.btn-one {
+	background: black;
+}
+
+/* a tag */
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #0366d6;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+
+.firstChar {
+	margin: 1px;
+	padding: 1px;
+	font-weight: bold;
+}
+
+/* game info */
+.game-info-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* Two equal columns */
+	gap: 20px; /* Gap between columns */
+}
+
+.game-info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	background-color: #f0f0f0;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.game-details {
+	flex: 1;
+	margin-left: 10px;
+}
+
+.game-info img {
+	width: 70px;
+	height: 113px;
+	object-fit: cover;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+
+.no-results {
+	font-weight: bold;
+	color: red;
+}
+
+/* p tag ( page Menu ) */
+p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	background-color: #f0f0f0;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+
+body {
+  background: #f2f2f2;
+}
+
+
+
+
+input[type="text"] {
+  display: block;
+  width: 100%; 
+  max-width: 150px; /* 최대 너비 */
+  height: 27px; /* 높이 조정 */
+  margin: 5px 0px;
+  padding: 0px 5px; /* 패딩 조정 */
+  font-size: 11px; /* 폰트 크기 조정 */
+  line-height: 1.75;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  -ms-word-break: normal;
+  word-break: normal;
+}

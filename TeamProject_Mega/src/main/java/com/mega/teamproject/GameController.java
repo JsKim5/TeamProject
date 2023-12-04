@@ -49,7 +49,7 @@ public class GameController {
 		int start = (nowPage - 1) * Common.GameList.BLOCKLIST + 1;
 		int end = start + Common.GameList.BLOCKLIST - 1;
 
-		
+		String url = "gameList.do";
 		GameVOtwo gvot = new GameVOtwo();
 		gvot.setStart(start);
 		gvot.setEnd(end);
@@ -59,9 +59,11 @@ public class GameController {
 		if (aOption && bOption) {
 			gvot.setSelectCol(selectCol);
 			gvot.setSearch(search);
+			url = "gameList.do?selectCol="+selectCol+"&search="+search;
 		}
 		if (cOption) {
 			gvot.setTitle(searchTitle);
+			url = "gameList.do?searchTitle="+searchTitle;
 		}
 		
 		List<GameVO> list = gameDao.select(gvot);
@@ -69,9 +71,9 @@ public class GameController {
 		int row_total = gameDao.getRowTotal(gvot);
 
 		// 페이지 메뉴 만들기
-		String pageMenu = Paging.getPaging("gameList.do", nowPage, row_total, Common.GameList.BLOCKLIST,
+		String pageMenu = Paging.getPaging(url, nowPage, row_total, Common.GameList.BLOCKLIST,
 				Common.GameList.BLOCKPAGE);
-
+		
 		request.setAttribute("list", list);
 		request.setAttribute("pageMenu", pageMenu);
 
@@ -128,6 +130,8 @@ public class GameController {
 		List<ReviewVO> list = gameDao.review_selectList(vo.getGame_name());
 		request.setAttribute("vo", vo);
 		request.setAttribute("list", list);
+		int count = gameDao.review_count(vo.getGame_name());
+		request.setAttribute("count", count);
 		return VIEW_PATH + "gameView.jsp";
 	}
 
@@ -146,7 +150,6 @@ public class GameController {
 	@RequestMapping("/metacritic.do")
 	public String metacritic(String gameTitle) {
 		String str = gameDao.metacritic(gameTitle);
-		gameDao.imgUrlOutput();
 		return str;
 	}
 
@@ -166,7 +169,9 @@ public class GameController {
 		} else {
 			list = gameDao.colSearch(select);
 		}
-
+		
+		List<Integer> indexNumber = gameDao.getIndexNumber(list);
+		request.getSession().setAttribute("indexNumber", indexNumber);
 		request.getSession().setAttribute("selectList", list);
 		request.getSession().setAttribute("selectOption", select + " (" + list.size() + ")");
 		request.getSession().setAttribute("selectCol", select);
@@ -184,5 +189,54 @@ public class GameController {
 		} else {
 			return "redirect:gameList.do";
 		}
+	}
+	
+	@RequestMapping("/youtubeUrlUpdate.do")
+	public String youtubeUrlUpdate(GameVO vo,int page) {
+		int res = gameDao.youtubeUrlUpdate(vo);
+		int res2 = gameDao.insertYoutubeUrl(vo);
+		return "redirect:gameAdminPage.do?page="+page;
+	}
+	
+	@RequestMapping("/gameAdminPage.do")
+	public String gameAdminPage(String page, String searchTitle) {
+		// list.do?page=1
+				// list.do?page= >> 값이 없으면 empty
+				// list.do? >> page가 없으면 null
+				int nowPage = 1; // 기본 페이지
+				if (page != null && !page.isEmpty()) {
+					nowPage = Integer.parseInt(page);
+				}
+
+				// 한 페이지에 표시되는 게시물의 시작과 끝 번호를 계산
+				// 1페이지에는 1 ~ 3까지 보여야 되고
+				// 2페이지에는 4 ~ 6까지 보여줘야 하므로 특정 공식이 필요하다
+				int start = (nowPage - 1) * Common.GameList.BLOCKLIST + 1;
+				int end = start + Common.GameList.BLOCKLIST - 1;
+				
+				GameVOtwo gvot = new GameVOtwo();
+				boolean cOption = searchTitle != null && !searchTitle.isEmpty();
+				if (cOption) {
+					gvot.setTitle(searchTitle);
+				}
+				gvot.setStart(start);
+				gvot.setEnd(end);
+				
+				List<GameVO> list = gameDao.select(gvot);
+				// 전체 게시글 수
+				int row_total = gameDao.getRowTotal(gvot);
+
+				// 페이지 메뉴 만들기
+				String pageMenu = Paging.getPaging("gameAdminPage.do", nowPage, row_total, Common.GameList.BLOCKLIST,
+						Common.GameList.BLOCKPAGE);
+				request.setAttribute("total", row_total);
+				request.setAttribute("list", list);
+				request.setAttribute("pageMenu", pageMenu);
+		return VIEW_PATH + "gameAdminPage.jsp";
+	}
+	
+	@RequestMapping("/testPage.do")
+	public String testPage() {
+		return VIEW_PATH + "testPage.jsp";
 	}
 }

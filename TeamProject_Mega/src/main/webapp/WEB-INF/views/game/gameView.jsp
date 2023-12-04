@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,9 +88,10 @@ input[type="button"] {
 }
 
 input[type="button"]:hover {
-	background-color: #45a049;
+	background-color: #2478FF;
 }
 </style>
+
 </head>
 <body>
 
@@ -98,11 +99,14 @@ input[type="button"]:hover {
 		<div class="table-container">
 			<table>
 				<tr>
-					<td colspan="2"><iframe width="560" height="315"
-							src="https://www.youtube.com/embed/7jsIs_Iq0A8?si=AudXBGMlZR6N2TAn"
-							title="YouTube video player" frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							allowfullscreen></iframe></td>
+					<td colspan="2">
+						<c:if test="${vo.game_youtube_url != 'N/A'}">
+							${vo.game_youtube_url}
+						</c:if>
+						<c:if test="${vo.game_youtube_url == 'N/A'}">
+							등록 대기중
+						</c:if>
+						</td>
 				</tr>
 				<tr>
 					<th colspan="2" scope="col" class="skeletor">${vo.game_name}</th>
@@ -142,22 +146,22 @@ input[type="button"]:hover {
 					<td class="aa" width="300">제목</td>
 					<td class="aa" width="100">평점</td>
 					<td width="200">작성일</td>
-					<td class="aa" width="50">리뷰갯수</td>
 				</tr>
 				<c:forEach var="review_vo" items="${list}">
 					<tr align="center">
-						<td></td>
+						<td>${review_vo.user_nickname }</td>
 						<td><a href="review_view.do?idx=${review_vo.review_idx}&game_idx=${vo.game_idx}">
 								${review_vo.review_title} </a></td>
 						<td>${review_vo.user_score}/5</td>
 						<td>${review_vo.date_created}</td>
-						<td>${review_vo.review_count }</td>
 					</tr>
 				</c:forEach>
 				<tr>
 					<td colspan="5" align="right"><input type="button"
 						value="리뷰작성"
-						onclick="location.href='review_write.do?game_name=${vo.game_name}&idx=${vo.game_idx}'"></td>
+						onclick="location.href='review_write.do?game_name=${vo.game_name}&idx=${vo.game_idx}'">
+						<input type="button" value="리스트로" onclick="location.href='gameList.do'">
+						<input type="button" value="홈으로" onclick="location.href='home.do'"></td>
 				</tr>
 			</table>
 		</div>

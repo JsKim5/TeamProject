@@ -15,67 +15,68 @@
 		</style>
 		
 		<style>
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  form {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 500px;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  th, td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-  }
-
-  caption {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  img.user_img {
-    max-width: 100%;
-    border-radius: 50%;
-  }
-
-  input[type="button"] {
-	 background-color: #FFFFE4;
-	 color: #000000;
-	 padding: 10px 20px;
-	 border: none;
-	 border-radius: 4px;
-	 cursor: pointer;
-	 font-size: 1em;
-	 transition: background-color 0.3s;
-	}
+		  body {
+		    font-family: 'Arial', sans-serif;
+		    background-color: #f2f2f2;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 100vh;
+		  }
 		
-	input[type="button"]:hover {
-	 background-color: #45a049;
-	}
-  
-  input[type="button"]:last-child {
-    margin-right: 0;
-    margin-left: 5px;
-  }
-  
-</style>
+		  form {
+		    background-color: #ffffff;
+		    border-radius: 10px;
+		    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		    padding: 20px;
+		    width: 500px;
+		  }
+		
+		  table {
+		    width: 100%;
+		  }
+		
+		  th, td {
+		    padding: 10px;
+		    border-bottom: 1px solid #ddd;
+		    text-align: left;
+		  }
+		
+		  caption {
+		    font-size: 1.2em;
+		    font-weight: bold;
+		    margin-bottom: 10px;
+		  }
+		
+		  img.user_img {
+		    max-width: 100%;
+		    border-radius: 50%;
+		    object-fit: cover; /* 이미지가 원의 영역을 채우도록 설정 */
+		  }
+		
+		  input[type="button"] {
+			 background-color: #FFFFE4;
+			 color: #000000;
+			 padding: 10px 20px;
+			 border: none;
+			 border-radius: 4px;
+			 cursor: pointer;
+			 font-size: 1em;
+			 transition: background-color 0.3s;
+			}
+				
+			input[type="button"]:hover {
+			 background-color: #45a049;
+			}
+		  
+		  input[type="button"]:last-child {
+		    margin-right: 0;
+		    margin-left: 5px;
+		  }
+		  
+		</style>
 	</head>
 	
 	<body>

@@ -33,6 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 	
+	<insert id="insertYoutubeUrl" parameterType="game">
+		insert into YOUTUBE_URL values(#{game_name},#{game_youtube_url})
+	</insert>
+	
 	<delete id="deleteGame" parameterType="int">
 		delete GAME_INFO where game_idx = #{idx}
 	</delete>
@@ -49,6 +53,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="colSearch" resultType="String" parameterType="String">
 		select DISTINCT ${value} from GAME_INFO
 	</select>
+	
+	<update id="youtubeUrlUpdate" parameterType="game">
+		update GAME_INFO set game_youtube_url = #{game_youtube_url} where game_idx = #{game_idx}
+	</update>
+	
+<!-- 	중복 게임 검색 쿼리문
+	SELECT game_name, count(*) 
+	FROM game_info
+	GROUP BY game_name
+	HAVING count(*) > 1; -->
+	
 </mapper>
 
 

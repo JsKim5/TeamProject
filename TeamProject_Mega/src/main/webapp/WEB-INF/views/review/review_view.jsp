@@ -9,6 +9,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>리뷰 상세 보기</title>
   <script src="/teamproject/resources/js/httpRequest.js"></script>
+  <script>
+	function del(f) {
+		let idx = f.idx.value;
+		let game_name = f.game_name.value;
+		let url = "deleteReviewAD.do";
+		let param = "idx=" + idx + "&game_name=" + game_name; 
+		sendRequest(url, param, callback, "POST");
+	}
+
+	function callback() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			let res = xhr.responseText;
+			if (res == "del") {
+				alert("삭제 성공");
+				location.href = "gameView.do?idx=${param.game_idx}";
+				return;
+			}
+			if(res == "searchSelect"){
+				alert("select성공");
+				
+				return;
+			}
+			
+		}
+	}	
+</script>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -73,7 +99,7 @@
     }
 
     input[type="button"]:hover {
-      background-color: #45a049;
+      background-color: #2478FF;
     }
   </style>
 </head>
@@ -88,7 +114,7 @@
     </tr>
     <tr>
       <th>작성자</th>
-      <td></td>
+      <td>${vo.user_nickname }</td>
     </tr>
     <tr>
       <th>사용자 평점</th>
@@ -97,6 +123,13 @@
   </table>
   
   <input type="button" value="목록으로" onclick="location.href='gameView.do?idx=${param.game_idx}'">
+  <c:if test="${login.user_nickname == vo.user_nickname }">
+  <form>
+  <input type="hidden" name="game_name" value="${vo.game_name}">
+  <input type="hidden" name="idx" value="${param.idx}">
+  <input type="button" value="삭제" onclick="del(this.form)"> 
+  </form>
+  </c:if>
 </div>
 
 </body>

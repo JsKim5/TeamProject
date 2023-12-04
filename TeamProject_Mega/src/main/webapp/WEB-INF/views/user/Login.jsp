@@ -90,6 +90,8 @@
 	            background-color: #0b7dda;
 	        }
 	    </style>
+	    
+	    <script src="/teamproject/resources/js/httpRequest.js"></script>
 		
 		<script>
 			function send(f) {

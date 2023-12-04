@@ -107,7 +107,7 @@ public class UserController {
 		return VIEW_PATH + "Login.jsp";
 	}
 
-	// 로그인
+	// 로그인 처리
 	@RequestMapping("/login.do")
 	public String login(UserVO vo, HttpSession session) {
 		UserVO login = user_dao.login(vo);

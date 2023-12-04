@@ -2,9 +2,9 @@ package vo;
 
 public class ReviewVO {
 	
-	int review_idx, game_idx, user_idx;
+	int review_idx, game_idx;
 	int user_score, review_count;
-	String user_review, date_created, review_title, game_name;
+	String user_review, date_created, review_title, game_name, user_nickname;
 	
 	public int getReview_count() {
 		return review_count;
@@ -25,13 +25,13 @@ public class ReviewVO {
 	public void setGame_idx(int game_idx) {
 		this.game_idx = game_idx;
 	}
-	public int getUser_idx() {
-		return user_idx;
-	}
-	public void setUser_idx(int user_idx) {
-		this.user_idx = user_idx;
-	}
 	
+	public String getUser_nickname() {
+		return user_nickname;
+	}
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
+	}
 	public String getReview_title() {
 		return review_title;
 	}

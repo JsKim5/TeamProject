@@ -19,25 +19,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		seq_review_idx.nextVal,
 		#{game_idx},
 		#{user_review},
-		0,
+		#{user_nickname},
 		sysdate,
 		#{review_title},
 		#{user_score},
-		#{game_name},
-		#{review_count}
+		#{game_name}
 		)			
 	</insert>
 	
-	<select id = "review_AL" resultType = "review">
-		select * from user_review order by REVIEW_IDX DESC
+	<select id = "review_AL" resultType = "review" parameterType="java.util.HashMap">
+		select * from ( select rank() over( order by REVIEW_IDX DESC, user_score Asc )no, b.* from USER_REVIEW b ) where no between #{start} and #{end}
 	</select>
 	
-	<delete id="deleteReview" parameterType="int">
+	<delete id="deleteReviewAD" parameterType="int">
 		delete USER_REVIEW where review_idx = #{idx}
 	</delete>
-
-
 	
+	<select id = "review_countAL" resultType = "int">
+		select count(*) from USER_REVIEW
+	</select>
+	
+	<select id = "review_count" resultType = "int" parameterType="String">
+		select count(*) from USER_REVIEW <where>game_name = #{value}</where>
+	</select>
+	
+	<update id="scoreAVG_update" parameterType="String">
+		 <![CDATA[
+    update GAME_INFO set game_user_score = ( select Round(AVG(user_score), 1) from USER_REVIEW where game_name = #{value})
+  		]]>
+	</update>
+		
 	
 </mapper>
 

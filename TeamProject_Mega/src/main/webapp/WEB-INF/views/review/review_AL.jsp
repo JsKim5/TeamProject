@@ -80,7 +80,7 @@
     }
 
     input[type="button"]:hover {
-      background-color: #45a049;
+      background-color: #2478FF;
     }
   </style>
 
@@ -101,13 +101,23 @@
 					<tr align="center">
 						<td>${review_vo.review_idx }</td>
 						<td>${review_vo.game_name }</td>
-						<td></td>
+						<td>${review_vo.user_nickname }</td>
 						<td><a href="review_ALview.do?idx=${review_vo.review_idx}">
 								${review_vo.review_title} </a></td>
 						<td>${review_vo.user_score}/5</td>
 						<td>${review_vo.date_created}</td>
 					</tr>
 				</c:forEach>
+				<tr>
+						<td colspan = "6" align = "center">
+						<input type="button" value="홈으로" onclick="location.href='home.do'">
+						</td>
+					</tr>
+				<tr>
+					<td colspan ="6" align="center">
+					${pageMenu }
+					</td>
+					</tr>
 			</table>
 		</div>
 

@@ -63,6 +63,7 @@ public class GameController {
 		}
 		if (cOption) {
 			gvot.setTitle(searchTitle);
+			url = "gameList.do?searchTitle="+searchTitle;
 		}
 		
 		List<GameVO> list = gameDao.select(gvot);
@@ -232,5 +233,10 @@ public class GameController {
 				request.setAttribute("list", list);
 				request.setAttribute("pageMenu", pageMenu);
 		return VIEW_PATH + "gameAdminPage.jsp";
+	}
+	
+	@RequestMapping("/testPage.do")
+	public String testPage() {
+		return VIEW_PATH + "testPage.jsp";
 	}
 }

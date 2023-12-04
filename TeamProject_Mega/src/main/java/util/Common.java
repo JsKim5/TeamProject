@@ -8,6 +8,12 @@ public class Common {
 		
 		//한 화면에 보여지는 페이지 메뉴의 수
 		//< 1 2 >
+		public final static int BLOCKPAGE = 10;
+	}
+	
+	public static class Review_AL{
+		public final static int BLOCKLIST = 10;
+		
 		public final static int BLOCKPAGE = 5;
 	}
 }

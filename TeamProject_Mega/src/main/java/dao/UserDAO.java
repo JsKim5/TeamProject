@@ -18,14 +18,14 @@ public class UserDAO {
 	}
 	
 	//아이디 찾기
-	public String selectId(String email) {
-		String id =  sqlSession.selectOne("u.select_id", email);
+	public UserVO selectId(UserVO vo) {
+		UserVO id =  sqlSession.selectOne("u.select_id", vo);
 		return id;
 	}
-	
+
 	//비밀번호 찾기
-	public String selectPw(UserVO vo) {
-		String pw = sqlSession.selectOne("u.select_pw",vo.getUser_id());
+	public UserVO selectPw(UserVO vo) {
+		UserVO pw = sqlSession.selectOne("u.select_pw",vo);
 		return pw;
 	}
 	
@@ -40,6 +40,11 @@ public class UserDAO {
 		int update = sqlSession.update("u.user_modify", vo);
 		return update;
 	}
+	
+	/*
+	 * //비밀번호 찾기 후 변경 public int modifypw(UserVO vo) { int modify =
+	 * sqlSession.update("u.user_modifypw", vo); return modify; }
+	 */
 	
 	//사진 수정
 	public int image(UserVO vo) {
@@ -58,4 +63,12 @@ public class UserDAO {
 		int check = sqlSession.selectOne("u.check_id", vo);
 		return check;
 	}
+	
+	//닉네임 중복검사
+	public int checknickname(UserVO vo) {
+		int check = sqlSession.selectOne("u.check_nickname", vo);
+		return check;
+	}
+	
+	
 }

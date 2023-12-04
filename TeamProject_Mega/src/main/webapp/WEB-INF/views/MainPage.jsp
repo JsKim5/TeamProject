@@ -33,14 +33,6 @@
 	function closePopup() {
 		document.getElementById("register-popup").style.display = "none";
 	}
-
-	function openSearchPopup() {
-		document.getElementById("search-popup").style.display = "block";
-	}
-
-	function closeSearchPopup() {
-		document.getElementById("search-popup").style.display = "none";
-	}
 </script>
 
 
@@ -105,7 +97,7 @@ body {
 	align-items: center;
 }
 
-#search-btn, #register-btn {
+#register-btn {
 	background-color: #4CAF50;
 	color: white;
 	border: none;
@@ -115,35 +107,6 @@ body {
 	font-size: 16px;
 	cursor: pointer;
 	margin-right: 15px;
-}
-
-/* 추가: 팝업 스타일 */
-#search-popup {
-	display: none;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: white;
-	padding: 50px; /* 수정: 팝업 크기 조정 */
-	z-index: 2;
-}
-
-/* 추가: 팝업 닫기 버튼 스타일 */
-#close-popup {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	color: black;
-	cursor: pointer;
-}
-
-#popup-search-input {
-	width: calc(100% - 20px);
-	padding: 10px;
-	font-size: 16px;
-	margin-top: 10px;
-	box-sizing: border-box;
 }
 </style>
 
@@ -301,16 +264,7 @@ hr {
 		</div>
 
 		<div id="button-container">
-			<button id="search-btn" onclick="openSearchPopup()">Search</button>
 			<button id="register-btn" onclick="openPopup()">Register</button>
-		</div>
-
-		<!-- 검색 팝업 창 -->
-		<div id="search-popup" class="popup">
-			<h2>검색</h2>
-			<span id="close-popup" onclick="closeSearchPopup()">닫기</span> <input
-				type="text" id="popup-search-input" placeholder="Search...">
-			<button id="search-btn" onclick="search()">검색</button>
 		</div>
 	</div>
 

@@ -7,7 +7,7 @@ form {
 	margin-bottom: 20px;
 }
 
-/* Basic styles for the search box */
+/* search-box */
 .search-box {
 	display: flex;
 	align-items: center;
@@ -19,6 +19,30 @@ form {
 }
 
 /* button style */
+select {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  height: 29px;
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 5px;
+  font-size: 11px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  -ms-word-break: normal;
+  word-break: normal;
+}
+
+.button-container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 10px;
+}
+
 .line-btn {
 	min-height: 2px;
 	line-height: 2px;
@@ -33,9 +57,10 @@ form {
 }
 
 .btn-one {
-	background: #0366d6;
+	background: black;
 }
 
+/* a tag */
 a {
 	font-weight: bold;
 	text-decoration: none;
@@ -46,11 +71,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-.button-container {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 10px;
-}
+
 
 .firstChar {
 	margin: 1px;
@@ -58,6 +79,7 @@ a:hover {
 	font-weight: bold;
 }
 
+/* game info */
 .game-info-container {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr); /* Two equal columns */
@@ -92,6 +114,7 @@ a:hover {
 	color: red;
 }
 
+/* p tag ( page Menu ) */
 p {
 	display: flex;
 	justify-content: center;
@@ -108,23 +131,7 @@ body {
 }
 
 
-select {
-  display: block;
-  width: 100%;
-  max-width: 150px;
-  height: 29px;
-  float: right;
-  margin: 5px 0px;
-  padding: 0px 5px;
-  font-size: 11px;
-  line-height: 1.75;
-  color: #333;
-  background-color: #ffffff;
-  background-image: none;
-  border: 1px solid #cccccc;
-  -ms-word-break: normal;
-  word-break: normal;
-}
+
 
 input[type="text"] {
   display: block;

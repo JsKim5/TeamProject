@@ -12,6 +12,9 @@
 <script>
 function selectSearch(f) {
 	let select = f.g_select.value;
+	if(select == "검색 조건"){
+		return;
+	}
 	let url = "gameSelectSearch.do";
 	let param = "select=" + select;
 	sendRequest(url, param, callback2, "POST");

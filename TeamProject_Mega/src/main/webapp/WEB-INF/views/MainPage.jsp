@@ -300,20 +300,6 @@ hr {
 			</div>
 		</div>
 
-		<div id="button-container">
-			<button id="search-btn" onclick="openSearchPopup()">Search</button>
-			<button id="register-btn" onclick="openPopup()">Register</button>
-		</div>
-
-		<!-- 검색 팝업 창 -->
-		<div id="search-popup" class="popup">
-			<h2>검색</h2>
-			<span id="close-popup" onclick="closeSearchPopup()">닫기</span> <input
-				type="text" id="popup-search-input" placeholder="Search...">
-			<button id="search-btn" onclick="search()">검색</button>
-		</div>
-	</div>
-
 	<!-- 로그인 팝업 창 -->
 	<div id="register-popup" class="popup">
 		<h2>로그인</h2>

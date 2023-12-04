@@ -15,6 +15,7 @@
 				let idx = f.user_idx.value;
 				let nickname = f.user_nickname.value;
 				let email = f.user_email.value;
+				let email2 = f.user_email2.value;
 				let pwd = f.user_pwd.value;
 				let pwd_chk = f.user_pwd_chk.value;
 				
@@ -24,7 +25,7 @@
 				}
 				
 				let url= "modify.do";
-				let param = "user_idx="+idx+"&user_nickname="+nickname+"&user_email="+email+"&user_pwd="+pwd;
+				let param = "user_idx="+idx+"&user_nickname="+nickname+"&user_email="+email+"&user_email2="+email2+"&user_pwd="+pwd;
 				
 				sendRequest(url, param, resultFn, "post");
 				
@@ -75,8 +76,10 @@
 				
 				<tr>
 					<td>이메일</td>
-					<td><input name="user_email" value="${login.user_email }"></td>
+					<td><input name="user_email" value="${login.user_email }">@</td>
+					<td><input name="user_email2" value="${login.user_email2 }"></td>
 				</tr>
+				
 				
 				<tr>
 					<td>비밀번호</td>

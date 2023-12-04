@@ -111,7 +111,7 @@
 	
 	<body>
 		<form action="login.do" method="post">
-			<table border="1" align="center">
+			<table border="1" align="center" >
 					<caption>로그인 페이지</caption>
 						<tr>
 							<td>아이디</td>

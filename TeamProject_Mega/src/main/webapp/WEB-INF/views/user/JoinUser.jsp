@@ -211,56 +211,57 @@
 	</head>
 	
 	<body>
-		<form id="joingt" action="join.do" method="post">
-		<input type="hidden" name="check1" value="no">
-		<input type="hidden" name="check2" value="no">
-			<table border="1">
-				<caption>회원가입</caption>
-			
-				<tr align="center">
-					<td>이름</td>
-					<td><input name="user_name"></td>
-				</tr>
-				
-				<tr align="center">
-					<td>이메일</td>
-					<td><input type="email" name="user_email"></td> 
-					<!-- <td><input class="box" id="domain-txt" name="user_email1">@
-						<select class="box" id="domain-list" name="user_email2">
-						  <option value="naver.com">naver.com</option>
-						  <option value="google.com">google.com</option>
-						  <option value="hanmail.net">hanmail.net</option>
-						  <option value="nate.com">nate.com</option>
-						  <option value="kakao.com">kakao.com</option>
-						</select><td> -->
-				</tr>
-				<!-- 이메일 앞부분을 1 뒷부분을 2로 받아서 db에 저장하고 불러올때 1과 2를 둘다 불러오는 방식 -->
-				
-				<tr align="center">
-					<td>아이디</td>
-					<td><input name="user_id"></td>
-					<td><input type="button" value="중복검사" onclick="check_id(this.form);">
-					
-				</tr>
-				
-				<tr align="center">
-					<td>비밀번호</td>
-					<td><input type="password" name="user_pwd"></td>
-				</tr>
-				
-				<tr align="center">
-					<td>닉네임</td>
-					<td><input name="user_nickname"></td>
-					<td><input type="button" value="중복검사" onclick="check_nickname(this.form);">
-				</tr>
-				
-				<tr>
-					<td colspan="1">
-					<input type="button" value="가입하기" onclick="send_check(this.form);">
-					<input type = "button" value="뒤로가기" onclick = "location.href='home.do'"><!-- home.do를 초기화면 url로 수정 -->
-					</td>
-				</tr>		
-			</table>
-		</form>
-	</body>
+    <form id="joingt" action="join.do" method="post">
+        <input type="hidden" name="check1" value="no">
+        <input type="hidden" name="check2" value="no">
+        <table border="1">
+            <caption>회원가입</caption>
+
+            <tr align="center">
+                <td>이름</td>
+                <td colspan="2"><input name="user_name"></td>
+            </tr>
+
+            <tr align="center">
+                <td>이메일</td>
+                <td colspan="2">
+                    <input class="box" id="domain-txt" name="user_email">@
+                    <!-- <input class="box" id="domain-select" name="user_email2"> -->
+                    <select class="box" id="domain-list" name="user_email2">
+                        <option value="naver.com">naver.com</option>
+                        <option value="google.com">google.com</option>
+                        <option value="hanmail.net">hanmail.net</option>
+                        <option value="nate.com">nate.com</option>
+                        <option value="daum.net">daum.net</option>
+                        <option value="">직접 입력</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr align="center">
+                <td>아이디</td>
+                <td><input name="user_id"></td>
+                <td><input type="button" value="중복검사" onclick="check_id(this.form);">
+            </tr>
+
+            <tr align="center">
+                <td>비밀번호</td>
+                <td colspan="2"><input type="password" name="user_pwd"></td>
+            </tr>
+
+            <tr align="center">
+                <td>닉네임</td>
+                <td><input name="user_nickname"></td>
+                <td><input type="button" value="중복검사" onclick="check_nickname(this.form);">
+            </tr>
+
+            <tr>
+                <td colspan="1">
+                    <input type="button" value="가입하기" onclick="send_check(this.form);">
+                    <input type="button" value="뒤로가기" onclick="location.href='home.do'"><!-- home.do를 초기화면 url로 수정 -->
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
 </html>

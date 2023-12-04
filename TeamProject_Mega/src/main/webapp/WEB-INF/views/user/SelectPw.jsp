@@ -19,7 +19,7 @@
 		    }
 		
 		    table {
-		      width: 80%;
+		      width: 100%;
 		      margin: 50px auto;
 		      padding: 20px;
 		      background-color: #fff;
@@ -80,6 +80,10 @@
 		    input[type="button"]:hover {
 		      background-color: #45a049;
 		    }
+		    
+		     tr:last-child td {
+        		text-align: right;
+   			}
 		</style>
 		
 		<script>
@@ -87,6 +91,7 @@
 				let name = f.user_name.value.trim();
 				let id = f.user_id.value.trim();
 				let email = f.user_email.value.trim();
+				let email2 = f.user_email2.value.trim();
 				
 				if(name == '') {
 					alert("이름을 입력하세요")
@@ -98,6 +103,10 @@
 					return;
 				}
 				if(email == '') {
+					alert("이메일을 입력하세요")
+					return;
+				}
+				if(email2 == '') {
 					alert("이메일을 입력하세요")
 					return;
 				}
@@ -113,7 +122,7 @@
 	<body>
 			<form action = "CheckPw.jsp" method="post">
 				<table border="1">
-					<caption>아이디 찾기</caption>
+					<caption>비밀번호 찾기</caption>
 					
 					<tr>
 						<td>이름</td>
@@ -127,12 +136,19 @@
 					
 					<tr>
 						<td>이메일</td>
-						<td><input name="user_email"></td>
+						<td><input class="box" id="domain-txt" name="user_email">@
+						<select class="box" id="domain-list" name="user_email2">
+						  <option value="naver.com">naver.com</option>
+						  <option value="google.com">google.com</option>
+						  <option value="hanmail.net">hanmail.net</option>
+						  <option value="nate.com">nate.com</option>
+						  <option value="kakao.com">kakao.com</option>
+						</select></td>
 					</tr>
 					
 					<tr>
-						<td colspan="1" align="right">
-						<input type="button" value="비밀번호 찾기" onclick="send(this.form)">
+						<td colspan="2">
+							<input type="button" value="비밀번호 찾기" onclick="send(this.form)">
 						</td>
 					</tr>
 				</table>

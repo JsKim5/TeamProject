@@ -98,6 +98,7 @@ button:active, input[type="button"]:active {
 		<tr>
 			<th>idx</th>
 			<th>name</th>
+			<th>release date</th>
 			<th>delete</th>
 			<th>youtube url update</th>
 		</tr>
@@ -109,6 +110,7 @@ button:active, input[type="button"]:active {
 				<tr>
 					<td>${l.game_idx}</td>
 					<td>${l.game_name}</td>
+					<td>${l.game_release_date}</td>
 					<td><input type="button" value="삭제" onclick="del(this.form)"></td>
 					<td><input name="game_youtube_url"> <input
 						type="button" value="등록" onclick="registration(this.form)">
@@ -117,7 +119,7 @@ button:active, input[type="button"]:active {
 			</form>
 		</c:forEach>
 		<tr>
-			<td align="center" colspan="4">${pageMenu}</td>
+			<td align="center" colspan="5">${pageMenu}</td>
 		</tr>
 	</table>
 	<table>

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="/teamproject/resources/js/headerScript.js"></script>
 <script>
 function send(f) {
 	let id = f.user_id.value.trim();

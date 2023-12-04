@@ -332,8 +332,5 @@ public class GameDAO {
 		int res = sqlSession.insert("g.insertYoutubeUrl",vo);
 		return res;
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 }

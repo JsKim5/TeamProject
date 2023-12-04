@@ -20,7 +20,7 @@
 		    }
 		
 		    table {
-		      width: 80%;
+		      width: 100%;
 		      margin: 50px auto;
 		      padding: 20px;
 		      background-color: #fff;
@@ -53,9 +53,12 @@
 		    }
 		
 		    caption {
-		      font-size: 24px;
-		      margin: 10px 0;
-		    }
+			    font-size: 2em; /* 글자 크기 조절 */
+			    font-family: 'Arial', sans-serif; /* 글꼴 설정 */
+			    color: #333; /* 글자 색상 설정 */
+			    font-weight: bold; /* 글자 두께 설정 */
+			    margin-bottom: 20px; /* 아래 여백 추가 */
+			}
 		
 		    .aa {
 		      border-right: 1px solid #ddd;
@@ -93,6 +96,7 @@
 			let user_nickname = f.user_nickname.value.trim();
 			let user_email = f.user_email.value.trim();
 			let user_id = f.user_id.value.trim();
+			let user_pwdchk = f.user_pwdchk.value.trim();
 
 			
 			if(user_id == ''){
@@ -102,6 +106,11 @@
 			
 			if(user_pwd == ''){
 				alert("비밀번호를 입력하세요");
+				return;
+			}
+			
+			if(user_pwdchk == ''){
+				alert("비밀번호를 입력하세요")
 				return;
 			}
 			
@@ -119,10 +128,17 @@
 				alert("이메일을 입력하세요");
 				return;
 			}
+			
+			if(user_pwd != user_pwdchk) {
+				alert("비밀번호가 일치하지 않습니다");
+				return;
+			}
+			
 			if(f.check1.value != "yes"){
 				alert("id중복검사하세요~");
 				return;
 			}
+			
 			if(f.check2.value != "yes"){
 				alert("닉네임중복검사하세요~");
 				return;
@@ -208,6 +224,13 @@
 			
 			
 		</script>
+		
+		<script>
+		    function checkDirectInput(select) {
+		        var directInput = document.getElementById("direct-input");
+		        directInput.style.display = (select.value === "direct") ? "inline-block" : "none";
+		    }
+		</script>
 	</head>
 	
 	<body>
@@ -219,44 +242,50 @@
 
             <tr align="center">
                 <td>이름</td>
-                <td colspan="2"><input name="user_name"></td>
+                <td colspan="2"><input name="user_name" size="15"></td>
             </tr>
 
             <tr align="center">
-                <td>이메일</td>
-                <td colspan="2">
-                    <input class="box" id="domain-txt" name="user_email">@
-                    <!-- <input class="box" id="domain-select" name="user_email2"> -->
-                    <select class="box" id="domain-list" name="user_email2">
-                        <option value="naver.com">naver.com</option>
-                        <option value="google.com">google.com</option>
-                        <option value="hanmail.net">hanmail.net</option>
-                        <option value="nate.com">nate.com</option>
-                        <option value="daum.net">daum.net</option>
-                        <option value="">직접 입력</option>
-                    </select>
-                </td>
-            </tr>
+			    <td>이메일</td>
+			    <td colspan="3">
+			        <input class="box" id="domain-txt" name="user_email" size="15"> @
+			        <input class="box" id="direct-input" name="direct_input" style="display: none;" placeholder="도메인 직접 입력" size="15">
+			        <select class="box" id="domain-list" name="user_email2" onchange="checkDirectInput(this)">
+			            <option value="">선택</option>
+			            <option value="naver.com">naver.com</option>
+			            <option value="google.com">google.com</option>
+			            <option value="hanmail.net">hanmail.net</option>
+			            <option value="nate.com">nate.com</option>
+			            <option value="daum.net">daum.net</option>
+			            <option value="direct">직접 입력</option>
+			        </select>
+			        
+			    </td>
+			</tr>
 
             <tr align="center">
                 <td>아이디</td>
-                <td><input name="user_id"></td>
+                <td><input name="user_id" size="15"></td>
                 <td><input type="button" value="중복검사" onclick="check_id(this.form);">
             </tr>
 
             <tr align="center">
                 <td>비밀번호</td>
-                <td colspan="2"><input type="password" name="user_pwd"></td>
+                <td colspan="2"><input type="password" name="user_pwd" size="15"></td>
             </tr>
+            
+            <tr align="center">
+            	<td>비밀번호 확인</td>
+            	<td colspan="2"><input type="password" name="user_pwdchk" size="15"></td>
 
             <tr align="center">
                 <td>닉네임</td>
-                <td><input name="user_nickname"></td>
+                <td><input name="user_nickname" size="15"></td>
                 <td><input type="button" value="중복검사" onclick="check_nickname(this.form);">
             </tr>
 
             <tr>
-                <td colspan="1">
+                <td colspan="3" align="right">
                     <input type="button" value="가입하기" onclick="send_check(this.form);">
                     <input type="button" value="뒤로가기" onclick="location.href='home.do'"><!-- home.do를 초기화면 url로 수정 -->
                 </td>

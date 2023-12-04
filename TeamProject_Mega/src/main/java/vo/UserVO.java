@@ -9,7 +9,6 @@ public class UserVO {
 	private String user_name,user_pwd,user_regdate,user_nickname,
 					user_image_path,user_email,user_id,user_ip,user_email2;
 	
-	//user_email2 임시로 넣음
 	
 	public MultipartFile getUser_image() {
 		return user_image;

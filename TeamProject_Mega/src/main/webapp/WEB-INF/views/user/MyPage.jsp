@@ -56,18 +56,19 @@
   }
 
   input[type="button"] {
-    background-color: #87CEEB;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
-  }
-
-  input[type="button"]:hover {
-    background-color: #5F9EA0;
-  }
+	 background-color: #FFFFE4;
+	 color: #000000;
+	 padding: 10px 20px;
+	 border: none;
+	 border-radius: 4px;
+	 cursor: pointer;
+	 font-size: 1em;
+	 transition: background-color 0.3s;
+	}
+		
+	input[type="button"]:hover {
+	 background-color: #45a049;
+	}
   
   input[type="button"]:last-child {
     margin-right: 0;

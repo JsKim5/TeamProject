@@ -21,7 +21,7 @@
     }
 
     table {
-      width: 80%;
+      width: 100%;
       margin: 50px auto;
       padding: 20px;
       background-color: #fff;

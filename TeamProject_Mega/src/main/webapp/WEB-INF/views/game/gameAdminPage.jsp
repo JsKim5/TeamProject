@@ -8,8 +8,9 @@
 <title>게임 관리</title>
 
 <link rel="stylesheet"
-	href="/teamproject/resources/css/styles_layout.css">
+	href="/teamproject/resources/css/layout_main.css">
 <script src="/teamproject/resources/js/httpRequest.js"></script>
+<script src="/teamproject/resources/js/headerScript.js"></script>
 <script>
 	function del(f) {
 		let idx = f.game_idx.value;
@@ -43,7 +44,7 @@
 </head>
 
 <body>
-	<%@ include file="/WEB-INF/views/layout/header.jsp"%>
+	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
 	<!-- 헤더 부분 include -->
 
 

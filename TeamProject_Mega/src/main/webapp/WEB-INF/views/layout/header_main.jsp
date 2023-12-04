@@ -1,43 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 	<div id="header">
 		<div id="menu-container">
 			<div class="menu-item">
 				<span>게임</span>
 				<div class="submenu">
-					<a href="#">게임탐색</a> <a href="#">신규출시</a>
+					<a href="#">게임탐색</a>
 
 				</div>
 			</div>
 			<div class="menu-item">
-				<span>자유게시판</span>
+				<span>게시판</span>
 				<div class="submenu">
-					<a href="#">Submenu 2.1</a> <a href="#">Submenu 2.2</a> <a href="#">Submenu
-						2.3</a>
-				</div>
-			</div>
-			<div class="menu-item">
-				<span>Main Menu 3</span>
-				<div class="submenu">
-					<a href="#">Submenu 3.1</a> <a href="#">Submenu 3.2</a> <a href="#">Submenu
-						3.3</a>
+					<a href="#">자유게시판</a> <a href="#">유저토론</a>
 				</div>
 			</div>
 		</div>
 
 		<div id="button-container">
-			<button id="search-btn" onclick="openSearchPopup()">Search</button>
+		<c:if test="${login  == null}">
 			<button id="register-btn" onclick="openPopup()">Register</button>
-		</div>
-
-		<!-- 검색 팝업 창 -->
-		<div id="search-popup" class="popup">
-			<h2>검색</h2>
-			<span id="close-popup" onclick="closeSearchPopup()">닫기</span> <input
-				type="text" id="popup-search-input" placeholder="Search...">
-			<button id="search-btn" onclick="search()">검색</button>
-		</div>
+		</c:if>
+		<c:if test="${login  != null}">
+			<button id="mypage-btn" onclick="location.href='mypage.do'">Mypage</button>&nbsp ${login.user_nickname} &nbsp
+			<img style="width: 40px; height: 40px; border-radius:50%; object-fit:cover;" src = "/teamproject/resources/user_img/${ login.user_image_path }">
+		</c:if>
+		
 	</div>
+</div>
 
 	<!-- 로그인 팝업 창 -->
 	<div id="register-popup" class="popup">

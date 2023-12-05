@@ -106,7 +106,12 @@
 				
 				<tr>
 					<td align="center">프로필 사진</td>
-					<td ><img class ="user_img" src = "/teamproject/resources/user_img/${ login.user_image_path }"></td>
+					<c:if test="${login.user_image_path != null }">
+						<td><img class ="user_img" src = "/teamproject/resources/user_img/${ login.user_image_path }"></td>
+					</c:if>
+					<c:if test="${login.user_image_path == null }">
+						<td><img class = "user_img" src="/teamproject/resources/user_img/no_file"></td>
+					</c:if>
 				</tr>
 		</table>
 		<table>	

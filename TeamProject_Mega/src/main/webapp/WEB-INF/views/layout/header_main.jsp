@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+   
 	<div id="header">
 		<div id="menu-container">
 			<div class="menu-item">
@@ -61,10 +63,12 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="login-td" colspan="2"><input type="button" value="아이디찾기" onclick="location.href='searchid.do'" class="login-button">
+					<c:if test="${login == null }">
+						<td class="login-td" colspan="2"><input type="button" value="아이디찾기" onclick="location.href='searchid.do'" class="login-button">
 						<input type="button" value="비밀번호찾기" onclick="location.href='searchpw.do'" class="login-button">
 						<input type="button" value="회원가입" onclick="location.href='join_form.do'" class="login-button">
-					</td>
+						</td>
+					</c:if>
 				</tr>
 			</table>
 			<p class="login-error">${loginfail}</p>

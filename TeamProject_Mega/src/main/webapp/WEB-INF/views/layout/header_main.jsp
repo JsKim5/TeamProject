@@ -6,7 +6,7 @@
 			<div class="menu-item">
 				<span>게임</span>
 				<div class="submenu">
-					<a href="#">게임탐색</a>
+					<a onclick="location.href='gameList.do'">게임탐색</a>
 
 				</div>
 			</div>
@@ -16,6 +16,14 @@
 					<a href="#">자유게시판</a> <a href="#">유저토론</a>
 				</div>
 			</div>
+			<div class="menu-item">
+		<c:if test="${login != null && login.user_nickname == 'admin' }">
+			<span>관리자페이지</span>
+			<div class="submenu">
+			<a onclick="location.href='admin_page.do'">전체관리</a>
+			</div>
+		</c:if>
+		</div>
 		</div>
 
 		<div id="button-container">

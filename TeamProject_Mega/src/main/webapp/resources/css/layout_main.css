@@ -60,7 +60,7 @@ body {
 	align-items: center;
 }
 
-#mypage-btn, #register-btn {
+#mypage-btn, #register-btn, #admin-btn {
 	background-color: #4CAF50;
 	color: white;
 	border: none;

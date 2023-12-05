@@ -342,4 +342,20 @@ public class GameDAO {
 		List<GameVO> list = sqlSession.selectList("g.selectMain");
 		return list;
 	}
+	
+	public List<GameVO> selectYoutubeUrl() {
+		List<GameVO> list = sqlSession.selectList("g.selectYoutubeUrl");
+		return list;
+	}
+	
+	public void updateYoutubeAll() {
+		List<GameVO> list = this.selectYoutubeUrl();
+		int i = 0;
+		for(GameVO vo: list) {
+			this.youtubeUrlUpdate(vo);
+			System.out.println(i);
+			i++;
+		}
+		System.out.println(i+"개 업데이트 완료");
+	}
 }

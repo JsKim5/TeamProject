@@ -6,12 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/teamproject/resources/js/headerScript.js"></script>
-<<<<<<< HEAD
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
-=======
-<link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
-
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 
 <script>
 	function send(f) {

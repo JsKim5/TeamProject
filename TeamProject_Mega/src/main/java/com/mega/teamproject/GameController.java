@@ -223,12 +223,15 @@ public class GameController {
 				gvot.setEnd(end);
 				
 				List<GameVO> list = gameDao.select(gvot);
+				List<GameVO> mainList = gameDao.selectMain();
 				// 전체 게시글 수
 				int row_total = gameDao.getRowTotal(gvot);
 
 				// 페이지 메뉴 만들기
 				String pageMenu = Paging.getPaging("gameAdminPage.do", nowPage, row_total, Common.GameList.BLOCKLIST,
 						Common.GameList.BLOCKPAGE);
+				
+				request.setAttribute("mainList", mainList);
 				request.setAttribute("total", row_total);
 				request.setAttribute("list", list);
 				request.setAttribute("pageMenu", pageMenu);
@@ -237,6 +240,44 @@ public class GameController {
 	
 	@RequestMapping("/testPage.do")
 	public String testPage() {
-		return VIEW_PATH + "testPage.jsp";
+		List<GameVO> mainList = gameDao.selectMain();
+		request.setAttribute("mainList", mainList);
+		return "/WEB-INF/views/MainPage2.jsp";
+	}
+	
+	@RequestMapping("/mainGameInsert.do")
+	public String mainGameInsert(GameVO vo) {
+		String webPath = "/resources/game_img/";
+		String savePath = application.getRealPath(webPath);
+		System.out.println("절대 경로 : " + savePath);
+		String filename = "no_file";
+
+		MultipartFile game_img = vo.getGame_img();
+
+		if (!game_img.isEmpty()) {
+			filename = game_img.getOriginalFilename();
+			File saveFile = new File(savePath, filename);
+
+			if (!saveFile.exists()) {
+				saveFile.mkdirs();
+			} else {
+				// 파일명 중복방지
+				long time = System.currentTimeMillis();
+				filename = String.format("%d_%s", time, filename);
+				saveFile = new File(savePath, filename);
+			}
+
+			try {
+				game_img.transferTo(saveFile);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		vo.setGame_image_path("resources/game_img/" + filename);
+
+		int res = gameDao.mainPageInsert(vo);
+		
+		return "redirect:gameAdminPage.do";
 	}
 }

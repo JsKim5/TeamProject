@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class GameVO {
 	private MultipartFile game_img;
 	
-	private int game_idx;
+	private int game_idx,main_row_idx;
 	private String 
 			game_name,
 			game_platforms,
@@ -16,11 +16,24 @@ public class GameVO {
 			game_publisher,
 			game_release_date,
 			game_image_path,
-			game_youtube_url;
+			game_youtube_url,
+			main_type;
 	private int game_meta_score;
 	private double game_user_score;
 	
 	
+	public int getMain_row_idx() {
+		return main_row_idx;
+	}
+	public void setMain_row_idx(int main_row_idx) {
+		this.main_row_idx = main_row_idx;
+	}
+	public String getMain_type() {
+		return main_type;
+	}
+	public void setMain_type(String main_type) {
+		this.main_type = main_type;
+	}
 	public double getGame_user_score() {
 		return game_user_score;
 	}

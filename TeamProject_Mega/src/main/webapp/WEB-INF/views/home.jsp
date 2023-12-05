@@ -9,12 +9,22 @@
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 <!-- styles_layout.css 파일 링크 -->
 </head>
-
+<style>
+footer {
+      background-color: white;
+      color: black;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+</style>
 <body>
 	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
 
 
-	<table>
+	<table border="1">
 		<caption>링크목록</caption>
 		<tr>
 			<th colspan = "3">Game</th>

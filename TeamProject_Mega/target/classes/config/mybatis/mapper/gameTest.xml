@@ -55,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="youtubeUrlUpdate" parameterType="game">
-		update GAME_INFO set game_youtube_url = #{game_youtube_url} where game_idx = #{game_idx}
+		update GAME_INFO set game_youtube_url = #{game_youtube_url} where game_name = #{game_name}
 	</update>
 	
 	<insert id="mainPageInsert" parameterType="game">
@@ -71,12 +71,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectMain" resultType="game">
 		select * from MAIN_GAME_INFO
 	</select>
+	
+	<select id="selectYoutubeUrl" resultType="game">
+		select * from YOUTUBE_URL
+	</select>
 <!-- 	중복 게임 검색 쿼리문
 	SELECT game_name, count(*) 
 	FROM game_info
 	GROUP BY game_name
 	HAVING count(*) > 1; -->
-	
 </mapper>
 
 

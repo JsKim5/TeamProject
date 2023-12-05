@@ -111,6 +111,10 @@ input[type="button"]:hover {
 					<th colspan="2" scope="col" class="skeletor">${vo.game_name}</th>
 				</tr>
 				<tr>
+					<td colspan="2">Released On ${vo.game_release_date}</td>
+					
+				</tr>
+				<tr>
 					<th>Platforms</th>
 					<td>${vo.game_platforms}</td>
 				</tr>

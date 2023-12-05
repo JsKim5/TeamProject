@@ -6,9 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Game Search</title>
-<link rel="stylesheet" href="/teamproject/resources/css/testCss.css">
+<link rel="stylesheet" href="/teamproject/resources/css/gameList_style.css">
+<link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 
 <script src="/teamproject/resources/js/httpRequest.js"></script>
+<script src="/teamproject/resources/js/headerScript.js"></script>
 <script>
 function selectSearch(f) {
 	let select = f.g_select.value;
@@ -38,6 +40,8 @@ function titleSearch(f) {
 </script>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
+	
     <form>
     	<div class="search-box">
         <!-- 조건검색(select) -->

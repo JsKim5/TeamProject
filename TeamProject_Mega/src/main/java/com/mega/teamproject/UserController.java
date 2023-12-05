@@ -37,7 +37,7 @@ public class UserController {
 	// 홈페이지,초기화면
 	@RequestMapping(value = { "/", "/home.do" })
 	public String homePage() {
-		return "/WEB-INF/views/home.jsp";
+		return "/WEB-INF/views/MainPage.jsp";
 	}
 
 	// 회원가입 페이지 이동
@@ -115,7 +115,7 @@ public class UserController {
 		if (login != null) {
 			session.setAttribute("login", login);
 			
-			return VIEW_PATH + "LoginResult.jsp";
+			return "/WEB-INF/views/MainPage.jsp";
 		}
 		return "redirect:login_form.do?fail=o";
 	}

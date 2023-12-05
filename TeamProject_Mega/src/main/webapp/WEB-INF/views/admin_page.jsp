@@ -11,17 +11,7 @@
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 <!-- styles_layout.css 파일 링크 -->
 </head>
-<style>
-footer {
-      background-color: white;
-      color: black;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-</style>
+
 <body>
 
 	
@@ -31,9 +21,6 @@ footer {
 	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
 
 
-<<<<<<< HEAD
-	<table border="1">
-=======
 
   	<a href="review_AL.do">리뷰목록</a>
 
@@ -52,7 +39,6 @@ footer {
 </head>
 
 	<table>
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 		<caption>링크목록</caption>
 		<tr>
 			<th colspan = "3">Game</th>

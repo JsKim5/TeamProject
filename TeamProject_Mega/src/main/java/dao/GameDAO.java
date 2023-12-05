@@ -332,5 +332,17 @@ public class GameDAO {
 		int res = sqlSession.insert("g.insertYoutubeUrl",vo);
 		return res;
 	}
-
+<<<<<<< HEAD
+=======
+	
+	public int mainPageInsert(GameVO vo) {
+		int res = sqlSession.insert("g.mainPageInsert", vo);
+		return res;
+	}
+	
+	public List<GameVO> selectMain() {
+		List<GameVO> list = sqlSession.selectList("g.selectMain");
+		return list;
+	}
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 }

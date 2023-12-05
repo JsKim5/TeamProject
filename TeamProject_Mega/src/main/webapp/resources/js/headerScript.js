@@ -24,11 +24,3 @@
 	function closePopup() {
 		document.getElementById("register-popup").style.display = "none";
 	}
-
-	function openSearchPopup() {
-		document.getElementById("search-popup").style.display = "block";
-	}
-
-	function closeSearchPopup() {
-		document.getElementById("search-popup").style.display = "none";
-	}

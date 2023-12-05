@@ -33,8 +33,8 @@
 		<!-- 검색 팝업 창 -->
 		<div id="search-popup" class="popup">
 			<h2>검색</h2>
-			<span id="close-popup" onclick="closeSearchPopup()">닫기</span> <input
-				type="text" id="popup-search-input" placeholder="Search...">
+			<span id="close-popup" onclick="closeSearchPopup()">닫기</span>
+			<input type="text" id="popup-search-input" placeholder="Search...">
 			<button id="search-btn" onclick="search()">검색</button>
 		</div>
 	</div>
@@ -55,18 +55,15 @@
 						name="user_pwd" class="login-input" required></td>
 				</tr>
 				<tr>
-					<td class="login-td" colspan="2"><input type="button"
-						value="로그인" onclick="send(this.form);" class="login-button">
-						<input type="button" value="홈으로" onclick="location.href='home.do'"
-						class="login-button"></td>
+					<td class="login-td" colspan="2">
+						<input type="button" value="로그인" onclick="send(this.form);" class="login-button">
+						<input type="button" value="홈으로" onclick="location.href='home.do'" class="login-button">
+					</td>
 				</tr>
 				<tr>
-					<td class="login-td" colspan="2"><input type="button"
-						value="아이디찾기" onclick="location.href='searchid.do'"
-						class="login-button"> <input type="button" value="비밀번호찾기"
-						onclick="location.href='searchpw.do'" class="login-button">
-						<input type="button" value="회원가입"
-						onclick="location.href='join_form.do'" class="login-button">
+					<td class="login-td" colspan="2"><input type="button" value="아이디찾기" onclick="location.href='searchid.do'" class="login-button">
+						<input type="button" value="비밀번호찾기" onclick="location.href='searchpw.do'" class="login-button">
+						<input type="button" value="회원가입" onclick="location.href='join_form.do'" class="login-button">
 					</td>
 				</tr>
 			</table>

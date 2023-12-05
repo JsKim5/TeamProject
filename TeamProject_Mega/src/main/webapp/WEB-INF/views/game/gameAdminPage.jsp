@@ -40,6 +40,7 @@
 		let searchTitle = f.searchTitle.value;
 		location.href = "gameAdminPage.do?searchTitle=" + searchTitle;
 	}
+	
 </script>
 </head>
 
@@ -48,17 +49,22 @@
 	<!-- 헤더 부분 include -->
 
 
-	<div>
-		<a href="gameList.do">게임 리스트로 이동</a><br> <a
-			href="gameInsertForm.do">게임 등록 페이지</a><br>
-			<a href="testPage.do">test</a>
+	<div style="text-decoration: none; font-weight: bold; ">
+		<a href="gameList.do" style="text-decoration: none; color:black;">[게임 리스트로 이동]</a> &nbsp;
+		<a href="gameInsertForm.do" style="text-decoration: none; color:black;">[게임 등록 페이지]</a> &nbsp;
+		<a href="testPage.do" style="text-decoration: none; color:black;">[Test Page로 이동]</a> &nbsp;
 	</div>
+	
+	<br><br>------------------------------------------------
+	------------------------------------------------<br><br>
+	
 	<form>
 		<input type="text" name="searchTitle" placeholder="게임 제목 검색">
 		<input type="button" value="검색" onclick="search(this.form)">
 	</form>
 	<div class="message" id="errorMessage"></div>
 	<table border="1">
+		<caption>게임 관리 페이지</caption>
 		<tr>
 			<th>idx</th>
 			<th>name</th>
@@ -90,6 +96,61 @@
 		<tr>
 			<th>총 게임수</th>
 			<td>${total}</td>
+		</tr>
+	</table>
+	<br><br>------------------------------------------------
+	------------------------------------------------<br><br>
+	<form action="mainGameInsert.do" method="POST" enctype="multipart/form-data">
+	<table border="1">
+	<caption>MainPage 게임 등록</caption>
+		<tr>
+			<td>이름</td>
+			<td><input name="game_name"></td>
+		</tr>
+		<tr>
+			<td>idx</td>
+			<td><input name="game_idx"></td>
+		</tr>
+		<tr>
+			<td>이미지</td>
+			<td><input type="file" name="game_img"></td>
+		</tr>
+		<tr>
+			<td>행</td>
+			<td><input name="main_row_idx"></td>
+		</tr>
+		<tr>
+			<td>type</td>
+			<td><input name="main_type"></td>
+		</tr>
+		<tr><td colspan="3"><input type="button" value="등록" onclick="submit()"></td></tr>
+	</table>
+	</form>
+	<br><br>------------------------------------------------
+	------------------------------------------------<br><br>
+	<table border="1">
+	<caption>MainList</caption>
+		<tr><td></td><td colspan="5">게임 이름</td></tr>
+		<tr><td>1행</td>
+			<c:forEach var="mv" items="${mainList}">
+			<c:if test="${mv.main_row_idx == 1 }">
+				<td>${mv.game_name}</td>
+			</c:if>
+			</c:forEach>
+		</tr>
+		<tr><td>2행</td>
+			<c:forEach var="mv" items="${mainList}">
+			<c:if test="${mv.main_row_idx == 2 }">
+				<td>${mv.game_name}</td>
+			</c:if>
+			</c:forEach>
+		</tr>
+		<tr><td>3행</td>
+			<c:forEach var="mv" items="${mainList}">
+			<c:if test="${mv.main_row_idx == 3 }">
+				<td>${mv.game_name}</td>
+			</c:if>
+			</c:forEach>
 		</tr>
 	</table>
 	<%@ include file="/WEB-INF/views/layout/footer.jsp"%>

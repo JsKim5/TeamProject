@@ -333,10 +333,7 @@ public class GameDAO {
 		return res;
 	}
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
 	public int mainPageInsert(GameVO vo) {
 		int res = sqlSession.insert("g.mainPageInsert", vo);
 		return res;
@@ -346,10 +343,7 @@ public class GameDAO {
 		List<GameVO> list = sqlSession.selectList("g.selectMain");
 		return list;
 	}
-<<<<<<< HEAD
 
-=======
-	
 	public List<GameVO> selectYoutubeUrl() {
 		List<GameVO> list = sqlSession.selectList("g.selectYoutubeUrl");
 		return list;
@@ -365,5 +359,5 @@ public class GameDAO {
 		}
 		System.out.println(i+"개 업데이트 완료");
 	}
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
 }

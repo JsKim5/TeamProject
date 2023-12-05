@@ -92,6 +92,7 @@
 			<td align="center" colspan="5">${pageMenu}</td>
 		</tr>
 	</table>
+	<P><a href="youtubeAll.do">[youtubeAll]</a></P>
 	<table>
 		<tr>
 			<th>총 게임수</th>

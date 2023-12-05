@@ -280,4 +280,10 @@ public class GameController {
 		
 		return "redirect:gameAdminPage.do";
 	}
+	
+	@RequestMapping("/youtubeAll.do")
+	public String youtubeAll() {
+		gameDao.updateYoutubeAll();
+		return "redirect:gameAdminPage.do";
+	}
 }

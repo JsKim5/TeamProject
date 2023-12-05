@@ -91,7 +91,6 @@ input[type="button"]:hover {
 	background-color: #2478FF;
 }
 </style>
-
 </head>
 <body>
 

@@ -7,47 +7,10 @@
 <meta charset="UTF-8">
 <title>게임 관리</title>
 
-<style>
-table {
-	width: 100%;
-}
-
-table td {
-	text-align: left;
-	width: 20%;
-}
-a {
-	text-decoration: none;
-	color: black;
-}
-/* 버튼 */
-button, input[type="button"] {
-	padding: 5px 5px;
-	border: none;
-	border-radius: 5px;
-	background-color: #f0f0f0;
-	color: black;
-	font-size: 15px;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-/* 호버 효과 */
-button:hover, input[type="button"]:hover {
-	background-color: #464A52;
-}
-
-/* 클릭 효과 */
-button:active, input[type="button"]:active {
-	background-color: #3e8e41;
-}
-</style>
 <link rel="stylesheet"
-	href="/teamproject/resources/css/styles_layout.css">
-<!-- styles_layout.css 파일 링크 -->
-<link rel="stylesheet"
-	href="/teamproject/resources/css/styles_table.css">
+	href="/teamproject/resources/css/layout_main.css">
 <script src="/teamproject/resources/js/httpRequest.js"></script>
+<script src="/teamproject/resources/js/headerScript.js"></script>
 <script>
 	function del(f) {
 		let idx = f.game_idx.value;
@@ -81,13 +44,14 @@ button:active, input[type="button"]:active {
 </head>
 
 <body>
-	<%@ include file="/WEB-INF/views/layout/header.jsp"%>
+	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
 	<!-- 헤더 부분 include -->
-	<%@ include file="/WEB-INF/views/layout/sidebar.jsp"%>
-	<!-- 사이드(좌측) 부분 include -->
+
+
 	<div>
 		<a href="gameList.do">게임 리스트로 이동</a><br> <a
-			href="gameInsertForm.do">게임 등록 페이지</a>
+			href="gameInsertForm.do">게임 등록 페이지</a><br>
+			<a href="testPage.do">test</a>
 	</div>
 	<form>
 		<input type="text" name="searchTitle" placeholder="게임 제목 검색">

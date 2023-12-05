@@ -13,21 +13,18 @@
 		
 	<body>
 		<!-- 아이디 확인 페이지 -->
-
-		<c:if test="">
-		
-		</c:if>
-
 		<table>
-			<!-- 일치하는 아이디가 없을때 표시 -->
-			<tr>
-				<td>아이디</td>
-				<td>${ vo.user_id }</td>
-			</tr>
+			<c:if test="${id == null }">
+				아이디가 존재하지 않습니다.
+			</c:if>
+			<c:if test="${id != null }">
+				<td>${name }님의 아이디는 ${id} 입니다.</td>
+			</c:if>
+			
 			
 			<tr>
-				<td><input type="button" value="로그인 페이지로" onclick="location.href='login.do'"></td>
-				<td><input type="button" value="비밀번호 찾기" onclick="location.href='searchpw.do'"></td>
+				<td><input type="button" value="로그인 페이지로" onclick="location.href='login_form.do'"></td>
+				<td><input type="button" value="비밀번호 찾기" onclick="location.href='selectpw_form.do'"></td>
 			</tr>
 			
 		</table>

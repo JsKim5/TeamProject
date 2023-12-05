@@ -61,6 +61,12 @@ public class ReviewController {
 		return VIEW_PATH + "review_AL.jsp";
 	}
 	
+	//관리자 페이지
+	@RequestMapping("/admin_page.do")
+		public String Admin_Page() {
+		return "/WEB-INF/views/admin_page.jsp";
+	}
+	
 	//게임별 리뷰 조회
 	@RequestMapping("/review_list.do")	
 	public String reviewList(String game_name) {

@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				#{user_pwd},
 				sysdate,
 				#{user_nickname},
-				'',
+				'no_file.jpg',
 				#{user_email},
 				#{user_name},
 				#{user_ip},
@@ -26,20 +26,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 아이디 찾기 -->
-	<select id = "select_id" resultType="user" parameterType="user">  <!-- email2추가 -->
+	<select id = "select_id" resultType="user" parameterType="user">
 		select * from USER_INFO where user_name=#{user_name} and user_email=#{user_email} and user_email2=#{user_email2} <!-- 아이디 찾기 이름 + 주민번호 or 이름 + 이메일 -->
 	</select>
 	
 	<!-- 비밀번호 찾기 -->
-	<select id = "select_pw" resultType="user" parameterType="user">   <!-- email2추가 -->
+	<select id = "select_pw" resultType="user" parameterType="user">
 		select * from USER_INFO where user_name=#{user_name} and user_id=#{user_id} and user_email=#{user_email} and user_email2=#{user_email2} <!-- 비밀번호 찾기 이름 + 아이디 + 주민번호 or 이메일 -->
 	</select>
 	
 	<!-- 회원 정보 수정 -->
 	<update id = "user_modify" parameterType="user">  
-		update USER_INFO set user_nickname=#{user_nickname}, <!-- email2추가 -->
-							 user_email=#{user_email},
-							 user_email2=#{user_email2},
+		update USER_INFO set user_nickname=#{user_nickname},
 							 user_pwd=#{user_pwd}
 		where user_idx=#{user_idx}
 	</update> 

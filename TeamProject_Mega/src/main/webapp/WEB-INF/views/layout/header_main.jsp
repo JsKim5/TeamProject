@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-   
-=======
-<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 	<div id="header">
 		<div id="menu-container">
 			<div class="menu-item">

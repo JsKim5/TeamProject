@@ -82,15 +82,6 @@ public class UserController {
 		
 		return VIEW_PATH + "CheckPw.jsp";
 	}
-	
-	/*
-	 * //비밀변호 찾기 후 변경
-	 * 
-	 * @RequestMapping("modifypw.do") public String modifyPw(UserVO vo) { int res =
-	 * user_dao.modifypw(vo); if(res == 0) { return "no"; } return "yes";
-	 * 
-	 * }
-	 */
 
 	// 비밀번호 찾기 페이지
 	@RequestMapping("selectpw_form.do")

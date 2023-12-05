@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				#{user_pwd},
 				sysdate,
 				#{user_nickname},
-				'test',
+				'',
 				#{user_email},
 				#{user_name},
 				#{user_ip},

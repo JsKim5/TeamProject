@@ -11,32 +11,14 @@
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 <!-- styles_layout.css 파일 링크 -->
 </head>
-
 <body>
 
+
 	
 	
- 	<a href="gameList.do">게임 리스트</a>
-  	<a href="gameInsertForm.do">게임 등록</a><br>
 	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
 
 
-
-  	<a href="review_AL.do">리뷰목록</a>
-
-
-
-
-  	<a href="join_form.do">회원가입</a>
-  	<c:if test="${login == null }">
-  	<a href="login_form.do">로그인</a>
-  	</c:if>
-  	<c:if test="${login != null }">
-  	<a href="mypage.do">마이페이지</a>
-	</c:if>
-</body>
-
-</head>
 
 	<table>
 		<caption>링크목록</caption>

@@ -5,10 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
 <script src="/teamproject/resources/js/headerScript.js"></script>
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
-=======
 
 <script>
 	function send(f) {
@@ -242,7 +240,6 @@ body {
 }
 </style>
 
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 <!-- GAMES스타일 -->
 <style>
 h1 {

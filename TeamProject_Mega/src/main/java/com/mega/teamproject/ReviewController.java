@@ -120,9 +120,4 @@ public class ReviewController {
 		return result;
 	}
 	
-	@RequestMapping("/MainPage.do")
-	public String MainPage() {
-		return "/WEB-INF/views/MainPage.jsp";
-	}
-	
 }

@@ -333,7 +333,6 @@ public class GameDAO {
 		return res;
 	}
 
-
 	public int mainPageInsert(GameVO vo) {
 		int res = sqlSession.insert("g.mainPageInsert", vo);
 		return res;
@@ -344,7 +343,6 @@ public class GameDAO {
 		return list;
 	}
 
-	
 	public List<GameVO> selectYoutubeUrl() {
 		List<GameVO> list = sqlSession.selectList("g.selectYoutubeUrl");
 		return list;

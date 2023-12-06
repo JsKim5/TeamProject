@@ -241,8 +241,6 @@ body {
 }
 </style>
 
-=======
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 <!-- GAMES스타일 -->
 <style>
 h1 {

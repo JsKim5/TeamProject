@@ -110,7 +110,7 @@ public class UserController {
 		if (login != null) {
 			session.setAttribute("login", login);
 			
-			return "/WEB-INF/views/MainPage.jsp";
+			return "redirect:home.do";
 		}
 		return "redirect:login_form.do?fail=o";
 	}

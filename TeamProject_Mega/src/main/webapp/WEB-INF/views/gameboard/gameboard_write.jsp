@@ -30,10 +30,12 @@
 		
 	}*/
 </script>
+
+<link rel="stylesheet" href="/teamproject/resources/css/gameBoardStyle.css">
 </head>
 <body>
 	<form method="POST" enctype="multipart/form-data">
-	<input type="hidden" name="user_id" value="${login.user_id}">
+	<input type="hidden" name="user_id" value="${login.user_nickname}">
 	<table width="690" border="1">
 		<caption>게시판 글쓰기</caption>
 		

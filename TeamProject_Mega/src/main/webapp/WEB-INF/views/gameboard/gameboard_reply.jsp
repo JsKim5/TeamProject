@@ -25,12 +25,13 @@
 		
 	}
 </script>
+<link rel="stylesheet" href="/teamproject/resources/css/gameBoardStyle.css">
 </head>
 <body>
 	<form method="get">
 	
 	<input type="hidden" name="idx" value="${param.idx }">
-	<input type="hidden" name="user_id" value="test">
+	<input type="hidden" name="user_id" value="${login.user_nickname}">
 	<input type="hidden" name="game_name" value="test">
 	
 	<table width="530" border="1">
@@ -39,8 +40,8 @@
 		
 		<!-- 글쓴이 유저아이디 자동입력 -->
 		<tr>
-			<td>유저ID</td>
-			<td> 수정</td>
+			<td>닉네임</td>
+			<td>${login.user_nickname} (${login.user_id})</td>
 		</tr>
 		
 		

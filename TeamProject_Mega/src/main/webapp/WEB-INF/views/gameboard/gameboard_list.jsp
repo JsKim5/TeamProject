@@ -7,6 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+
 	<script src="/teamproject/resources/js/headerScript.js"></script>
     <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 <style>
@@ -16,6 +17,22 @@
             padding: 0;
             background-color: #fff;
         }
+
+	<title>Game세상 게시판</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="/teamproject/resources/js/headerScript.js"></script>
+	<link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
+	
+<style>
+	
+		#box {
+  width: 200px; /* Adjust the width as needed */
+  background-color: #f1f1f1; /* Background color */
+  padding: 10px;
+  float:left;
+}
+
 
         header {
             background-color: #333;
@@ -83,6 +100,9 @@
 
 </head>
 <body>
+
+	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
+
 	
 	<table>	
 		<tr> 
@@ -94,7 +114,35 @@
 	</table>	
 		
 		<table>
-		<tr>
+<tr class="write_singo">
+				<td align="left">
+					<c:if test="${login != null }">
+					<input type="button" value="글쓰기" onclick="location.href='gameboard_write_form.do'"/>
+					</c:if>
+					<input type="button" value="신고하기" onclick="#">
+				</td>
+			</tr>
+		</table>
+		
+		
+		 <div id="box">
+    <ul class="menu">
+      <li><a href="https://www.leagueoflegends.com/ko-kr/">LOL 홈페이지</a></li>
+      <li><a href="https://pubg.com/ko/main">배틀그라운드 홈페이지</a></li>
+      <li><a href="https://overwatch.blizzard.com/ko-kr/">오버워치 홈페이지</a></li>
+    </ul>
+  </div>
+		
+		<table border="1" class="main_table">
+		<tr align="center">
+			<td width ="50">번호</td>
+			<td width ="300">제목</td>
+			<td width ="100">아이디</td>
+			<td width ="80">작성일</td>
+			<td width ="50">조회수</td>
+			<td width ="50">추천수</td>
+		<tr/>
+	<tr>
 			<th width ="50">번호</th>
 			<th width ="300">제목</th>
 			<th width ="100">아이디</th>

@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title with=200>${vo.title }</title>
-
+<link rel="stylesheet" href="/teamproject/resources/css/gameBoardStyle.css">
 <script>
 
 		function del(f){
@@ -26,7 +26,6 @@
 			f.submit();
 		} 
 	</script>
-
 
 
 </head>
@@ -70,13 +69,16 @@
 
 		<tr>
 			<td align="center" colspan="2">
-				
+				<c:if test="${login.user_id != null }">
 					<input type="button" value="댓글쓰기"
 						onclick="location.href='reply_form.do?idx=${vo.gameboard_idx}'">
+				</c:if>
+				<c:if test="${vo.user_id == login.user_id}">
 				<input type="button" value="수정"
 				onclick="location.href='edit_form.do?idx=${vo.gameboard_idx}'" /> <input
 				type="button" value="삭제"
 				onclick="location.href='del.do?gameboard_idx=${vo.gameboard_idx}'" />
+				</c:if>
 				<input type="button" value="목록" onclick="location.href='list.do'" />
 
 			</td>

@@ -39,6 +39,9 @@
 		<beans:constructor-arg ref="userBean"/>
 	</beans:bean>
 	
+	<beans:bean class="com.mega.teamproject.GameboardController">
+		<beans:property name="gameboard_dao" ref="gameboard_daoBean" />    
+	 </beans:bean> 
 	
 </beans:beans>
 

@@ -89,7 +89,7 @@
     </header>
     
     <nav>
-        <a href="MainPage.do">홈페이지</a>
+        <a href="home.do">홈페이지</a>
         <a href="admin_page.do">관리자페이지</a>
    </nav>
 

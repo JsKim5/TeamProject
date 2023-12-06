@@ -344,10 +344,6 @@ public class GameDAO {
 		return list;
 	}
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 	public List<GameVO> selectYoutubeUrl() {
 		List<GameVO> list = sqlSession.selectList("g.selectYoutubeUrl");
 		return list;
@@ -363,8 +359,4 @@ public class GameDAO {
 		}
 		System.out.println(i+"개 업데이트 완료");
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 }

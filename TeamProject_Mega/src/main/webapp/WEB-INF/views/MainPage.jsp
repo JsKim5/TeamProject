@@ -4,31 +4,11 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-=======
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
->>>>>>> refs/heads/seongwon
 <script src="/teamproject/resources/js/headerScript.js"></script>
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
-<link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
-
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
-=======
-<link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
->>>>>>> refs/heads/seongwon
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 
 <script>
 	function send(f) {
@@ -260,12 +240,8 @@ body {
 .close-button:hover {
 	background-color: #d32f2f;
 }
-<<<<<<< HEAD
 </style>
 
-=======
-</style>
->>>>>>> refs/heads/seongwon
 <!-- GAMES스타일 -->
 <style>
 h1 {

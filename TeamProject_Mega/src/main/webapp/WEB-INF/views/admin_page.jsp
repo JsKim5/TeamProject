@@ -102,7 +102,7 @@
 
 
     <nav>
-        <a href="MainPage.do">홈페이지가기</a>
+        <a href="home.do">홈페이지가기</a>
     </nav>
 
     <table>

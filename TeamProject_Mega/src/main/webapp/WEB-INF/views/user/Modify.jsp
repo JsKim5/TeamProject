@@ -129,7 +129,6 @@
 	</head>
 	
 	<body>
-		<!-- 비밀변호 변경시 이미 사용중일때 이미 사용중인 비밀번호 입니다 띄우기 -->
 		
 		<form>
 		<input type="hidden" name="user_idx" value="${login.user_idx }">

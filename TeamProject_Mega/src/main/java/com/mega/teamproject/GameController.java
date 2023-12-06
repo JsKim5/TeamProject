@@ -247,35 +247,7 @@ public class GameController {
 	
 	@RequestMapping("/mainGameInsert.do")
 	public String mainGameInsert(GameVO vo) {
-		String webPath = "/resources/game_img/";
-		String savePath = application.getRealPath(webPath);
-		System.out.println("절대 경로 : " + savePath);
-		String filename = "no_file";
-
-		MultipartFile game_img = vo.getGame_img();
-
-		if (!game_img.isEmpty()) {
-			filename = game_img.getOriginalFilename();
-			File saveFile = new File(savePath, filename);
-
-			if (!saveFile.exists()) {
-				saveFile.mkdirs();
-			} else {
-				// 파일명 중복방지
-				long time = System.currentTimeMillis();
-				filename = String.format("%d_%s", time, filename);
-				saveFile = new File(savePath, filename);
-			}
-
-			try {
-				game_img.transferTo(saveFile);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		vo.setGame_image_path("resources/game_img/" + filename);
-
+		
 		int res = gameDao.mainPageInsert(vo);
 		
 		return "redirect:gameAdminPage.do";

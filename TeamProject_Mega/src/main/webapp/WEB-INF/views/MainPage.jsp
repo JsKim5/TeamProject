@@ -89,7 +89,7 @@ width:200px;
 		</c:forEach>
 	</div>
 	
-	<p>New Releases2</p> 
+	<p>Upcoming Games</p> 
 	<hr>
 	
 	<div class="main-game-container">
@@ -104,7 +104,7 @@ width:200px;
 		</c:forEach>
 	</div>
 	
-	<p>New Releases3</p> 
+	<p>Best Games on</p> 
 	<hr>
 	
 	<div class="main-game-container">

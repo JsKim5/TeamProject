@@ -114,8 +114,9 @@
 		</tr>
 		<tr>
 			<td>이미지</td>
-			<td><input type="file" name="game_img"></td>
+			<td><input name="game_image_path"></td>
 		</tr>
+
 		<tr>
 			<td>행</td>
 			<td><input name="main_row_idx"></td>

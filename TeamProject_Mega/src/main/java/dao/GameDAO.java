@@ -333,10 +333,6 @@ public class GameDAO {
 		return res;
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/heads/JoonSung
 	public int mainPageInsert(GameVO vo) {
 		int res = sqlSession.insert("g.mainPageInsert", vo);
 		return res;

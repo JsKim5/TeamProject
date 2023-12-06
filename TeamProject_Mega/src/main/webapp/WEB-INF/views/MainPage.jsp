@@ -36,9 +36,9 @@ hr {
 }
 
 .custom-image {
-height: 300px;
-width:200px;
-
+	height: 300px;
+	width:200px;
+	border-radius: 15px;
 	margin-left: 1px;
 	margin-top: 10px;
 }
@@ -54,10 +54,17 @@ width:200px;
 	justify-content: center;
 	align-items: center;
 	padding: 15px;
+	width:220px;
+
 }
 .main-detail {
 	flex: 1;
 	margin-left: 10px;
+}
+
+a {
+	text-decoration: none;
+	color : black;
 }
 </style>
 
@@ -82,7 +89,7 @@ width:200px;
 		<c:if test="${mv.main_row_idx == 1 }">
 	<div class="main-game">
 	<p><img class="custom-image" src="${mv.game_image_path}" ><br>
-	${mv.game_name}</p>
+	<a href="gameView.do?idx=${mv.game_idx}">${mv.game_name}</a></p>
 	&nbsp;
 	</div>
 		</c:if>
@@ -97,7 +104,7 @@ width:200px;
 		<c:if test="${mv.main_row_idx == 2 }">
 	<div class="main-game">
 	<p><img class="custom-image" src="${mv.game_image_path}" ><br>
-	${mv.game_name}</p>
+	<a href="gameView.do?idx=${mv.game_idx}">${mv.game_name}</a></p>
 	&nbsp;
 	</div>
 		</c:if>
@@ -112,7 +119,7 @@ width:200px;
 		<c:if test="${mv.main_row_idx == 3 }">
 	<div class="main-game">
 	<p><img class="custom-image" src="${mv.game_image_path}" ><br>
-	${mv.game_name}</p>
+	<a href="gameView.do?idx=${mv.game_idx}">${mv.game_name}</a></p>
 	&nbsp;
 	</div>
 		</c:if>

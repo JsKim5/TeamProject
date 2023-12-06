@@ -3,9 +3,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/teamproject/resources/js/headerScript.js"></script>
+=======
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="/teamproject/resources/js/headerScript.js"></script>
+
+>>>>>>> refs/heads/JoonSung
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 
 <script>

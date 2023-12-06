@@ -5,7 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/heads/JoonSung
     <meta charset="UTF-8">
     <title>관리자 페이지</title>
     <script src="/teamproject/resources/js/headerScript.js"></script>
@@ -103,7 +106,7 @@
 
 
     <nav>
-        <a href="MainPage.do">홈페이지가기</a>
+        <a href="home.do">홈페이지가기</a>
     </nav>
 
     <table>

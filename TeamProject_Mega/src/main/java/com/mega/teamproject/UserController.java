@@ -1,6 +1,7 @@
 package com.mega.teamproject;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import dao.UserDAO;
+import vo.GameVO;
 import vo.UserVO;
 
 @Controller
@@ -37,6 +39,8 @@ public class UserController {
 	// 홈페이지,초기화면
 	@RequestMapping(value = { "/", "/home.do" })
 	public String homePage() {
+		List<GameVO> mainList = user_dao.selectMain();
+		request.setAttribute("mainList", mainList);
 		return "/WEB-INF/views/MainPage.jsp";
 	}
 
@@ -121,7 +125,7 @@ public class UserController {
 		if (login != null) {
 			session.setAttribute("login", login);
 			
-			return "/WEB-INF/views/MainPage.jsp";
+			return "redirect:home.do";
 		}
 		return "redirect:login_form.do?fail=o";
 	}

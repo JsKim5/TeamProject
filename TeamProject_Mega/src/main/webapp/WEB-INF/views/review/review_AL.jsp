@@ -5,122 +5,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Review List</title>
+    <script src="/teamproject/resources/js/headerScript.js"></script>
+    <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 
-	<style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
 
-    table {
-      width: 100%;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-collapse: collapse;
-    }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
 
-    th, td {
-      padding: 15px;
-      text-align: center;
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
 
-    th {
-      background-color: #f5f5f5;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-    }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-    tr:nth-child(1) th {
-      border-top: none;
-    }
+        nav a:hover {
+            background-color: #ddd;
+        }
 
-    tr:nth-child(odd) {
-      background-color: #f9f9f9;
-    }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    tr:hover {
-      background-color: #f0f0f0;
-    }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
 
-    caption {
-      font-size: 24px;
-      margin: 10px 0;
-    }
+        th {
+            background-color: #333;
+            color: white;
+        }
 
-    .aa {
-      border-right: 1px solid #ddd;
-    }
-
-    a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    input[type="button"] {
-      background-color: #FFFFE4;
-      color: #000000;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: background-color 0.3s;
-    }
-
-    input[type="button"]:hover {
-      background-color: #2478FF;
-    }
-  </style>
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        a {
+        	text-decoration: none;
+        	color :black;
+        	font-weight: bold;
+        }
+    </style>
 
 </head>
 <body>
-	<div class="table-container">
-			<table>
-				<caption>리뷰 목록</caption>
-				<tr align="center">
-					<td class="aa" width="50">리뷰번호</td>
-					<td class="aa" width="100">게임명</td>
-					<td class="aa" width="50">작성자</td>
-					<td class="aa" width="300">제목</td>
-					<td class="aa" width="100">평점</td>
-					<td width="200">작성일</td>
-				</tr>
-				<c:forEach var="review_vo" items="${list}">
-					<tr align="center">
-						<td>${review_vo.review_idx }</td>
-						<td>${review_vo.game_name }</td>
-						<td>${review_vo.user_nickname }</td>
-						<td><a href="review_ALview.do?idx=${review_vo.review_idx}">
-								${review_vo.review_title} </a></td>
-						<td>${review_vo.user_score}/5</td>
-						<td>${review_vo.date_created}</td>
-					</tr>
-				</c:forEach>
-				<tr>
-						<td colspan = "6" align = "center">
-						<input type="button" value="홈으로" onclick="location.href='home.do'">
-						</td>
-					</tr>
-				<tr>
-					<td colspan ="6" align="center">
-					${pageMenu }
-					</td>
-					</tr>
-			</table>
-		</div>
+	<header>
+        <h1>전체리뷰관리</h1>
+    </header>
+    
+    <nav>
+        <a href="MainPage.do">홈페이지</a>
+        <a href="admin_page.do">관리자페이지</a>
+   </nav>
 
+    <div class="table-container">
+        <table>
+            <tr align="center">
+                <th class="aa" width="50">리뷰번호</th>
+                <th class="aa" width="100">게임명</th>
+                <th class="aa" width="50">작성자</th>
+                <th class="aa" width="300">제목</th>
+                <th class="aa" width="100">별점</th>
+                <th width="200">작성일</th>
+            </tr>
+            <c:forEach var="review_vo" items="${list}">
+                <tr align="center">
+                    <td>${review_vo.review_idx }</td>
+                    <td>${review_vo.game_name }</td>
+                    <td>${review_vo.user_nickname }</td>
+                    <td><a href="review_ALview.do?idx=${review_vo.review_idx}">
+                            ${review_vo.review_title} </a></td>
+                    <td>${review_vo.user_score}/5</td>
+                    <td>${review_vo.date_created}</td>
+                </tr>
+            </c:forEach>
+            <tr>
+                <td colspan="6" align="center">
+                    ${pageMenu }
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 TeamProject</p>
+    </footer>
 
 </body>
 </html>

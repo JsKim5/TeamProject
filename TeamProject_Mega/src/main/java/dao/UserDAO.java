@@ -1,7 +1,10 @@
 package dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
+import vo.GameVO;
 import vo.UserVO;
 
 public class UserDAO {
@@ -70,5 +73,10 @@ public class UserDAO {
 		return check;
 	}
 	
+	// Main Page - Game List Select
+	public List<GameVO> selectMain() {
+		List<GameVO> list = sqlSession.selectList("g.selectMain");
+		return list;
+	}
 	
 }

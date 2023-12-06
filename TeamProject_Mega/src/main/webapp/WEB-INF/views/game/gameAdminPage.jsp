@@ -92,6 +92,7 @@
 			<td align="center" colspan="5">${pageMenu}</td>
 		</tr>
 	</table>
+	<P><a href="youtubeAll.do">[youtubeAll]</a></P>
 	<table>
 		<tr>
 			<th>총 게임수</th>
@@ -113,8 +114,9 @@
 		</tr>
 		<tr>
 			<td>이미지</td>
-			<td><input type="file" name="game_img"></td>
+			<td><input name="game_image_path"></td>
 		</tr>
+
 		<tr>
 			<td>행</td>
 			<td><input name="main_row_idx"></td>

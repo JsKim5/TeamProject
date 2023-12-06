@@ -120,7 +120,7 @@
 						return;
 					}
 					
-					alert("수정 완료!");
+					alert("수정 완료!\n다시 로그인 해주세요");
 					location.href="logout.do";
 				}
 			}

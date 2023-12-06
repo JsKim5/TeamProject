@@ -33,15 +33,15 @@
 </head>
 <body>
 	<form method="POST" enctype="multipart/form-data">
-	<input type="hidden" name="user_id" value="test">
+	<input type="hidden" name="user_id" value="${login.user_id}">
 	<table width="690" border="1">
 		<caption>게시판 글쓰기</caption>
 		
 		
 		<!-- 글쓴이 유저아이디 자동입력 -->
 		<tr>
-			<td>유저ID</td>
-			
+			<td>닉네임</td>
+			<td>${login.user_nickname} (${login.user_id})</td>
 		</tr>
 		
 		

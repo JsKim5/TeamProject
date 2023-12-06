@@ -8,8 +8,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Game세상 게시판</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="/teamproject/resources/js/headerScript.js"></script>
+	<link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 	
-	<style>
+<style>
 	
 		#box {
   width: 200px; /* Adjust the width as needed */
@@ -108,7 +112,7 @@ a{text-decoration:none;}
 
 </head>
 <body>
-
+	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
 	
   
 	<table class="styled-table" >
@@ -132,7 +136,9 @@ a{text-decoration:none;}
 		<table>
 			<tr class="write_singo">
 				<td align="left">
+					<c:if test="${login != null }">
 					<input type="button" value="글쓰기" onclick="location.href='gameboard_write_form.do'"/>
+					</c:if>
 					<input type="button" value="신고하기" onclick="#">
 				</td>
 			</tr>

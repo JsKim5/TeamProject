@@ -38,7 +38,7 @@
 			<td align="center" width="150">제목</td>
 			<td>${vo.title}</td>
 		</tr>
-
+dsk
 		<tr>
 			<td align="center" width="150">닉네임</td>
 			<td>${vo.user_id }</td>

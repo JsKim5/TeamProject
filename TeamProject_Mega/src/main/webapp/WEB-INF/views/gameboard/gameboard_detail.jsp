@@ -74,7 +74,7 @@
 					<input type="button" value="댓글쓰기"
 						onclick="location.href='reply_form.do?idx=${vo.gameboard_idx}'">
 				</c:if>
-				<c:if test="${vo.user_id == login.user_id}">
+				<c:if test="${vo.user_id == login.user_nickname}">
 				<input type="button" value="수정"
 				onclick="location.href='edit_form.do?idx=${vo.gameboard_idx}'" /> <input
 				type="button" value="삭제"

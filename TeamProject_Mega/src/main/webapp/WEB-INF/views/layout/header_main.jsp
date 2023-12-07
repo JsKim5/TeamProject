@@ -73,10 +73,10 @@
 					<c:if test="${login == null }">
 						<td class="login-td" colspan="2"><input type="button" value="아이디찾기" onclick="location.href='selectid_form.do'" class="login-button">
 						<input type="button" value="비밀번호찾기" onclick="location.href='searchpw_form.do'" class="login-button">
-<<<<<<< HEAD
+
 						<input type="button" value="비밀번호찾기" onclick="location.href='selectpw_form.do'" class="login-button">
-=======
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
+
 						<input type="button" value="회원가입" onclick="location.href='join_form.do'" class="login-button">
 						</td>
 					</c:if>

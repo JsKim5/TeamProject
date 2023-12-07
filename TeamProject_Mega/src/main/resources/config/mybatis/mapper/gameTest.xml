@@ -79,6 +79,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectGameName" parameterType="int" resultType="String">
 		select game_name from game_info where game_idx = #{idx}
 	</select>
+	
+	<select id="selectGameNameAll" resultType="String">
+		select game_name from GAME_INFO
+	</select>
 <!-- 	중복 게임 검색 쿼리문
 	SELECT game_name, count(*) 
 	FROM game_info

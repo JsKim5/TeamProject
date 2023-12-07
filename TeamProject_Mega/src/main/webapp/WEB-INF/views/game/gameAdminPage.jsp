@@ -55,6 +55,8 @@
 		<a href="testPage.do" style="text-decoration: none; color:black;">[Test Page로 이동]</a> &nbsp;
 		<a href="signUpMacro.do" style="text-decoration: none; color:black;">[회원가입 메크로]</a> &nbsp;
 		<a href="reviewMacro.do" style="text-decoration: none; color:black;">[리뷰 메크로]</a> &nbsp;
+		<a href="userScoreAllUpdate.do" style="text-decoration: none; color:black;">[userScoreAllUpdate]</a> &nbsp;
+		
 	</div>
 	
 	<br><br>------------------------------------------------

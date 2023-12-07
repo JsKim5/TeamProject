@@ -122,9 +122,9 @@ a{text-decoration:none;}
 		<tr align="center" class="all_games_tr">
 			<td>대표게임</td>
 			<td><a href="list.do">종합게임 평가 커뮤니티</a></td>
-			<td><a href="list.do?game_name=lol">리그오브레전드</a></td>
-			<td><a href="list.do?game_name=battleground">배틀그라운드</a></td>
-			<td><a href="list.do?game_name=overwatch">오버워치</a></td>
+			<td><a href="list.do?game_name=pc">PC게임</a></td>
+			<td><a href="list.do?game_name=consol">콘솔게임</a></td>
+			
 		</tr>
 		<%-- <c:forEach var="vo" items="${list }">
 		<c:forEach/> --%>

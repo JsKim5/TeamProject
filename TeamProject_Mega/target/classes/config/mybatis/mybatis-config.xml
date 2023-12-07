@@ -13,12 +13,15 @@
 		 <typeAlias type="vo.GameVOtwo" alias="gametwo"/>
 		 <typeAlias type="vo.ReviewVO" alias="review"/>
 		 <typeAlias type="vo.UserVO" alias="user"/>
- 
+ 		 <typeAlias type="vo.GameboardVO" alias="gameboard"/>
+		 <typeAlias type="vo.GameBoardPagingVO" alias="gameboardpaging"/>
+		
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="config/mybatis/mapper/gameTest.xml" />
 		<mapper resource="config/mybatis/mapper/review.xml" />
 		<mapper resource="config/mybatis/mapper/user.xml" />
+		<mapper resource="config/mybatis/mapper/gameboard.xml" />
 	</mappers>
 </configuration>

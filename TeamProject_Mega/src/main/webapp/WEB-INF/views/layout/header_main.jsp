@@ -15,7 +15,7 @@
 			<div class="menu-item">
 				<span>게시판</span>
 				<div class="submenu">
-					<a href="#">자유게시판</a> <a href="#">유저토론</a>
+					<a href="list.do">자유게시판</a> <a href="#">유저토론</a>
 				</div>
 			</div>
 			<div class="menu-item">

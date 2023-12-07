@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
+
     <meta charset="UTF-8">
     <title>관리자 페이지</title>
     <script src="/teamproject/resources/js/headerScript.js"></script>
@@ -81,29 +81,29 @@
         	font-weight: bold;
         }
     </style>
-=======
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="/teamproject/resources/js/headerScript.js"></script>
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
 <!-- styles_layout.css 파일 링크 -->
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
 </head>
 <body>
 
-<<<<<<< HEAD
+
     <header>
         <h1>관리자 페이지</h1>
     </header>
-=======
+
 
 	
 	
 	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
+
 
     <nav>
-        <a href="MainPage.do">홈페이지가기</a>
+        <a href="home.do">홈페이지가기</a>
     </nav>
 
     <table>
@@ -123,49 +123,10 @@
         </tr>
     </table>
 
-<<<<<<< HEAD
+
     <footer>
         <p>&copy; 2023 TeamProject</p>
     </footer>
 
-=======
-	<table>
-		<caption>링크목록</caption>
-		<tr>
-			<th colspan = "3">Game</th>
-		</tr>
-		<tr>
-			<td><a href="gameList.do">게임 리스트</a></td>
-			<td><a href="gameAdminPage.do">게임 관리 페이지</a></td>
-			<td></td>
-		</tr>
-		<tr>
-			<th colspan = "3">Review</th>
-		</tr>
-		<tr>
-			<td><a href="review_AL.do">리뷰목록</a></td>
-			<td><a href="MainPage.do">메인페이지</a></td>
-			<td></td>
-		</tr>
-		<tr>
-			<th colspan = "3">User</th>
-		</tr>
-		<tr>
-		  <c:if test="${login == null }">
-			<td><a href="join_form.do">회원가입</a></td>
-		  </c:if>
-		  
-		  <c:if test="${login == null }">
-			<td><a href="login_form.do">로그인</a></td>
-		  </c:if>
-			
-		  <c:if test="${login != null }">
-			<td><a href="mypage.do">마이페이지</a></td>
-		  </c:if>
-		</tr>
-	</table>
-	<%@ include file="/WEB-INF/views/layout/footer.jsp"%>
-	<!-- 푸터 부분 include -->
->>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 </body>
 </html>

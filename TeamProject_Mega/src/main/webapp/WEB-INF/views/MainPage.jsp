@@ -3,16 +3,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <head>
+
 <meta charset="UTF-8">
+<<<<<<< HEAD
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="/teamproject/resources/js/headerScript.js"></script>
 
 
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/teamproject/resources/js/headerScript.js"></script>
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 
 <script>
 	function send(f) {
@@ -243,11 +252,18 @@ body {
 
 .close-button:hover {
 	background-color: #d32f2f;
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 </style>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 <!-- GAMES스타일 -->
 <style>
 h1 {
@@ -274,11 +290,38 @@ hr {
 }
 
 .custom-image {
-	margin-left: 50px;
+	height: 300px;
+	width:200px;
+	border-radius: 15px;
+	margin-left: 1px;
 	margin-top: 10px;
 }
 
+.main-game-container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr); /* Two equal columns */
+	gap: 20px; /* Gap between columns */
+}
+
+.main-game {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	width:220px;
+
+}
+.main-detail {
+	flex: 1;
+	margin-left: 10px;
+}
+
+a {
+	text-decoration: none;
+	color : black;
+}
 </style>
+
 </head>
 
 <!-- 메인메뉴, 팝업창 -->
@@ -290,22 +333,51 @@ hr {
 	<h1>GAMES</h1>
 	<p>Find your next captivating gaming moment</p>
 	&nbsp;
+	
+	<!-- 게임리스트 들어갈 자리 -->
 	<p>New Releases</p> 
 	<hr>
-	<!-- 게임리스트 들어갈 자리 -->
 	
-	<img src="/teamproject/resources/game_img/elden-ring.png" class="custom-image">
-	<p>Elden-Ring</p>
-							
+	<div class="main-game-container">
+		<c:forEach var="mv" items="${mainList}">
+		<c:if test="${mv.main_row_idx == 1 }">
+	<div class="main-game">
+	<p><img class="custom-image" src="${mv.game_image_path}" ><br>
+	<a href="gameView.do?idx=${mv.game_idx}">${mv.game_name}</a></p>
 	&nbsp;
-	<p>Upcoming Games</p>
+	</div>
+		</c:if>
+		</c:forEach>
+	</div>
+	
+	<p>Upcoming Games</p> 
 	<hr>
-	<!-- 게임리스트 들어갈 자리 -->
+	
+	<div class="main-game-container">
+		<c:forEach var="mv" items="${mainList}">
+		<c:if test="${mv.main_row_idx == 2 }">
+	<div class="main-game">
+	<p><img class="custom-image" src="${mv.game_image_path}" ><br>
+	<a href="gameView.do?idx=${mv.game_idx}">${mv.game_name}</a></p>
 	&nbsp;
-	<p>Best Games On</p>
+	</div>
+		</c:if>
+		</c:forEach>
+	</div>
+	
+	<p>Best Games on</p> 
 	<hr>
 	
-	
-
+	<div class="main-game-container">
+		<c:forEach var="mv" items="${mainList}">
+		<c:if test="${mv.main_row_idx == 3 }">
+	<div class="main-game">
+	<p><img class="custom-image" src="${mv.game_image_path}" ><br>
+	<a href="gameView.do?idx=${mv.game_idx}">${mv.game_name}</a></p>
+	&nbsp;
+	</div>
+		</c:if>
+		</c:forEach>
+	</div>
 </body>
 </html>

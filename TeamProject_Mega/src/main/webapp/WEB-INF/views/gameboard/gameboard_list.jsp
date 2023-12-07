@@ -1,22 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Review List</title>
-    <script src="/teamproject/resources/js/headerScript.js"></script>
-    <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
+	<meta charset="UTF-8">
 
-    <style>
+	<script src="/teamproject/resources/js/headerScript.js"></script>
+    <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
+<style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #fff;
         }
+	
+<style>
+	
+		#box {
+  width: 200px; /* Adjust the width as needed */
+  background-color: #f1f1f1; /* Background color */
+  padding: 10px;
+  float:left;
+}
+
 
         header {
             background-color: #333;
@@ -84,47 +94,75 @@
 
 </head>
 <body>
-	<header>
-        <h1>전체리뷰관리</h1>
-    </header>
-    
-    <nav>
-        <a href="home.do">홈페이지</a>
-        <a href="admin_page.do">관리자페이지</a>
-   </nav>
 
-    <div class="table-container">
-        <table>
-            <tr align="center">
-                <th class="aa" width="50">리뷰번호</th>
-                <th class="aa" width="100">게임명</th>
-                <th class="aa" width="50">작성자</th>
-                <th class="aa" width="300">제목</th>
-                <th class="aa" width="100">별점</th>
-                <th width="200">작성일</th>
-            </tr>
-            <c:forEach var="review_vo" items="${list}">
-                <tr align="center">
-                    <td>${review_vo.review_idx }</td>
-                    <td>${review_vo.game_name }</td>
-                    <td>${review_vo.user_nickname }</td>
-                    <td><a href="review_ALview.do?idx=${review_vo.review_idx}">
-                            ${review_vo.review_title} </a></td>
-                    <td>${review_vo.user_score}/5</td>
-                    <td>${review_vo.date_created}</td>
-                </tr>
-            </c:forEach>
-            <tr>
-                <td colspan="6" align="center">
-                    ${pageMenu }
-                </td>
-            </tr>
-        </table>
-    </div>
-    
-    <footer>
+	<%@ include file="/WEB-INF/views/layout/header_main.jsp"%>
+
+	
+	<table>	
+		<tr> 
+			<td><a href="list.do">종합게임 평가 커뮤니티</a></td>
+			<td><a href="list.do?game_name=lol">리그오브레전드</a></td>
+			<td><a href="list.do?game_name=battleground">배틀그라운드</a></td>
+			<td><a href="list.do?game_name=overwatch">오버워치</a></td>
+		</tr>
+	</table>	
+		
+		<table>
+		<tr>
+			<th width ="50">번호</th>
+			<th width ="300">제목</th>
+			<th width ="100">아이디</th>
+			<th width ="80">작성일</th>
+			<th width ="50">조회수</th>
+			<th width ="50">추천수</th>
+		<tr/>
+		
+		<tr>				
+			</tr>
+		<c:forEach var="vo" items="${list }">
+		
+			<tr>
+				<td>${vo.gameboard_idx }</td>
+				<td>
+					<a href="detail.do?idx=${vo.gameboard_idx }">
+						${vo.title }
+					</a>
+				</td>
+				
+					<!-- 아이디  -->
+					<td>${vo.user_id }</td>
+					
+					<!-- 작성일 -->
+					<td>${vo.regdate }</td>
+					
+					<!-- 조회수 -->
+					<td>${vo.readhit }</td>
+					
+					<!-- 추천수  -->
+					<td>${vo.user_goody}</td>
+
+				
+			</tr>
+			
+		
+		</c:forEach>
+		<tr>
+			<td colspan="6" align="center">
+				${pageMenu }		
+			</td>		
+		</tr>		
+		</table>				
+
+	
+	<nav>
+		<c:if test="${login != null }">
+		<a href="gameboard_write_form.do">글쓰기</a>
+		</c:if>
+		<a href="home.do">홈페이지</a>
+	</nav>
+	
+	<footer>
         <p>&copy; 2023 TeamProject</p>
     </footer>
-
 </body>
 </html>

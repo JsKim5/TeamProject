@@ -53,6 +53,8 @@
 		<a href="gameList.do" style="text-decoration: none; color:black;">[게임 리스트로 이동]</a> &nbsp;
 		<a href="gameInsertForm.do" style="text-decoration: none; color:black;">[게임 등록 페이지]</a> &nbsp;
 		<a href="testPage.do" style="text-decoration: none; color:black;">[Test Page로 이동]</a> &nbsp;
+		<a href="signUpMacro.do" style="text-decoration: none; color:black;">[회원가입 메크로]</a> &nbsp;
+		<a href="reviewMacro.do" style="text-decoration: none; color:black;">[리뷰 메크로]</a> &nbsp;
 	</div>
 	
 	<br><br>------------------------------------------------

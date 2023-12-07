@@ -18,6 +18,7 @@ import org.jsoup.select.Elements;
 import vo.GameVO;
 import vo.GameVOtwo;
 import vo.ReviewVO;
+import vo.UserVO;
 
 public class GameDAO {
 	SqlSession sqlSession;
@@ -357,5 +358,21 @@ public class GameDAO {
 			i++;
 		}
 		System.out.println(i+"개 업데이트 완료");
+	}
+	
+	//회원가입
+	public int insert(UserVO vo) {
+		int res = sqlSession.insert("u.user_insert", vo);
+		return res;
+	}
+	
+	public int insert(ReviewVO vo) {		
+		int res = sqlSession.insert("r.review_insert", vo);
+		return res;
+	}
+	
+	public String selectGameName(int idx) {
+		String game_name = sqlSession.selectOne("g.selectGameName",idx);
+		return game_name;
 	}
 }

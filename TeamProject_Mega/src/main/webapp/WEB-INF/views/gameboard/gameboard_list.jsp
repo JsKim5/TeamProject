@@ -96,21 +96,7 @@
 			<td><a href="list.do?game_name=consol">콘솔게임</a></td>
 			
 		</tr>
-	</table>	
-		
-		<table>
-
-			<tr class="write_singo">
-				<td align="left">
-					<c:if test="${login != null }">
-					<input type="button" value="글쓰기" onclick="location.href='gameboard_write_form.do'"/>
-					</c:if>
-					<input type="button" value="신고하기" onclick="#">
-				</td>
-			</tr>
-		</table>
-		
-		
+	</table>
 
 		
 		<table border="1" class="main_table">

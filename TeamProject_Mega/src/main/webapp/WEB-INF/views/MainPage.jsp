@@ -117,8 +117,8 @@ a {
 		</c:forEach>
 	</div>
 	
-	<!-- <p>Best Games on</p
-	<hr> -->
+	<p>Best Games on</p>
+	<hr>
 	
 	<div class="main-game-container">
 		<c:forEach var="mv" items="${mainList}">
@@ -131,5 +131,6 @@ a {
 		</c:if>
 		</c:forEach>
 	</div>
+
 </body>
 </html>

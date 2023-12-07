@@ -432,4 +432,13 @@ public class GameController {
         
         return VIEW_PATH + "insertResult.jsp?res=end"; 
 	}
+	
+	@RequestMapping("/userScoreAllUpdate.do")
+	public String gameUserScoreAllUpdate() {
+		List<String> list = gameDao.selectGameNameAll();
+		for(String gameName : list) {
+			gameDao.scoreAVG_update(gameName);
+		}
+		return VIEW_PATH + "insertResult.jsp?res=end"; 
+	}
 }

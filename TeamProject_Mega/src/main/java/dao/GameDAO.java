@@ -375,4 +375,14 @@ public class GameDAO {
 		String game_name = sqlSession.selectOne("g.selectGameName",idx);
 		return game_name;
 	}
+	
+	public int scoreAVG_update(String game_name) {
+		int res = sqlSession.update("r.scoreAVG_update", game_name);
+		return res;
+	}
+	
+	public List<String> selectGameNameAll(){
+		List<String> list = sqlSession.selectList("g.selectGameNameAll");
+		return list;
+	}
 }

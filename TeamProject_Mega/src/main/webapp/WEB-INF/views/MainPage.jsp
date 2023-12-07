@@ -5,9 +5,23 @@
 <head>
 
 <meta charset="UTF-8">
+<<<<<<< HEAD
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="/teamproject/resources/js/headerScript.js"></script>
+
+
+=======
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/teamproject/resources/js/headerScript.js"></script>
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 <link rel="stylesheet" href="/teamproject/resources/css/layout_main.css">
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 
 <script>
 	function send(f) {
@@ -238,9 +252,18 @@ body {
 
 .close-button:hover {
 	background-color: #d32f2f;
+<<<<<<< HEAD
 }
+
+=======
+}
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 </style>
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'main' of https://github.com/JsKim5/TeamProject.git
 <!-- GAMES스타일 -->
 <style>
 h1 {

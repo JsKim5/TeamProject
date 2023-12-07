@@ -52,9 +52,8 @@
 			<td>
 			<select name="game_name" value="게임게시판종류">                   
 				<option value="all">종합커뮤니티</option>
-				<option value="lol">리그오브레전드</option>
-				<option value="battleground">배틀그라운드</option>
-				<option value="overwatch">오버워치</option>
+				<option value="pc">PC게임</option>
+				<option value="consol">콘솔게임</option>
 			</select>
 			</td>
 		</tr>

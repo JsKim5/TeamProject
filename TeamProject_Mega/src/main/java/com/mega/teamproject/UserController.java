@@ -61,7 +61,10 @@ public class UserController {
 
 	// 아이디 찾기 페이지
 	@RequestMapping("selectid_form.do")
-	public String selectId_form() {
+	public String selectId_form(String fail) {
+		if(fail != null && !fail.isEmpty()) {
+			request.setAttribute("selectidfail", "아이디를 찾을 수 없습니다.\n이름이나 이메일을 확인해주세요");
+		}
 		return VIEW_PATH + "SelectId.jsp";
 	}
 	
@@ -70,27 +73,39 @@ public class UserController {
 	public String selectId(UserVO vo) {
 		UserVO id = user_dao.selectId(vo);
 		
-		request.setAttribute("id", id.getUser_id());
-		request.setAttribute("name", id.getUser_name());
+		if(id != null) {
+			
+			request.setAttribute("id", id.getUser_id());
+			request.setAttribute("name", id.getUser_name());
+			
+			return VIEW_PATH + "CheckId.jsp";
+			
+		}
+		return "redirect:selectid_form.do?fail=o";
 		
-		
-		return VIEW_PATH + "CheckId.jsp";
 	}
 	
+	
+	// 비밀번호 찾기 페이지
+	@RequestMapping("selectpw_form.do")
+	public String selectPw(String fail) {
+		if(fail != null && !fail.isEmpty()) {
+			request.setAttribute("selectpwfail", "비밀번호를 찾을 수 없습니다.\n이름, 아이디, 이메일을 확인해주세요");
+		}
+		return VIEW_PATH + "SelectPw.jsp";
+	}
+		
 	//비밀번호 찾기
 	@RequestMapping("selectpw.do")
 	public String selectPw(UserVO vo) {
 		UserVO pw = user_dao.selectPw(vo);
 		
-		request.setAttribute("pw", pw.getUser_pwd());
-		
-		return VIEW_PATH + "CheckPw.jsp";
-	}
-
-	// 비밀번호 찾기 페이지
-	@RequestMapping("selectpw_form.do")
-	public String selectPw() {
-		return VIEW_PATH + "SelectPw.jsp";
+		if(pw != null) {
+			request.setAttribute("pw", pw.getUser_pwd());
+			
+			return VIEW_PATH + "CheckPw.jsp";
+		}
+		return "redirect:selectpw_form.do?fail=o";
 	}
 
 	// 로그인 페이지

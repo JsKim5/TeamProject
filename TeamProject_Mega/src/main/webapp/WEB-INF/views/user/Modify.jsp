@@ -120,7 +120,7 @@
 						return;
 					}
 					
-					alert("수정 완료!");
+					alert("수정 완료!\n다시 로그인 해주세요");
 					location.href="logout.do";
 				}
 			}
@@ -129,7 +129,6 @@
 	</head>
 	
 	<body>
-		<!-- 비밀변호 변경시 이미 사용중일때 이미 사용중인 비밀번호 입니다 띄우기 -->
 		
 		<form>
 		<input type="hidden" name="user_idx" value="${login.user_idx }">

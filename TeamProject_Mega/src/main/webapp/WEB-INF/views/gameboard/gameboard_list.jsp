@@ -101,13 +101,44 @@
 	<table>	
 		<tr> 
 			<td><a href="list.do">종합게임 평가 커뮤니티</a></td>
-			<td><a href="list.do?game_name=lol">리그오브레전드</a></td>
-			<td><a href="list.do?game_name=battleground">배틀그라운드</a></td>
-			<td><a href="list.do?game_name=overwatch">오버워치</a></td>
+			<td><a href="list.do?game_name=pc">PC게임</a></td>
+			<td><a href="list.do?game_name=consol">콘솔게임</a></td>
+			
 		</tr>
 	</table>	
 		
 		<table>
+<<<<<<< HEAD
+=======
+			<tr class="write_singo">
+				<td align="left">
+					<c:if test="${login != null }">
+					<input type="button" value="글쓰기" onclick="location.href='gameboard_write_form.do'"/>
+					</c:if>
+					<input type="button" value="신고하기" onclick="#">
+				</td>
+			</tr>
+		</table>
+		
+		
+		 <div id="box">
+    		<ul class="menu">
+		      <li><a href="https://www.leagueoflegends.com/ko-kr/">LOL 홈페이지</a></li>
+		      <li><a href="https://pubg.com/ko/main">배틀그라운드 홈페이지</a></li>
+		      <li><a href="https://overwatch.blizzard.com/ko-kr/">오버워치 홈페이지</a></li>
+  			</ul>
+  		</div>
+		
+		<table border="1" class="main_table">
+		<tr align="center">
+			<td width ="50">번호</td>
+			<td width ="300">제목</td>
+			<td width ="100">아이디</td>
+			<td width ="80">작성일</td>
+			<td width ="50">조회수</td>
+			<td width ="50">추천수</td>
+		<tr/>
+>>>>>>> refs/heads/seongwon
 		<tr>
 			<th width ="50">번호</th>
 			<th width ="300">제목</th>

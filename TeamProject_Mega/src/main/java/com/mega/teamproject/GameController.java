@@ -2,10 +2,12 @@ package com.mega.teamproject;
 
 import java.io.File;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import util.Paging;
 import vo.GameVO;
 import vo.GameVOtwo;
 import vo.ReviewVO;
+import vo.UserVO;
 
 @Controller
 public class GameController {
@@ -257,5 +260,176 @@ public class GameController {
 	public String youtubeAll() {
 		gameDao.updateYoutubeAll();
 		return "redirect:gameAdminPage.do";
+	}
+	
+	@RequestMapping("/signUpMacro.do")
+	public String signUpMacro() {
+		String[] userID = {
+	            "SparkleDancer87", "MidnightPhoenix23", "TurboGizmo56", "ElectricLioness19", "QuantumNinja42",
+	            "CosmicJester75", "MysticVoyager31", "ThunderByte14", "NeonSpecter68", "FrostyPanda26",
+	            "ShadowFlame91", "CrystalEcho55", "BlazeRunner79", "TechSavvyFox63", "AquaStarlight37",
+	            "EmberWanderer82", "DigitalSphinx48", "HarmonyWhisper74", "SwiftShadowcat29", "AuroraGlimmer17",
+	            "CyberStormDancer52", "VelvetThunderbolt88", "SolarSerenade10", "PixelEnigma44", "LunarZephyr67",
+	            "QuantumQuasar21", "MysticSoul67", "NeoSpiritWolf38", "ElementalPulse95", "CelestialCipher11",
+	            "SolarFlareDancer71", "TechnoNova84", "ShadowFrostDragon49", "EnigmaticSpecter76", "CyberneticCheetah27",
+	            "ElectricSphinx62", "GalaxySongbird18", "EmberWhisperer33", "SwiftBlazeRider57", "CrystalCyborg89",
+	            "MidnightSerenity25", "NovaDreamer47", "ThunderProwler72", "QuantumGadgeteer90", "MysticFusion14",
+	            "ElementalEcho58", "CosmicCipher81", "BlazeShifter26", "CyberPhoenix69", "NeonNebulae32",
+	            "TechSavantTiger63", "AquaAurora87", "EmberEclipse19", "ShadowSpectra45", "DigitalDreamer71",
+	            "QuantumQuasar88", "MysticWhisperer24", "SolarSoul13", "PixelPulse57", "LunarLioness96",
+	            "CosmicCybercat21", "QuantumQuake77", "ElementalEcho36", "CelestialSphinx42", "SolarShadow89",
+	            "TechnoThunderbird10", "ShadowStormDancer58", "EnigmaFlare94", "CyberneticSerenade27", "ElectricEclipse73",
+	            "GalaxyGadgeteer35", "EmberEcho81", "SwiftSpecter46", "CrystalCheetah62", "MidnightMystic18",
+	            "NovaNebulae29", "ThunderTechWiz55", "QuantumQuasar82", "MysticMirage17", "NeoNinja49",
+	            "ElementalEssence74", "CosmicCipher38", "BlazeBolt97", "CyberPhoenix21", "NeonNova44",
+	            "TechTigerLily68", "AquaAbyssal12", "EmberEclipse59", "ShadowSphinx83", "DigitalDreamer28",
+	            "QuantumQuake64", "MysticMaverick39", "SolarSpectra75", "PixelProwler20", "LunarLuminance51",
+	            "CosmicCatalyst86", "QuantumQuasar11", "ElementalEclipse77", "CelestialSerenity23", "SolarShadowcat48"
+	        };
+		String[] nicknames = {
+	            "ShadowRider", "Firestorm", "FrostyNinja", "TechSavvy", "MidnightSoul",
+	            "NeonBlaze", "CrystalWarrior", "SonicWraith", "AquaSerenity", "ThunderPulse",
+	            "EclipseWhisper", "LuminousFlare", "MysticStorm", "DigitalPhantom", "BlazingSpirit",
+	            "CyberDragon", "CelestialNova", "PhantomGlider", "NeonSpecter", "TechEnigma",
+	            "FrostByte", "ShadowChaser", "AbyssalPhoenix", "SolarCipher", "ThunderBolt",
+	            "LunarWhisperer", "StormRider", "CosmicWanderer", "BlazeRunner", "NeoNebula",
+	            "TechVoyager", "SpiritualSphinx", "MysticGlider", "EternalFlame", "QuantumEcho",
+	            "LunarSpectra", "ShadowBlade", "DigitalProwler", "AuroraWhisper", "CelestialSavior",
+	            "NeonStorm", "TechPhantom", "BlazeWraith", "FrostSoul", "MysticEclipse",
+	            "CyberShifter", "SolarSpecter", "ShadowHunter", "QuantumBlaze", "AbyssalSphinx",
+	            "EternalNova", "CrystalEnigma", "NeonPulse", "LuminousWhisper", "TechWanderer",
+	            "ShadowRunner", "CosmicPhoenix", "BlazeVoyager", "EclipseSpectra", "MysticChaser",
+	            "NeonWraith", "DigitalSavior", "StormCipher", "AuroraEnigma", "QuantumBlade",
+	            "SolarPhantom", "CyberStorm", "LunarSoul", "CelestialPulse", "NeonEclipse",
+	            "TechNova", "BlazeWhisperer", "FrostShadow", "MysticBlade", "ShadowVoyager",
+	            "CosmicWraith", "EclipseSavior", "QuantumEnigma", "SolarChaser", "AbyssalStorm",
+	            "NeoNebulae", "TechSpecter", "LunarPhoenix", "CelestialBlaze", "NeonCipher",
+	            "MysticRunner", "ShadowWhisper", "CosmicPulse", "BlazeGlider", "DigitalEclipse",
+	            "FrostSpectra", "EternalCipher", "QuantumWanderer", "SolarBlade", "AbyssalEclipse",
+	            "NeoNinja", "TechRider", "LunarEnigma", "CelestialChaser", "NeonPhoenix"
+	        };
+		String[] names = {
+	            "김지우", "이서연", "박지훈", "최유진", "정준우",
+	            "강서연", "조동현", "윤서아", "장민재", "한가온",
+	            "송하은", "배준호", "황서윤", "문예준", "류서진",
+	            "고민우", "신수아", "강민준", "유하린", "임예준",
+	            "나지우", "백준영", "오수민", "진하준", "한가윤",
+	            "서도현", "신지민", "황동현", "최소은", "이건우",
+	            "김다은", "박태윤", "장민서", "조시우", "류은우",
+	            "강건우", "윤시우", "신시현", "고윤우", "문지윤",
+	            "류시윤", "백윤서", "오서은", "진도현", "한가람",
+	            "송시윤", "배건우", "황수아", "최은서", "정준서",
+	            "강다은", "조주원", "윤현우", "장지윤", "한지아",
+	            "서윤우", "신수빈", "황태민", "최다은", "이주원",
+	            "김지우", "박서은", "류도현", "최가윤", "정윤서",
+	            "강하윤", "조도현", "윤수빈", "장가은", "한태민",
+	            "송하은", "배건우", "황수민", "최은찬", "이준우",
+	            "김다은", "이주원", "박서아", "최하윤", "정현우",
+	            "강지윤", "조도현", "윤가윤", "장수민", "한지안",
+	            "서도윤", "신수빈", "황태민", "최다온", "이서우"
+	        };
+		int num = 0;
+		
+		String email2 = "example.com";
+		for(String id : userID) {
+			String email = "user" + num;
+			
+			UserVO vo = new UserVO();
+			vo.setUser_email(email);
+			vo.setUser_email2(email2);
+			vo.setUser_pwd("1111");
+			
+			vo.setUser_id(userID[num]);
+			vo.setUser_name(names[num]);
+			vo.setUser_nickname(nicknames[num]);
+			
+			num++;
+			vo.setUser_ip(request.getRemoteAddr());// ip세팅
+			gameDao.insert(vo);
+			
+			if(num == 80) {
+				break;
+			}
+		}
+		return VIEW_PATH + "insertResult.jsp?res=end"; 
+	}
+	
+	@RequestMapping("/reviewMacro.do")
+	public String reviewMacro() {
+        Random random = new Random();
+        String[] reviews = {
+                "재밌게 했습니다.", "정말 좋은 게임이에요", "제 스타일의 게임은 아닙니다.", "너무 어려워요",
+                "한 번 더 하고 싶네요.", "몰입감이 좋아요.", "이 게임을 추천합니다.", "그래픽이 멋져요.",
+                "스토리가 흥미롭네요.", "다양한 캐릭터들이 있어서 좋아요.", "음악이 좋습니다.", "간단하지만 재미있어요.",
+                "업데이트가 기대됩니다.", "이 게임은 명작입니다.", "시간 가는 줄 몰랐어요.", "내가 이겼다!",
+                "좀 더 다양한 스테이지가 있었으면 좋겠어요.", "리플레이 가치가 있습니다.", "퍼즐이 어렵네요.", "상당히 만족스럽습니다.",
+                "이 게임은 새로운 경험이에요.", "기대 이상입니다.", "내가 찾던 게임이에요.", "끝내주는 그래픽!",
+                "자꾸만 빠져들게 만드는 게임이에요.", "아쉽게도 너무 짧은 게임이었어요.", "재미있는 플레이 방식입니다.", "이런 게임을 기다렸어요.",
+                "조작이 복잡해요.", "좀 더 다양한 무기가 있었으면 좋겠어요.", "이야기가 감동적이에요.", "쉽게 배울 수 있어서 좋아요.",
+                "그래픽이 조금 아쉬워요.", "좋은 시간을 보냈습니다.", "장점이 많은 게임이에요.", "도전적인 게임이네요.",
+                "재미있는 게임이었습니다.", "퀄리티가 뛰어납니다.", "이 게임은 내 스타일이에요.", "다시는 하고 싶지 않아요.",
+                "아쉽게도 너무 짧은 스토리에요.", "몇 가지 아쉬운 점이 있지만 재밌었습니다.", "음향 효과가 좋아요.", "더 많은 콘텐츠를 원합니다.",
+                "저에겐 좀 지루한 게임이었어요.", "상상 이상이었습니다.", "이런 게임이 더 많이 나왔으면 좋겠어요.", "전혀 내 취향이 아닌 게임이었어요.",
+                "시간 낭비였어요.", "모바일에서도 잘 돌아가네요.", "엔딩이 기대되는 게임이었어요.", "무과금으로도 즐길 수 있는 게임입니다.",
+                "그냥 평범한 게임이네요.", "더 많은 기능이 있었으면 좋겠어요.", "솔직히 별로였어요.", "나름 괜찮은 게임입니다.",
+                "이런 게임을 찾고 있었어요.", "조작이 간편해서 좋아요.", "끝나지 않는 재미입니다.", "아쉽게도 서비스가 종료되었어요.",
+                "많은 사람들이 즐기면 좋을 게임이에요.", "콘텐츠 업데이트가 빨라서 좋아요.", "전략적인 요소가 많은 게임입니다.", "재미있는 도전이에요.",
+                "이 게임을 추천하지 않습니다.", "이런 게임을 기다렸어요.", "플레이하는 동안 몰입감이 좋았어요.", "단순하지만 중독성이 있어요.",
+                "충분히 재미있는 게임입니다.", "높은 난이도라서 도전적이에요.", "그래픽이나 사운드가 아쉬워요.", "더 많은 다양성이 있었으면 좋겠어요.",
+                "흥미로운 스토리텔링입니다.", "이런 게임은 처음이네요.", "더 많은 곳을 탐험하고 싶었어요.", "무과금으로는 어렵네요.",
+                "많은 시간을 보낼 수 있는 게임입니다.", "기대 이상이었습니다.", "내가 한 게임 중 최고예요!", "사운드 퀄리티가 아쉬워요."
+            };
+        String[] nicknames = {
+	            "ShadowRider", "Firestorm", "FrostyNinja", "TechSavvy", "MidnightSoul",
+	            "NeonBlaze", "CrystalWarrior", "SonicWraith", "AquaSerenity", "ThunderPulse",
+	            "EclipseWhisper", "LuminousFlare", "MysticStorm", "DigitalPhantom", "BlazingSpirit",
+	            "CyberDragon", "CelestialNova", "PhantomGlider", "NeonSpecter", "TechEnigma",
+	            "FrostByte", "ShadowChaser", "AbyssalPhoenix", "SolarCipher", "ThunderBolt",
+	            "LunarWhisperer", "StormRider", "CosmicWanderer", "BlazeRunner", "NeoNebula",
+	            "TechVoyager", "SpiritualSphinx", "MysticGlider", "EternalFlame", "QuantumEcho",
+	            "LunarSpectra", "ShadowBlade", "DigitalProwler", "AuroraWhisper", "CelestialSavior",
+	            "NeonStorm", "TechPhantom", "BlazeWraith", "FrostSoul", "MysticEclipse",
+	            "CyberShifter", "SolarSpecter", "ShadowHunter", "QuantumBlaze", "AbyssalSphinx",
+	            "EternalNova", "CrystalEnigma", "NeonPulse", "LuminousWhisper", "TechWanderer",
+	            "ShadowRunner", "CosmicPhoenix", "BlazeVoyager", "EclipseSpectra", "MysticChaser",
+	            "NeonWraith", "DigitalSavior", "StormCipher", "AuroraEnigma", "QuantumBlade",
+	            "SolarPhantom", "CyberStorm", "LunarSoul", "CelestialPulse", "NeonEclipse",
+	            "TechNova", "BlazeWhisperer", "FrostShadow", "MysticBlade", "ShadowVoyager",
+	            "CosmicWraith", "EclipseSavior", "QuantumEnigma", "SolarChaser", "AbyssalStorm",
+	            "NeoNebulae", "TechSpecter", "LunarPhoenix", "CelestialBlaze", "NeonCipher",
+	            "MysticRunner", "ShadowWhisper", "CosmicPulse", "BlazeGlider", "DigitalEclipse",
+	            "FrostSpectra", "EternalCipher", "QuantumWanderer", "SolarBlade", "AbyssalEclipse",
+	            "NeoNinja", "TechRider", "LunarEnigma", "CelestialChaser", "NeonPhoenix"
+	        };
+        // 478부터 703까지의 랜덤 정수 생성
+        
+        int min = 478;
+        int max = 703;
+        int lastIndex = reviews.length - 1;
+        int nicknamelastIndex = reviews.length - 1;
+        for(int i = 0; i < 1000; i++) {
+        	
+        	int randomNumber = random.nextInt(max - min + 1) + min;
+        	int randomIndex = random.nextInt(lastIndex + 1);
+        	int randomnicknameIndex = random.nextInt(nicknamelastIndex + 1);
+        	int randomScore = (int)(Math.random() * 5) + 1;
+        	ReviewVO vo = new ReviewVO();
+        	vo.setGame_idx(randomNumber);
+        	vo.setUser_review(reviews[randomIndex]);
+        	vo.setUser_nickname(nicknames[randomnicknameIndex]);
+        	vo.setReview_title(reviews[randomIndex]);
+        	vo.setUser_score(randomScore);
+        	
+        	String gameName = gameDao.selectGameName(randomNumber);
+        	if(gameName != null) {
+        		System.out.println(gameName);
+            	vo.setGame_name(gameName);
+            	gameDao.insert(vo);
+        	}
+
+        	
+        }
+        
+        return VIEW_PATH + "insertResult.jsp?res=end"; 
 	}
 }

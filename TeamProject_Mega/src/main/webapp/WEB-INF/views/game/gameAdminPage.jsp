@@ -42,6 +42,61 @@
 	}
 	
 </script>
+<style>
+body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            margin-right: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin-bottom: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+        caption {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        form {
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="button"] {
+            padding: 3px;
+            margin-right: 3px;
+        }
+        .message {
+            font-style: italic;
+            color: red;
+            margin-bottom: 5px;
+        }
+        input[type="hidden"] {
+            display: none;
+        }
+        .main-page-form input[type="button"] {
+            margin-top: 5px;
+        }
+        .main-list-table {
+            margin-top: 10px;
+        }
+        .main-list-table td {
+            padding: 7px;
+            text-align: center;
+        }
+</style>
 </head>
 
 <body>
@@ -59,8 +114,7 @@
 		
 	</div>
 	
-	<br><br>------------------------------------------------
-	------------------------------------------------<br><br>
+	<hr><br><br>
 	
 	<form>
 		<input type="text" name="searchTitle" placeholder="게임 제목 검색">
@@ -103,8 +157,9 @@
 			<td>${total}</td>
 		</tr>
 	</table>
-	<br><br>------------------------------------------------
-	------------------------------------------------<br><br>
+
+		<hr><br><br>
+
 	<form action="mainGameInsert.do" method="POST" enctype="multipart/form-data">
 	<table border="1">
 	<caption>MainPage 게임 등록</caption>
@@ -132,8 +187,10 @@
 		<tr><td colspan="3"><input type="button" value="등록" onclick="submit()"></td></tr>
 	</table>
 	</form>
-	<br><br>------------------------------------------------
-	------------------------------------------------<br><br>
+
+	<hr><br><br>
+	
+	
 	<table border="1">
 	<caption>MainList</caption>
 		<tr><td></td><td colspan="5">게임 이름</td></tr>

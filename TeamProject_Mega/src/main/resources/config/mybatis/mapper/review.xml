@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="scoreAVG_update" parameterType="String">
 		 <![CDATA[
-    update GAME_INFO set game_user_score = ( select Round(AVG(user_score), 1) from USER_REVIEW where game_name = #{value})
+    update GAME_INFO set game_user_score = ( select Round(AVG(user_score), 1) from USER_REVIEW where game_name = #{value}) where game_name = #{value}
   		]]>
 	</update>
 		

@@ -51,12 +51,70 @@
 		}
 	}
 </script>
+<style>
+body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            margin-right: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            width: 700px;
+            margin-bottom: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+        caption {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        form {
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="button"] {
+            padding: 3px;
+            margin-right: 3px;
+        }
+        input[type="text"] {
+            width: 400px;
+        }
+        .message {
+            font-style: italic;
+            color: red;
+            margin-bottom: 5px;
+        }
+        input[type="hidden"] {
+            display: none;
+        }
+        .main-page-form input[type="button"] {
+            margin-top: 5px;
+        }
+        .main-list-table {
+            margin-top: 10px;
+        }
+        .main-list-table td {
+            padding: 7px;
+            text-align: center;
+        }
+</style>
 </head>
 <body>
 	<div class="form-section">
 		<h2>게임 정보 가져오기</h2>
 		<form method="post">
-			<label>게임 이름:</label> <input type="text" name="gameTitle"> <input
+			<label>게임 이름:</label> <input name="gameTitle"> <input
 				type="button" value="메타크리틱 정보 가져오기" onclick="metaPulling(this.form)">
 			<input type="button" value="메타크리틱 TOP 10 페이지 등록"
 				onclick="meta10page(this.form)">
@@ -70,35 +128,35 @@
 			<table>
 				<tr>
 					<td>이름</td>
-					<td><input name="game_name"></td>
+					<td><input type="text" name="game_name"></td>
 				</tr>
 				<tr>
 					<td>플렛폼</td>
-					<td><input name="game_platforms"></td>
+					<td><input type="text" name="game_platforms"></td>
 				</tr>
 				<tr>
 					<td>장르</td>
-					<td><input name="game_genre"></td>
+					<td><input type="text" name="game_genre"></td>
 				</tr>
 				<tr>
 					<td>타입</td>
-					<td><input name="game_type"></td>
+					<td><input type="text" name="game_type"></td>
 				</tr>
 				<tr>
 					<td>연령등급</td>
-					<td><input name="game_rating"></td>
+					<td><input type="text" name="game_rating"></td>
 				</tr>
 				<tr>
 					<td>제조사</td>
-					<td><input name="game_developer"></td>
+					<td><input type="text" name="game_developer"></td>
 				</tr>
 				<tr>
 					<td>배급사</td>
-					<td><input name="game_publisher"></td>
+					<td><input type="text" name="game_publisher"></td>
 				</tr>
 				<tr>
 					<td>출시일</td>
-					<td><input name="game_release_date"></td>
+					<td><input type="text" name="game_release_date"></td>
 				</tr>
 				<tr>
 					<td>이미지</td>
@@ -106,15 +164,15 @@
 				</tr>
 				<tr>
 					<td>유튜브URL</td>
-					<td><input name="game_youtube_url"></td>
+					<td><input type="text" name="game_youtube_url"></td>
 				</tr>
 				<tr>
 					<td>MetaCritic점수</td>
-					<td><input name="game_meta_score"></td>
+					<td><input type="text" name="game_meta_score"></td>
 				</tr>
 				<tr>
 					<td>사용자후기점수</td>
-					<td><input name="game_user_score"></td>
+					<td><input type="text" name="game_user_score"></td>
 				</tr>
 
 				<tr>
@@ -126,8 +184,8 @@
 	</div>
 
 	<div class="link-container">
-		<a href="gameList.do">게임 리스트로 이동</a><br>
-		<a href="gameAdminPage.do">게임 관리 페이지</a>
+		<a href="gameList.do">[게임 리스트로 이동]</a>
+		<a href="gameAdminPage.do">[게임 관리 페이지]</a>
 	</div>
 </body>
 </html>

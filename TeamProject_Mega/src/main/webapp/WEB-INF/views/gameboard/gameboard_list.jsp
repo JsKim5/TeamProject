@@ -17,15 +17,6 @@
             padding: 0;
             background-color: #fff;
         }
-	
-<style>
-	
-		#box {
-  width: 200px; /* Adjust the width as needed */
-  background-color: #f1f1f1; /* Background color */
-  padding: 10px;
-  float:left;
-}
 
 
         header {
@@ -101,13 +92,15 @@
 	<table>	
 		<tr> 
 			<td><a href="list.do">종합게임 평가 커뮤니티</a></td>
-			<td><a href="list.do?game_name=lol">리그오브레전드</a></td>
-			<td><a href="list.do?game_name=battleground">배틀그라운드</a></td>
-			<td><a href="list.do?game_name=overwatch">오버워치</a></td>
+			<td><a href="list.do?game_name=pc">PC게임</a></td>
+			<td><a href="list.do?game_name=consol">콘솔게임</a></td>
+			
 		</tr>
-	</table>	
+	</table>
+
 		
-		<table>
+		<table border="1" class="main_table">
+
 		<tr>
 			<th width ="50">번호</th>
 			<th width ="300">제목</th>

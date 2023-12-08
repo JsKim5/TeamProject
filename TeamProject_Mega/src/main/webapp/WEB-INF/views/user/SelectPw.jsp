@@ -152,6 +152,7 @@
 						</td>
 					</tr>
 				</table>
+				<p align="center" style="color: red;" >${selectpwfail }</p>
 			</form>
 	</body>
 </html>

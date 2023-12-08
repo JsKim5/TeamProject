@@ -106,6 +106,7 @@
 					alert("이메일을 입력하세요")
 					return;
 				}
+				
 				f.action="selectid.do";
 				f.submit();
 				
@@ -129,6 +130,7 @@
 				            <td>이메일</td>
 				            <td><input class="box" id="domain-txt" name="user_email">@
 				                <select class="box" id="domain-list" name="user_email2">
+				          		    <option value="">선택</option>
 				                    <option value="naver.com">naver.com</option>
 				                    <option value="google.com">google.com</option>
 				                    <option value="hanmail.net">hanmail.net</option>
@@ -144,6 +146,7 @@
 				            </td>
 				        </tr>
     			</table>
+    			<p align="center" style="color: red;">${selectidfail }</p>
 			</form>
 	</body>
 </html>

@@ -52,8 +52,9 @@ public class UserController {
 
 	@RequestMapping("/join.do")
 	// 회원가입 처리
-	public String joinId(UserVO vo) {
+	public String joinId(UserVO vo,String inputEmail) {
 		vo.setUser_ip(request.getRemoteAddr());// ip세팅
+		vo.setUser_email2(inputEmail);
 		user_dao.insert(vo);
 		request.setAttribute("vo", vo);
 		return "redirect:home.do";

@@ -53,14 +53,14 @@
 	
 	<body>
 	<form>
-	<input type="hidden" name="user_idx" value="${login.user_idx}">
-	<input type="hidden" name="user_pwd" value="${login.user_pwd}">
+	<input type="hidden" name="id" value="${login.id}">
+	<input type="hidden" name="pwd" value="${login.pwd}">
 		<table>
 			<caption>회원 탈퇴</caption>
 				
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="pwd_chk"></td>
+					<td><input type="password" name="chk"></td>
 				</tr>
 				
 				<tr>

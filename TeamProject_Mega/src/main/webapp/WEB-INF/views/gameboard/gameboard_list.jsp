@@ -108,7 +108,7 @@
 			<th width ="80">작성일</th>
 			<th width ="50">조회수</th>
 			<th width ="50">추천수</th>
-		<tr/>
+		</tr>
 		
 		<tr>				
 			</tr>

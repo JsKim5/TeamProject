@@ -75,16 +75,18 @@ public class ReviewController {
 		return VIEW_PATH + "review_list.jsp";
 	}
 	
+	//리뷰 작성 페이지
 	@RequestMapping("/review_write.do")
 	public String insertForm() {
 		if(request.getSession().getAttribute("login") != null) {
-		return VIEW_PATH + "review_write.jsp";
+			return VIEW_PATH + "review_write.jsp";
 		}
 		else {
 			return "redirect:login_form.do";
 		}
 	}
 	
+	//리뷰 작성
 	@RequestMapping("/review_insert.do")
 	public String insert(ReviewVO vo) {	
 		review_dao.insert(vo);
@@ -93,6 +95,7 @@ public class ReviewController {
 		return "redirect:gameView.do?idx="+vo.getGame_idx();
 	}
 	
+	//리뷰 상세보기
 	@RequestMapping("/review_view.do")
 	public String reviewView(int idx) {
 		ReviewVO vo = review_dao.selectOne(idx);
@@ -100,6 +103,7 @@ public class ReviewController {
 		return VIEW_PATH + "review_view.jsp";
 	}
 	
+	//전체 리뷰 관리
 	@RequestMapping("/review_ALview.do")
 	public String reviewALView(int idx) {
 		ReviewVO vo = review_dao.selectOne(idx);

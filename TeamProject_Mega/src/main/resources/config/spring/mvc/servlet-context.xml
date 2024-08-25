@@ -26,9 +26,14 @@
 	<!-- @Autowired사용을 위한 어노테이션 -->
 
 	<context:annotation-config/>
+	
 
-	<beans:bean class = "com.mega.teamproject.GameController">
+	<!--<beans:bean class = "com.mega.teamproject.GameController">
 		<beans:constructor-arg ref="gameBean"/>
+	</beans:bean>
+	-->
+	<beans:bean class = "com.mega.teamproject.GameController">
+		<beans:constructor-arg ref="gameBean"></beans:constructor-arg>
 	</beans:bean>
 	
 	<beans:bean class = "com.mega.teamproject.ReviewController">

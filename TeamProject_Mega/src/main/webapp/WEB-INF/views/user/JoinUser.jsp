@@ -90,12 +90,16 @@ input[type="button"]:hover {
 
 <script>
 	function send_check(f) {
+		alert("콜백메서드1 호출!");
 		let user_name = f.user_name.value.trim();
+		alert("콜백메서드2 호출!");
 		let user_pwd = f.user_pwd.value.trim();
+		
 		let user_nickname = f.user_nickname.value.trim();
 		let user_email = f.user_email.value.trim();
 		let user_id = f.user_id.value.trim();
 		let user_pwdchk = f.user_pwdchk.value.trim();
+		alert("콜백메서드3 호출!");
 		let user_email2 = f.user_email2.value.trim();
 		let input_email = f.direct_input.value;
 		
@@ -104,22 +108,22 @@ input[type="button"]:hover {
 			alert("아이디를 입력하세요");
 			return;
 		}
-
+		alert("콜백메서드4 호출!");
 		if (user_pwd == '') {
 			alert("비밀번호를 입력하세요");
 			return;
 		}
-
+		alert("콜백메서드5 호출!");
 		if (user_pwdchk == '') {
 			alert("비밀번호를 입력하세요")
 			return;
 		}
-
+		alert("콜백메서드6 호출!");
 		if (user_nickname == '') {
 			alert("닉네임을 입력하세요");
 			return;
 		}
-
+		alert("콜백메서드7 호출!");
 		if (user_name == '') {
 			alert("이름을 입력하세요");
 			return;
@@ -144,8 +148,9 @@ input[type="button"]:hover {
 			alert("닉네임중복검사하세요~");
 			return;
 		}
+		alert("콜백메서드8 호출!");
 		f.action = "join.do?inputEmail="+input_email;
-
+		alert("콜백메서드9 호출!");
 		f.submit();
 		alert("회원가입이 완료되었습니다");
 
@@ -154,24 +159,24 @@ input[type="button"]:hover {
 	//id
 
 	function check_id(f) {
-
+		alert("아이디 중복검사1 호출!");
 		let id = f.user_id.value.trim();
-
+		alert("아이디 중복검사2 호출!");
 		if (id == '') {
 			alert("아이디를 입력하세요");
 			return;
 		}
-
+		alert("아이디 중복검사3 호출!");
 		let url = "checkid.do";
 		let param = "user_id=" + id;
-
+		alert("아이디 중복검사4 호출!");
 		sendRequest(url, param, checkFn, "post");
 	}
 
 	function checkFn() {
-
+		alert("반환!");
 		if (xhr.readyState == 4 & xhr.status == 200) {
-
+			alert("반환2");
 			let data = xhr.responseText;
 
 			if (data == 'no') {
@@ -227,8 +232,8 @@ input[type="button"]:hover {
 
 <body>
 	<form id="joingt" action="join.do" method="post">
-		<input type="hidden" name="check1" value="no"> <input
-			type="hidden" name="check2" value="no">
+		<input type="hidden" name="check1" value="no">
+		<input type="hidden" name="check2" value="no">
 		<table border="1">
 			<caption>회원가입</caption>
 
@@ -281,10 +286,10 @@ input[type="button"]:hover {
 			</tr>
 
 			<tr>
-				<td colspan="3" align="right"><input type="button" value="가입하기"
-					onclick="send_check(this.form);"> <input type="button"
-					value="뒤로가기" onclick="location.href='home.do'">
-				<!-- home.do를 초기화면 url로 수정 --></td>
+				<td colspan="3" align="right">
+					<input type="button" value="가입하기" onclick="send_check(this.form);">
+					<input type="button" value="뒤로가기" onclick="location.href='home.do'"> <!-- home.do를 초기화면 url로 수정 -->
+				</td>
 			</tr>
 		</table>
 	</form>

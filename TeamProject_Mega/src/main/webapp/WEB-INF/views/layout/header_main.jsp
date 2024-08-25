@@ -38,13 +38,13 @@
 		</c:if>
 		</div>
 
-		<!-- 검색 팝업 창 -->
+		 <!-- 검색 팝업 창 @@@@@@@@@@@이거 어디에 있는건지 확인 불가능@@@@@@@-->
 		<div id="search-popup" class="popup">
 			<h2>검색</h2>
 			<span id="close-popup" onclick="closeSearchPopup()">닫기</span>
 			<input type="text" id="popup-search-input" placeholder="Search...">
 			<button id="search-btn" onclick="search()">검색</button>
-		</div>
+		</div> 
 	</div>
 </div>
 

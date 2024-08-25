@@ -9,6 +9,7 @@ import vo.GameboardVO;
 
 public class GameboardDAO {
 	SqlSession sqlSession;
+	
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}

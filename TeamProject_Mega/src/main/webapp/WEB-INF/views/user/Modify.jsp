@@ -93,10 +93,10 @@
 		<script>
 			function send(f) {
 				
-				let idx = f.user_idx.value;
-				let nickname = f.user_nickname.value;
-				let pwd = f.user_pwd.value;
-				let pwd_chk = f.user_pwd_chk.value;
+				let id = f.id.value;
+				let nickname = f.nickname.value;
+				let pwd = f.pwd.value;
+				let pwd_chk = f.pwd_chk.value;
 				
 				if( pwd != pwd_chk) {
 					alert("비밀번호가 일치하지 않습니다");
@@ -104,7 +104,7 @@
 				}
 				
 				let url= "modify.do";
-				let param = "user_idx="+idx+"&user_nickname="+nickname+"&user_pwd="+pwd;
+				let param = "idx="+idx+"&nickname="+nickname+"&pwd="+pwd;
 				
 				sendRequest(url, param, resultFn, "post");
 				
@@ -131,40 +131,40 @@
 	<body>
 		
 		<form>
-		<input type="hidden" name="user_idx" value="${login.user_idx }">
+		<input type="hidden" name="id" value="${id}">
 		
 			<table>
 				<caption>수정페이지</caption>
 				
 				<tr>
 					<td>이름</td>
-					<td>${ login.user_name }</td>
+					<td>${ login.name }</td>
 				</tr>
 				
 				<tr>
 					<td>가입날짜</td>
-					<td>${ login.user_regdate }</td>
+					<td>${ login.regdate }</td>
 				</tr>
 				
 				<tr>
 					<td>닉네임</td>
-					<td><input name="user_nickname" value="${login.user_nickname }"></td>
+					<td><input name="nickname" value="${nickname }"></td>
 				</tr>
 				
 				<tr>
 					<td>이메일</td>
-					<td>${login.user_email }@${login.user_email2 }</td>
+					<td>${login.email }@${login.email2 }</td>
 				</tr>
 				
 				
 				<tr>
 					<td>비밀번호 변경</td>
-					<td><input type="password" value="${login.user_pwd }" name="user_pwd"></td>
+					<td><input type="password" value="${login.pwd }" name="pwd"></td>
 				<tr>
 				
 				<tr>
 					<td>비밀번호 확인</td>
-					<td><input type="password" value="${login.user_pwd }" name="user_pwd_chk"></td>
+					<td><input type="password" value="${login.pwd }" name="pwd_chk"></td>
 				</tr>
 				
 				<tr>
@@ -179,14 +179,14 @@
 		
 		
 		<form method="POST" enctype="multipart/form-data" action="modify_image.do">
-			<input type="hidden" name="user_idx" value="${login.user_idx }">
-			<input type="hidden" name="user_id" value="${login.user_id }">
-			<input type="hidden" name="user_pwd" value="${login.user_pwd }">
+			<input type="hidden" name="idx" value="${login.idx }">
+			<input type="hidden" name="id" value="${login.id }">
+			<input type="hidden" name="pwd" value="${login.pwd }">
 				<table>
 					<caption>프로필 사진 변경</caption>
 					<tr>
 						<td>프로필 사진</td>
-						<td><input type="file" name="user_image"></td>
+						<td><input type="file" name="image"></td>
 						<td><input type="button" value="변경하기" onclick="submit()"></td>
 					</tr>
 			

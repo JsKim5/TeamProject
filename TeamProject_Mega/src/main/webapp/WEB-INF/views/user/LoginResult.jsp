@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${login.user_name }님 환영합니다
+	${login.name }님 환영합니다
 	
 	<input type="button" value="홈으로" onclick="location.href='home.do'">
 	<input type="button" value="마이페이지" onclick="location.href='mypage.do'">

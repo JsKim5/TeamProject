@@ -123,13 +123,13 @@
 
 				        <tr>
 				            <td>이름</td>
-				            <td><input name="user_name"></td>
+				            <td><input name="name"></td>
 				        </tr>
 				
 				        <tr>
 				            <td>이메일</td>
-				            <td><input class="box" id="domain-txt" name="user_email">@
-				                <select class="box" id="domain-list" name="user_email2">
+				            <td><input class="box" id="domain-txt" name="email">@
+				                <select class="box" id="domain-list" name="email2">
 				          		    <option value="">선택</option>
 				                    <option value="naver.com">naver.com</option>
 				                    <option value="google.com">google.com</option>

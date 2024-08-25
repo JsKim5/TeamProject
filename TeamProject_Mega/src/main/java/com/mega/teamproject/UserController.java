@@ -44,7 +44,7 @@ public class UserController {
 		return "/WEB-INF/views/MainPage.jsp";
 	}
 
-	// 회원가입 페이지 이동
+	// 회원가입 페이지
 	@RequestMapping("/join_form.do")
 	public String insert_Form() {
 		return VIEW_PATH + "JoinUser.jsp";
@@ -109,7 +109,7 @@ public class UserController {
 		return "redirect:selectpw_form.do?fail=o";
 	}
 
-	// 로그인 페이지
+	// 로그인 페이지 로그인실패시 p태그
 	@RequestMapping("/login_form.do")
 	public String login_form(String fail) {
 		if(fail != null && !fail.isEmpty()) {
